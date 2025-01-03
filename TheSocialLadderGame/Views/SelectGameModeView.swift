@@ -13,18 +13,11 @@ struct SelectGameModeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Background gradient
-                LinearGradient(
-                    gradient: Gradient(colors: [Color.darkNavy, Color.darkNavy.opacity(0.95)]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
+                AppBackground()
                 
                 HStack(spacing: 50) {
                     ForEach(0..<2, id: \.self) { id in
                         ZStack(alignment: .center) {
-                            // Card background
                             Color.cardBlue
                                 .font(.title2)
                                 .fontWeight(.medium)

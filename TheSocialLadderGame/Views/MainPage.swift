@@ -15,12 +15,7 @@ struct MainPage: View {
         GeometryReader { geo in
             NavigationStack {
                 ZStack {
-                    LinearGradient(
-                        gradient: Gradient(colors: [Color.darkNavy, Color.darkNavy.opacity(0.95)]),
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                    .ignoresSafeArea()
+                    AppBackground()
                     
                     HStack {
                         VStack {
