@@ -9,13 +9,12 @@ import SwiftUI
 
 struct GamePage: View {
     private let players: [String]
+    private let chosenPlayer: String
     
-    // Track which player is in which position (index)
     @State private var dropZoneContents: [Int: String] = [:]
     @State private var timeRemaining: Int = 118
     @State private var draggedItem: String?
-    
-    private let chosenPlayer: String
+    @State private var isTargeted: [Int: Bool] = [:]  // Track which zones are targeted
     
     init() {
         self.players = ["Philip", "Jeff", "Marvel Jesus", "Godfray", "Johanna", "Jeff23", "Slayer23", "Hodomir"]
@@ -40,9 +39,9 @@ struct GamePage: View {
                         
                         // MARK: Player boxes
                         HStack(spacing: 10) {
-                            ForEach(Array(players.enumerated()), id: \.0) { idx, _ in
+                            ForEach(Array(players.enumerated()), id: \.0) { idx, name in
                                 VStack(alignment: .leading) {
-                                    // Box label
+                                    // box label
                                     if idx == 0 {
                                         Text("Most")
                                             .foregroundStyle(.green)
@@ -60,9 +59,14 @@ struct GamePage: View {
                                             .frame(height: geo.size.height/17)
                                     }
                                     
-                                    // Drop zone
+                                    // drop zone
                                     ZStack {
-                                        Color.textGray
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(isTargeted[idx] == true ? Color.blue.opacity(0.3) : Color.textGray)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 10)
+                                                    .stroke(isTargeted[idx] == true ? Color.blue : Color.clear, lineWidth: 2)
+                                            )
                                         
                                         if let playerName = dropZoneContents[idx] {
                                             PlayerCard(playerName: playerName)
@@ -71,31 +75,44 @@ struct GamePage: View {
                                     }
                                     .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, players.count + 1))), height: geo.size.width / 6)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                                }
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .dropDestination(for: String.self) { playerCards, _ in
-                                    if let droppedPlayer = playerCards.first {
-                                        // Remove the player from previous position if it exists
-                                        if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
-                                            dropZoneContents.removeValue(forKey: oldIndex)
+                                    .draggable(dropZoneContents[idx] ?? "") {
+                                        if let playerName = dropZoneContents[idx] {
+                                            PlayerCard(playerName: playerName)
+                                                .scaleEffect(0.8)
                                         }
-                                        
-                                        // If there's already a player in this position, swap them
-                                        if let existingPlayer = dropZoneContents[idx] {
-                                            // Find the old position of the dropped player
-                                            if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
-                                                dropZoneContents[oldIndex] = existingPlayer
+                                    }
+                                    .dropDestination(for: String.self) { playerCards, _ in
+                                        if let droppedPlayer = playerCards.first {
+                                            // Handle the case where we're dropping onto a position that already has a player
+                                            if let existingPlayer = dropZoneContents[idx] {
+                                                // Find where the dropped player came from
+                                                if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
+                                                    // Swap the players
+                                                    dropZoneContents[oldIndex] = existingPlayer
+                                                    dropZoneContents[idx] = droppedPlayer
+                                                } else {
+                                                    // If the dropped player wasn't in a position before, just place it
+                                                    dropZoneContents[idx] = droppedPlayer
+                                                }
+                                            } else {
+                                                // If the position is empty, just place the player
+                                                // First remove from old position if it exists
+                                                if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
+                                                    dropZoneContents.removeValue(forKey: oldIndex)
+                                                }
+                                                dropZoneContents[idx] = droppedPlayer
                                             }
                                         }
                                         
-                                        // Place the dropped player in the new position
-                                        dropZoneContents[idx] = droppedPlayer
+                                        print(dropZoneContents)
+                                        isTargeted[idx] = false
+                                        return true
+                                    } isTargeted: { targeted in
+                                        isTargeted[idx] = targeted
                                     }
-                                    return true
-                                } isTargeted: { isTargeted in
-                                    // You can add visual feedback when a drop is targeted
                                 }
+                                .font(.subheadline)
+                                .fontWeight(.bold)
                             }
                         }
                         .padding(.horizontal, players.count <= 6
@@ -137,7 +154,7 @@ struct GamePage: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    ChosenPlayerView(playerName: players.randomElement() ?? "")
+                    ChosenPlayerView(playerName: chosenPlayer)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
