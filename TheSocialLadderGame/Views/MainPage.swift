@@ -23,6 +23,8 @@ struct MainPage: View {
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
+                                .padding(.bottom, 5)
+                                .minimumScaleFactor(0.5)
                             
                             Image(systemName: "person.3.fill")
                                 .imageScale(.large)
@@ -59,7 +61,7 @@ struct MainPage: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
                                         .padding()
-                                        .padding(.trailing, geo.size.width/18)
+                                        .padding(.trailing, geo.size.width/19)
                                 }
                                 .frame(maxWidth: .infinity)
                                 .background(

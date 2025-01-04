@@ -61,9 +61,9 @@ struct SelectGameModeView: View {
                 .background(Color.darkNavy)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Button {
+                        Button(action: {
                             dismiss()
-                        } label: {
+                        }) {
                             HStack(spacing: 10) {
                                 Image(systemName: "arrow.left")
                                     .foregroundStyle(Color.textGray)

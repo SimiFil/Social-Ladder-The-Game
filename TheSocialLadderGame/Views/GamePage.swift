@@ -8,11 +8,259 @@
 import SwiftUI
 
 struct GamePage: View {
+    private let players: [String]
+    
+    // Track which player is in which position (index)
+    @State private var dropZoneContents: [Int: String] = [:]
+    @State private var timeRemaining: Int = 118
+    @State private var draggedItem: String?
+    
+    private let chosenPlayer: String
+    
+    init() {
+        self.players = ["Philip", "Jeff", "Marvel Jesus", "Godfray", "Johanna", "Jeff23", "Slayer23", "Hodomir"]
+        self.chosenPlayer = players.randomElement()!
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            GeometryReader { geo in
+                ZStack {
+                    AppBackground()
+                    
+                    VStack(alignment: .center) {
+                        // MARK: Question
+                        Text("Who would survive the longest on an abandoned Island?")
+                            .font(.title)
+                            .frame(width: geo.size.width/2, height: geo.size.height/6)
+                            .padding(.top, geo.size.width/30)
+                            .padding(.bottom, geo.size.height/20)
+                            .minimumScaleFactor(0.5)
+                            .multilineTextAlignment(.center)
+                        
+                        // MARK: Player boxes
+                        HStack(spacing: 10) {
+                            ForEach(Array(players.enumerated()), id: \.0) { idx, _ in
+                                VStack(alignment: .leading) {
+                                    // Box label
+                                    if idx == 0 {
+                                        Text("Most")
+                                            .foregroundStyle(.green)
+                                            .padding(.leading, 5)
+                                    } else if idx == (players.count - 1) {
+                                        HStack {
+                                            Spacer()
+                                            Text("Least")
+                                                .foregroundStyle(.red)
+                                                .padding(.trailing, 5)
+                                        }
+                                    } else {
+                                        Text("")
+                                            .font(.caption)
+                                            .frame(height: geo.size.height/17)
+                                    }
+                                    
+                                    // Drop zone
+                                    ZStack {
+                                        Color.textGray
+                                        
+                                        if let playerName = dropZoneContents[idx] {
+                                            PlayerCard(playerName: playerName)
+                                                .scaleEffect(0.8)
+                                        }
+                                    }
+                                    .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, players.count + 1))), height: geo.size.width / 6)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                }
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                                .dropDestination(for: String.self) { playerCards, _ in
+                                    if let droppedPlayer = playerCards.first {
+                                        // Remove the player from previous position if it exists
+                                        if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
+                                            dropZoneContents.removeValue(forKey: oldIndex)
+                                        }
+                                        
+                                        // If there's already a player in this position, swap them
+                                        if let existingPlayer = dropZoneContents[idx] {
+                                            // Find the old position of the dropped player
+                                            if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
+                                                dropZoneContents[oldIndex] = existingPlayer
+                                            }
+                                        }
+                                        
+                                        // Place the dropped player in the new position
+                                        dropZoneContents[idx] = droppedPlayer
+                                    }
+                                    return true
+                                } isTargeted: { isTargeted in
+                                    // You can add visual feedback when a drop is targeted
+                                }
+                            }
+                        }
+                        .padding(.horizontal, players.count <= 6
+                                 ? (geo.size.width - (geo.size.width / 7 * CGFloat(players.count) + 10 * CGFloat(players.count - 1))) / 2
+                                 : 20)
+                        .padding(.bottom, 20)
+                        .minimumScaleFactor(0.6)
+                        
+                        // MARK: Player cards
+                        ZStack {
+                            ForEach(Array(players.enumerated()), id: \.0) { index, name in
+                                if !dropZoneContents.values.contains(name) {
+                                    let baseOffset = CGFloat(index - players.count / 2) * 60
+                                    let isBeingDragged = draggedItem == name
+                                    
+                                    PlayerCard(playerName: name)
+                                        .offset(x: baseOffset)
+                                        .rotationEffect(.degrees(Double(index - players.count / 2) * 3))
+                                        .scaleEffect(isBeingDragged ? 1.5 : 1.0)
+                                        .opacity(isBeingDragged ? 0 : 1)
+                                        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isBeingDragged)
+                                        .draggable(name) {
+                                            PlayerCard(playerName: name)
+                                                .scaleEffect(1.2)
+                                        }
+                                        .zIndex(isBeingDragged ? 100 : Double(index))
+                                }
+                            }
+                        }
+                        .frame(height: geo.size.height/5)
+                        .padding(.bottom, 100)
+                    }
+                    .foregroundStyle(.customWhitesmoke)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    TimeRemainingView(seconds: timeRemaining)
+                }
+                
+                ToolbarItem(placement: .principal) {
+                    ChosenPlayerView(playerName: players.randomElement() ?? "")
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    ToolbarButtons()
+                }
+            }
+        }
     }
 }
 
-#Preview {
+// MARK: - Supporting Views
+struct PlayerCard: View {
+    let playerName: String
+    
+    var body: some View {
+        Text(playerName)
+            .font(.system(size: 16, weight: .medium))
+            .foregroundColor(.white)
+            .frame(maxWidth: 100)
+            .frame(width: 120, height: 160)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(
+                        LinearGradient(
+                            colors: [Color.blue.opacity(0.6), Color.blue.opacity(0.8)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 2)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
+            )
+    }
+}
+
+struct TimeRemainingView: View {
+    let seconds: Int
+    
+    var formattedTime: String {
+        let minutes = seconds / 60
+        let remainingSeconds = seconds % 60
+        return String(format: "%d:%02d", minutes, remainingSeconds)
+    }
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "clock.fill")
+                .foregroundStyle(.ultraLightBlue)
+            
+            Text(formattedTime)
+                .font(.system(size: 22, weight: .bold))
+                .foregroundStyle(.ultraLightBlue)
+                .monospacedDigit()
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(
+            Capsule()
+                .fill(Color.black.opacity(0.2))
+        )
+        .padding(.top, 20)
+    }
+}
+
+struct ChosenPlayerView: View {
+    let playerName: String
+    
+    var body: some View {
+        HStack(spacing: 8) {
+            Text("👑")
+                .font(.title2)
+            
+            Text(playerName)
+                .font(.system(size: 20, weight: .bold))
+                .foregroundStyle(.yellow)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(
+            Capsule()
+                .fill(Color.black.opacity(0.2))
+        )
+        .padding(.top, 20)
+    }
+}
+
+struct ToolbarButtons: View {
+    var body: some View {
+        HStack(spacing: 16) {
+            Button {
+                // Settings action
+            } label: {
+                ToolbarButton(iconName: "gear")
+            }
+            
+            Button {
+                // Leaderboard action
+            } label: {
+                ToolbarButton(iconName: "trophy.fill")
+            }
+        }
+        .padding(.top, 20)
+    }
+}
+
+struct ToolbarButton: View {
+    let iconName: String
+    
+    var body: some View {
+        Image(systemName: iconName)
+            .font(.system(size: 20))
+            .foregroundStyle(.textGray)
+            .frame(width: 40, height: 40)
+            .background(
+                Circle()
+                    .fill(Color.black.opacity(0.2))
+            )
+    }
+}
+
+#Preview(traits: .landscapeRight) {
     GamePage()
 }
