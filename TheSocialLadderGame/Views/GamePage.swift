@@ -82,16 +82,15 @@ struct GamePage: View {
                                         }
                                     }
                                     .dropDestination(for: String.self) { playerCards, _ in
+                                        // check if we're even dropping anything...
                                         if let droppedPlayer = playerCards.first {
-                                            // Handle the case where we're dropping onto a position that already has a player
+                                            // handle the case where we're dropping onto a position that already has a player
                                             if let existingPlayer = dropZoneContents[idx] {
-                                                // Find where the dropped player came from
+                                                // find where the dropped player came from
                                                 if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
-                                                    // Swap the players
                                                     dropZoneContents[oldIndex] = existingPlayer
                                                     dropZoneContents[idx] = droppedPlayer
                                                 } else {
-                                                    // If the dropped player wasn't in a position before, just place it
                                                     dropZoneContents[idx] = droppedPlayer
                                                 }
                                             } else {
@@ -104,7 +103,7 @@ struct GamePage: View {
                                             }
                                         }
                                         
-                                        print(dropZoneContents)
+                                        //                                        print(dropZoneContents)
                                         isTargeted[idx] = false
                                         return true
                                     } isTargeted: { targeted in
@@ -130,19 +129,27 @@ struct GamePage: View {
                                     
                                     PlayerCard(playerName: name)
                                         .offset(x: baseOffset)
-                                        .rotationEffect(.degrees(Double(index - players.count / 2) * 3))
+                                        .rotationEffect(.degrees(Double(index - players.count / 2) * 2.7))
                                         .scaleEffect(isBeingDragged ? 1.5 : 1.0)
                                         .opacity(isBeingDragged ? 0 : 1)
                                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isBeingDragged)
                                         .draggable(name) {
-                                            PlayerCard(playerName: name)
-                                                .scaleEffect(1.2)
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .fill(.clear)
+                                                    .frame(width: 120, height: 160)
+                                                
+                                                PlayerCard(playerName: name)
+                                                    .scaleEffect(0.8)
+                                                    .clipShape(.rect(cornerRadius: 10))
+                                            }
                                         }
-                                        .zIndex(isBeingDragged ? 100 : Double(index))
                                 }
                             }
                         }
-                        .frame(height: geo.size.height/5)
+                        .frame(height: geo.size.height/4)
+                        .offset(y: -geo.size.height/19)
+                        .scaleEffect(0.8)
                         .padding(.bottom, 100)
                     }
                     .foregroundStyle(.customWhitesmoke)
@@ -174,6 +181,7 @@ struct PlayerCard: View {
             .font(.system(size: 16, weight: .medium))
             .foregroundColor(.white)
             .frame(maxWidth: 100)
+            .multilineTextAlignment(.center)
             .frame(width: 120, height: 160)
             .background(
                 RoundedRectangle(cornerRadius: 12)
