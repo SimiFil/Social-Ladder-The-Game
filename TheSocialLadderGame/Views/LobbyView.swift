@@ -57,7 +57,7 @@ struct LobbyView: View {
                                         .offset(y: index < lobbyMax/2 ?
                                                 CGFloat(-(index * 25)) :
                                                     CGFloat((index-lobbyMax/2) * 25 - 40))
-                                        .padding(.bottom)
+                                        .padding(.bottom, 5)
                                     
                                     Text("Nickname")
                                         .font(.caption)

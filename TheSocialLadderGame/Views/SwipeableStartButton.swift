@@ -10,7 +10,7 @@ struct SwipeableStartButton: View {
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .leading) {
-                // Background track
+                // background capsule
                 Capsule()
                     .fill(.gray.opacity(0.3))
                     .frame(width: geo.size.width, height: 56)
@@ -18,11 +18,25 @@ struct SwipeableStartButton: View {
                         Text("SWIPE TO START")
                             .font(.system(size: 20, weight: .bold))
                             .foregroundStyle(.white)
+                        
+                        
                     )
+                    .overlay(alignment: .leading) {
+                        if offset == 0 {
+                            Circle()
+                                .fill(.yellow.opacity(0.9))
+                                .frame(width: offset + 48, height: 56)
+                        } else {
+                            Capsule()
+                                .fill(.yellow.opacity(0.9))
+                                .frame(width: offset + 48, height: 52)
+                                .padding(.vertical, 10)
+                        }
+                    }
                 
-                // Draggable button
+                // draggable button
                 Circle()
-                    .fill(.white)
+                    .fill(.yellow)
                     .frame(width: 48, height: 48)
                     .padding(.horizontal, 4)
                     .offset(x: offset)
@@ -34,14 +48,17 @@ struct SwipeableStartButton: View {
                                 let maxOffset = geo.size.width - 56 // maxOffset
                                 offset = min(max(0, value.translation.width), maxOffset)
                                 
-//                                print("dragging - current offset: \(offset), max offset: \(maxOffset)")
+                                print(value.translation.width)
+                                print("offset: \(offset)")
+                                
+                                //                                print("dragging - current offset: \(offset), max offset: \(maxOffset)")
                             }
                             .onEnded { value in
                                 isDragging = false
                                 let maxOffset = geo.size.width - 56
                                 let threshold = maxOffset * 0.7
                                 
-//                                print("gesture ended - current offset: \(offset), threshold: \(threshold)")
+                                //                                print("gesture ended - current offset: \(offset), threshold: \(threshold)")
                                 
                                 // if the button/circle is across 70% -> do the action
                                 if offset >= threshold {
