@@ -18,6 +18,7 @@ struct MainPage: View {
                     AppBackground()
                     
                     HStack {
+                        // MARK: LOGO & TITLE
                         VStack {
                             Text(Constants.gameName)
                                 .font(.largeTitle)
@@ -33,7 +34,9 @@ struct MainPage: View {
                         }
                         .padding(.leading, geo.size.width/13)
                         
+                        // MARK: BUTTONS
                         VStack(spacing: 20) {
+                            // MARK: PLAY BUTTON
                             Button(action: {
                                 // action -> go to connect lobby
                             }) {
@@ -77,6 +80,7 @@ struct MainPage: View {
                                 .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
                             }
                             
+                            // MARK: SETTINGS
                             Button(action: {
                                 // action -> go to the about page/sheet
                             }) {
@@ -93,7 +97,7 @@ struct MainPage: View {
                                         
                                         Spacer()
                                         
-                                        Image(systemName: "gear")
+                                        Image(systemName: "slider.horizontal.3")
                                             .font(.title)
                                             .fontWeight(.bold)
                                             .padding(geo.size.height/29)
@@ -126,11 +130,12 @@ struct MainPage: View {
                                 }
                             }
                             
+                            // MARK: HOW TO PLAY
                             Button(action: {
                                 // action -> go to the about page/sheet
                             }) {
                                 HStack {
-                                    Text("About")
+                                    Text("How to play")
                                         .font(.title2)
                                         .fontWeight(.medium)
                                         .foregroundColor(.white)
@@ -139,7 +144,7 @@ struct MainPage: View {
                                     
                                     Spacer()
                                     
-                                    Image(systemName: "person")
+                                    Image(systemName: "lightbulb.fill")
                                         .font(.title)
                                         .fontWeight(.bold)
                                         .padding(geo.size.height/29)

@@ -165,7 +165,20 @@ struct GamePage: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    ToolbarButtons()
+                    ToolbarTopButtons()
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    HStack {
+                        Spacer()
+                        
+                        ToolbarBottomButtons()
+                            .ignoresSafeArea()
+                            .padding()
+                    }
+                    .padding(.leading)
+                    .padding(.bottom)
+                    .padding(.trailing, -50)
                 }
             }
         }
@@ -252,13 +265,13 @@ struct ChosenPlayerView: View {
     }
 }
 
-struct ToolbarButtons: View {
+struct ToolbarTopButtons: View {
     var body: some View {
         HStack(spacing: 16) {
             Button {
                 // Settings action
             } label: {
-                ToolbarButton(iconName: "gear")
+                ToolbarButton(iconName: "slider.horizontal.3")
             }
             
             Button {
@@ -268,6 +281,18 @@ struct ToolbarButtons: View {
             }
         }
         .padding(.top, 20)
+    }
+}
+
+struct ToolbarBottomButtons: View {
+    var body: some View {
+        HStack {
+            Button {
+                // Leaderboard action
+            } label: {
+                Text("Lock in")
+            }
+        }
     }
 }
 
