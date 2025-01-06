@@ -47,11 +47,6 @@ struct SwipeableStartButton: View {
                                 isDragging = true
                                 let maxOffset = geo.size.width - 56 // maxOffset
                                 offset = min(max(0, value.translation.width), maxOffset)
-                                
-                                print(value.translation.width)
-                                print("offset: \(offset)")
-                                
-                                //                                print("dragging - current offset: \(offset), max offset: \(maxOffset)")
                             }
                             .onEnded { value in
                                 isDragging = false
@@ -66,13 +61,11 @@ struct SwipeableStartButton: View {
                                         offset = maxOffset
                                     }
                                     
-                                    // Execute the action after animation
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                         action()
-                                        print("Action executed")
                                     }
                                 } else {
-                                    print("not enough")
+//                                    print("not enough")
                                     withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
                                         offset = 0
                                     }

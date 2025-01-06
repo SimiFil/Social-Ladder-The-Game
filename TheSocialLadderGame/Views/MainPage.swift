@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainPage: View {
+    @StateObject var game: Game = Game()
+    
     @State private var animationOffset: CGFloat = -1.0
     @State private var isMusicDisabled: Bool = false
     
@@ -39,6 +41,7 @@ struct MainPage: View {
                             // MARK: PLAY BUTTON
                             Button(action: {
                                 // action -> go to connect lobby
+                                game.loadQuestions(from: QuestionsType.wildQuestions)
                             }) {
                                 HStack {
                                     Image(systemName: "gamecontroller")

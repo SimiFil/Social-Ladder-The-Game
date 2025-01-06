@@ -11,7 +11,7 @@ import SwiftUI
 struct TheSocialLadderGameApp: App {
     var body: some Scene {
         WindowGroup {
-            LobbyView()
+            MainPage()
         }
     }
 }

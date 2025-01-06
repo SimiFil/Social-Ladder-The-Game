@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LobbyView: View {
+//    @EnvironmentObject private var game: Game
+    
     let lobbyMax: Int = 8
     @State private var isSettingsPresented = false
     @State private var canStartGame = false
