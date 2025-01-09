@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LobbyView: View {
 //    @EnvironmentObject private var game: Game
+    @Environment(\.dismiss) private var dismiss
     
     let lobbyMax: Int = 8
     @State private var isSettingsPresented = false
@@ -91,6 +92,9 @@ struct LobbyView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         isSettingsPresented.toggle()
+                        
+                        // TODO: button with leave game in settings
+                        dismiss()
                     }) {
                         Image(systemName: "slider.horizontal.3")
                             .foregroundStyle(.textGray)

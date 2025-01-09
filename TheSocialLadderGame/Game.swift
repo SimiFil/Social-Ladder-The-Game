@@ -30,12 +30,25 @@ class Game: ObservableObject {
     // game params
     @Published var roundTime: Int = 120 // 2 minutes to play
     @Published var talkTime: Int = 300 // 5 minutes to talk about it
-    var maxRounds: Int = 8
-    var currentRound: Int = 0
-    var players: [Player] = []
-    var questions: [String] = [] // lobby leader will choose the dataset
+    @Published var players: [Player] = []
+    @Published var questions: [String] = []
+    @Published var currentQuestion: String?
+    @Published var gameState: GameState = .waitingForPlayers
+    @Published var playerAuthState: PlayerAuthState = .unatuhenticated
+    @Published var isHost: Bool = false
+    @Published var errorMessage: String?
     
-    // load question
+    @Published var currentRound: Int = 0
+    let maxRounds: Int = 10
+    let maxPlayers: Int = 8
+
+    private var match: GKMatch?
+    private var gameTimer: Timer?
+    private let localPlayer = GKLocalPlayer.local // the player on the current device 
+
+    // start game func
+    
+    // load questions func
     func loadQuestions(from type: QuestionsType) -> Bool {
         guard let url = Bundle.main.url(forResource: type.rawValue, withExtension: "json") else {
             print("Could not find file")
@@ -62,7 +75,39 @@ class Game: ObservableObject {
         }
     }
     
-    // You'll need this small structure to decode the JSON properly
+    var rootViewController: UIViewController? {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        return windowScene?.windows.first?.rootViewController
+    }
+    
+    // MARK: Game Center Authentication
+    private func authenticatePlayer() {
+        localPlayer.authenticateHandler = { [self] vc, error in
+            
+            if let error = error {
+                playerAuthState = .error
+                print(error.localizedDescription)
+                
+                return
+            }
+            
+            if let viewController = vc {
+                rootViewController?.present(viewController, animated: true)
+                return
+            }
+            
+            if localPlayer.isAuthenticated {
+                if localPlayer.isMultiplayerGamingRestricted {
+                    playerAuthState = .restricted
+                } else {
+                    playerAuthState = .authenticated
+                }
+            } else {
+                playerAuthState = .unatuhenticated
+            }
+        }
+    }
+    
     private struct Question: Codable {
         let question: String
     }

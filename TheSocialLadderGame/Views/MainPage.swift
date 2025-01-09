@@ -10,8 +10,8 @@ import SwiftUI
 struct MainPage: View {
     @StateObject var game: Game = Game()
     
-    @State private var animationOffset: CGFloat = -1.0
     @State private var isMusicDisabled: Bool = false
+    @State private var showGameModeView: Bool = false
     
     var body: some View {
         GeometryReader { geo in
@@ -41,7 +41,8 @@ struct MainPage: View {
                             // MARK: PLAY BUTTON
                             Button(action: {
                                 // action -> go to connect lobby
-                                game.loadQuestions(from: QuestionsType.wildQuestions)
+//                                game.loadQuestions(from: QuestionsType.wildQuestions)
+                                showGameModeView.toggle()
                             }) {
                                 HStack {
                                     Image(systemName: "gamecontroller")
@@ -182,6 +183,10 @@ struct MainPage: View {
                         .padding(.horizontal, geo.size.width/13)
                     }
                     .padding(-geo.size.width/20)
+                }
+                .fullScreenCover(isPresented: $showGameModeView) {
+                    SelectGameModeView()
+                        .environmentObject(game)
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
