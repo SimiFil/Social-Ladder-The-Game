@@ -9,7 +9,7 @@ import Foundation
 
 enum PlayerAuthState: String {
     case authenticating = "Logging in to Game Center..."
-    case unatuhenticated = "Please sign in to Game Center to play."
+    case unauthenticated = "Please sign in to Game Center to play."
     case authenticated = ""
     
     case error = "There was an error logging into Game Center."

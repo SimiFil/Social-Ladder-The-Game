@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
-    @StateObject var game: Game = Game()
+    @StateObject var gameManager: GameManager
     
     @State private var isMusicDisabled: Bool = false
     @State private var showGameModeView: Bool = false
@@ -41,7 +41,6 @@ struct MainPage: View {
                             // MARK: PLAY BUTTON
                             Button(action: {
                                 // action -> go to connect lobby
-//                                game.loadQuestions(from: QuestionsType.wildQuestions)
                                 showGameModeView.toggle()
                             }) {
                                 HStack {
@@ -60,7 +59,7 @@ struct MainPage: View {
                                                 )
                                         )
                                         .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-
+                                    
                                     Spacer()
                                     
                                     Text("Play")
@@ -83,6 +82,7 @@ struct MainPage: View {
                                 )
                                 .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
                             }
+                            .disabled(gameManager.playerAuthState != .authenticated)
                             
                             // MARK: SETTINGS
                             Button(action: {
@@ -186,7 +186,7 @@ struct MainPage: View {
                 }
                 .fullScreenCover(isPresented: $showGameModeView) {
                     SelectGameModeView()
-                        .environmentObject(game)
+                        .environmentObject(gameManager)
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
@@ -194,6 +194,18 @@ struct MainPage: View {
                             .font(.headline)
                             .foregroundColor(.textGray)
                             .padding(.top, 25)
+                    }
+                    
+                    ToolbarItem(placement: .principal) {
+                        Text(gameManager.playerAuthState.rawValue)
+                            .font(.headline)
+                            .foregroundColor(.yellow.opacity(0.7))
+                            .padding(.top, 25)
+                            .onTapGesture {
+                                if gameManager.playerAuthState != .authenticated {
+                                    gameManager.authenticatePlayer()
+                                }
+                            }
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
@@ -221,6 +233,23 @@ struct MainPage: View {
                     }
                 }
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    gameManager.authenticatePlayer()
+                }
+                .alert("Game Center Required",
+                       isPresented: $gameManager.showGameCenterSettings) {
+                    Button("Open Settings") {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    }
+                    
+                    Button("Cancel", role: .cancel) {
+                        gameManager.showGameCenterSettings = false
+                    }
+                } message: {
+                    Text("Please sign in to Game Center to play multiplayer games.")
+                }
             }
         }
     }
@@ -231,6 +260,6 @@ struct MainPage: View {
 }
 
 #Preview(traits: .landscapeRight) {
-    MainPage()
+    MainPage(gameManager:  GameManager())
 }
 
