@@ -52,7 +52,7 @@ struct MainPage: View {
                                             RoundedRectangle(cornerRadius: 5)
                                                 .fill(
                                                     LinearGradient(
-                                                        gradient: Gradient(colors: [Color.primaryButtonImageBG, Color.primaryButtonImageBG.opacity(0.8)]),
+                                                        gradient: Gradient(colors: gameManager.playerAuthState == .authenticated ? [.primaryButtonImageBG, .primaryButtonImageBG.opacity(0.8)] : [.black.opacity(0.6), .black.opacity(0.4)]),
                                                         startPoint: .topLeading,
                                                         endPoint: .bottomTrailing
                                                     )
@@ -74,7 +74,7 @@ struct MainPage: View {
                                     RoundedRectangle(cornerRadius: 5)
                                         .fill(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [Color.activeBlue, Color.activeBlue.opacity(0.8)]),
+                                                gradient: Gradient(colors: gameManager.playerAuthState == .authenticated ? [Color.activeBlue, Color.activeBlue.opacity(0.8)] : [.gray, .gray.opacity(0.8)]),
                                                 startPoint: .topLeading,
                                                 endPoint: .bottomTrailing
                                             )
@@ -201,11 +201,6 @@ struct MainPage: View {
                             .font(.headline)
                             .foregroundColor(.yellow.opacity(0.7))
                             .padding(.top, 25)
-                            .onTapGesture {
-                                if gameManager.playerAuthState != .authenticated {
-                                    gameManager.authenticatePlayer()
-                                }
-                            }
                     }
                     
                     ToolbarItem(placement: .topBarTrailing) {
