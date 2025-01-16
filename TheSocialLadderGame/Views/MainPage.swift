@@ -86,52 +86,49 @@ struct MainPage: View {
                             
                             // MARK: SETTINGS
                             Button(action: {
-                                // action -> go to the about page/sheet
+                                // action -> go to connect lobby
+                                gameManager.createLobby()
                             }) {
-                                Button(action: {
-                                    // action -> go to connect lobby
-                                }) {
-                                    HStack {
-                                        Text("Settings")
-                                            .font(.title2)
-                                            .fontWeight(.medium)
-                                            .foregroundColor(.white)
-                                            .padding()
-                                            .padding(.leading, geo.size.width/19)
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "slider.horizontal.3")
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .padding(geo.size.height/29)
-                                            .frame(minWidth: geo.size.width/9)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 5)
-                                                    .fill(
-                                                        LinearGradient(
-                                                            gradient: Gradient(colors: [Color.secondaryButtonImageBg, Color.secondaryButtonImageBg.opacity(0.8)]),
-                                                            startPoint: .topLeading,
-                                                            endPoint: .bottomTrailing
-                                                        )
+                                HStack {
+                                    Text("Create Lobby")
+                                        .font(.title2)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .padding(.leading, geo.size.width/19)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: "slider.horizontal.3")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .padding(geo.size.height/29)
+                                        .frame(minWidth: geo.size.width/9)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 5)
+                                                .fill(
+                                                    LinearGradient(
+                                                        gradient: Gradient(colors: [Color.secondaryButtonImageBg, Color.secondaryButtonImageBg.opacity(0.8)]),
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
                                                     )
-                                            )
-                                            .foregroundColor(.white)
-                                            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                                    }
-                                    .frame(maxWidth: .infinity)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [Color.cardBlue, Color.cardBlue.opacity(0.8)]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
                                                 )
-                                            )
-                                    )
-                                    .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
+                                        )
+                                        .foregroundColor(.white)
+                                        .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
                                 }
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .fill(
+                                            LinearGradient(
+                                                gradient: Gradient(colors: [Color.cardBlue, Color.cardBlue.opacity(0.8)]),
+                                                startPoint: .topLeading,
+                                                endPoint: .bottomTrailing
+                                            )
+                                        )
+                                )
+                                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
                             }
                             
                             // MARK: HOW TO PLAY
@@ -139,7 +136,7 @@ struct MainPage: View {
                                 // action -> go to the about page/sheet
                             }) {
                                 HStack {
-                                    Text("How to play")
+                                    Text("Join Lobby")
                                         .font(.title2)
                                         .fontWeight(.medium)
                                         .foregroundColor(.white)

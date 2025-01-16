@@ -9,7 +9,7 @@ import Foundation
 import GameKit
 
 // MARK: Game State
-enum GameState: String {
+enum GameState: String, Codable {
     case waitingForPlayers
     case choosingQuestions
     case playing
@@ -17,60 +17,130 @@ enum GameState: String {
     case finished
 }
 
+enum GameMessage: String, Codable {
+    case choosingDeck
+    case startGame
+    case playerOrder
+    case roundEnd
+    case playerChoice
+    case playerJoined
+    case playerLeft
+}
+
 // MARK: Game Class
 class GameManager: NSObject, ObservableObject {
-    // game params
-    @Published var showGameCenterSettings: Bool = false
-    @Published var roundTime: Int = 120 // 2 minutes to play
-    @Published var talkTime: Int = 300 // 5 minutes to talk about it
-    @Published var players: [GKPlayer] = []
-    @Published var questions: [String] = []
-    @Published var currentQuestion: String?
-    @Published var gameState: GameState = .waitingForPlayers
-    @Published var playerAuthState: PlayerAuthState = .unauthenticated
+    /// who is who
     @Published var isHost: Bool = false
     @Published var isTimeKeeper: Bool = false // so that the timer runs only on one device
     @Published var isTheChosenOne: Bool = false // one player will be chosen each round to be the "leader" of the round
-    @Published var errorMessage: String?
     
+    /// players
+    @Published var players: [GKPlayer] = []
+    @Published var playerOrder: [String] = []
+    
+    /// questions
+    @Published var questions: [String] = []
+    @Published var currentQuestion: String?
+    
+    /// game state and auth state
+    @Published var gameState: GameState = .waitingForPlayers
+    @Published var playerAuthState: PlayerAuthState = .unauthenticated
+    
+    /// other
+    @Published var errorMessage: String?
+    @Published var canStartGame: Bool = false
+    @Published var showGameCenterSettings: Bool = false
+    
+    /// time
     @Published var currentRound: Int = 0
+    @Published var roundTime: Int = 120 // 2 minutes to play
+    @Published var talkTime: Int = 300 // 5 minutes to talk about it
+    
+    /// min/max
     let maxRounds: Int = 10 // MARK: MAX_ROUNDS
     let minPlayers: Int = 4 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
     
-    private var match: GKMatch?
-    private var gameTimer: Timer?
-    private let localPlayer = GKLocalPlayer.local // the player on the current device
+    var match: GKMatch?
+    var gameTimer: Timer?
+    let localPlayer = GKLocalPlayer.local // the player on the current device
+    
+    var myName: String {
+        localPlayer.displayName
+    }
     
     var rootViewController: UIViewController? {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         return windowScene?.windows.first?.rootViewController
     }
     
-    // start game func
-    func startGame() -> Void {
-        // TODO
+    // MARK: Find MAtch
+    /// GKMatchmakingMode - nearbyOnly or inviteOnly
+    func createLobby() {
+        let request = GKMatchRequest()
+        request.minPlayers = minPlayers
+        request.maxPlayers = maxPlayers
+        request.inviteMessage = "Join me for a game of \(Constants.gameName)!"
+        
+        isHost = true
+        
+        guard let rootViewController = self.rootViewController else { return }
+        
+        let viewController = GKMatchmakerViewController(matchRequest: request)
+        viewController?.matchmakerDelegate = self
+        viewController?.isHosted = true // Force hosted games only
+        
+        rootViewController.present(viewController!, animated: true)
     }
-    //
-    //    func hostGame() {
-    //        let request = GKMatchRequest()
-    //        request.minPlayers = minPlayers  // Set minimum to 4 players
-    //        request.maxPlayers = maxPlayers
-    //
-    //        guard let viewController = GKMatchmakerViewController(matchRequest: request) else {
-    //            errorMessage = "Failed to create match"
-    //            return
-    //        }
-    //        viewController.matchmakerDelegate = self
-    //        rootViewController?.present(viewController, animated: true)
-    //        isHost = true
-    //    }
-    //
+    
+    // MARK: Join Lobby
+    func joinLobby(_ inviteToAccept: GKInvite) {
+        guard let rootViewController = self.rootViewController else { return }
+        
+        let viewController = GKMatchmakerViewController(invite: inviteToAccept)
+        viewController?.matchmakerDelegate = self
+        
+        rootViewController.present(viewController!, animated: true)
+    }
+    
+    // MARK: Choose question deck
+    func chooseQuestionSet() {
+        guard isHost else { return }
+        
+        gameState = .choosingQuestions
+        
+        let gameData = GameData(messageType: .choosingDeck, data: [:])
+        sendDataToAllPlayers(data: gameData)
+    }
+    
+    // MARK: Start game func
+    func startMatch(with questionsType: QuestionsType) -> Void {
+        guard isHost else { return }
+        
+        let gameData = GameData(messageType: .startGame, data: [:])
+        sendDataToAllPlayers(data: gameData)
+        
+        loadQuestions(from: questionsType)
+        
+        gameState = .playing
+    }
+    
+    // MARK: Send data to players
+    private func sendDataToAllPlayers(data: GameData) {
+        guard let match = match else { return }
+        
+        do {
+            let encodedData = try JSONEncoder().encode(data)
+            try match.sendData(toAllPlayers: encodedData, with: .reliable)
+        } catch {
+            errorMessage = "Failed to send game data: \(error.localizedDescription)"
+        }
+    }
+    
     // MARK: Load questions func
-    func loadQuestions(from type: QuestionsType) -> Bool {
+    func loadQuestions(from type: QuestionsType) -> Void {
         guard let url = Bundle.main.url(forResource: type.rawValue, withExtension: "json") else {
             print("Could not find file")
-            return false
         }
         
         do {
@@ -80,16 +150,11 @@ class GameManager: NSObject, ObservableObject {
             
             if let questionArray = questionJSON[type.rawValue] {
                 questions = questionArray.map { $0.question }
-                print(questions)
+                //                print(questions)
                 questions.shuffle()
-                return true
             }
-            
-            return false
-            
         } catch {
             print("Error loading questions: \(error)")
-            return false
         }
     }
     
@@ -137,6 +202,8 @@ class GameManager: NSObject, ObservableObject {
             }
         }
         
+        // Register for real-time invitations from other players.
+        GKLocalPlayer.local.register(self)
     }
     
     private struct Question: Codable {
@@ -144,7 +211,11 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Picking player whose order will be important for that round
-    func pickPlayerForRound(from players:[GameKit.GKMatchedPlayers]) {
-        // TODO
+    func pickPlayerForRound() {
     }
+}
+
+struct GameData: Codable {
+    let messageType: GameMessage
+    let data: [String: String]
 }
