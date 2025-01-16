@@ -141,6 +141,7 @@ class GameManager: NSObject, ObservableObject {
     func loadQuestions(from type: QuestionsType) -> Void {
         guard let url = Bundle.main.url(forResource: type.rawValue, withExtension: "json") else {
             print("Could not find file")
+            return
         }
         
         do {
