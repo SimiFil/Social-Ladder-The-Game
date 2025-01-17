@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct TheSocialLadderGameApp: App {
+    @StateObject private var gameManager = GameManager()
+    
     var body: some Scene {
         WindowGroup {
-            MainPage(gameManager: GameManager())
+            MainPage(gameManager: gameManager)
         }
     }
 }

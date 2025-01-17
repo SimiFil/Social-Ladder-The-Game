@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SelectGameModeView: View {
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var gameManager: GameManager
     
-    @State private var showLobbyView: Bool = false
+    @State private var showGameView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -78,11 +79,12 @@ struct SelectGameModeView: View {
                                 .padding()
                                 .minimumScaleFactor(0.5)
                             }
-                            .fullScreenCover(isPresented: $showLobbyView, content: {
-                                LobbyView()
-                            })
                             .onTapGesture {
-                                showLobbyView.toggle()
+                                if id == 0 {
+                                    gameManager.createLobby()
+                                } else {
+                                    print("join lobby")
+                                }
                             }
                         }
                     }
@@ -91,10 +93,18 @@ struct SelectGameModeView: View {
                 }
                 .background(Color.darkNavy)
             }
+            .fullScreenCover(isPresented: $showGameView, content: {
+                MatchView(gameManager: gameManager)
+            })
+            .onChange(of: gameManager.gameState, { newState, _ in
+                if newState == .choosingQuestions {
+                    showGameView = true
+                }
+            })
         }
         .preferredColorScheme(.dark)
     }
 }
 #Preview(traits: .landscapeRight) {
-    SelectGameModeView()
+    SelectGameModeView(gameManager: GameManager())
 }

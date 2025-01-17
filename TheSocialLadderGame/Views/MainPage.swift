@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPage: View {
-    @StateObject var gameManager: GameManager
+    @ObservedObject var gameManager: GameManager
     
     @State private var isMusicDisabled: Bool = false
     @State private var showGameModeView: Bool = false
@@ -86,11 +86,10 @@ struct MainPage: View {
                             
                             // MARK: SETTINGS
                             Button(action: {
-                                // action -> go to connect lobby
-                                gameManager.createLobby()
+                                // action -> go to settings
                             }) {
                                 HStack {
-                                    Text("Create Lobby")
+                                    Text("Settings")
                                         .font(.title2)
                                         .fontWeight(.medium)
                                         .foregroundColor(.white)
@@ -136,7 +135,7 @@ struct MainPage: View {
                                 // action -> go to the about page/sheet
                             }) {
                                 HStack {
-                                    Text("Join Lobby")
+                                    Text("How to play")
                                         .font(.title2)
                                         .fontWeight(.medium)
                                         .foregroundColor(.white)
@@ -145,7 +144,7 @@ struct MainPage: View {
                                     
                                     Spacer()
                                     
-                                    Image(systemName: "lightbulb.fill")
+                                    Image(systemName: "lightbulb.max.fill")
                                         .font(.title)
                                         .fontWeight(.bold)
                                         .padding(geo.size.height/29)
@@ -182,8 +181,7 @@ struct MainPage: View {
                     .padding(-geo.size.width/20)
                 }
                 .fullScreenCover(isPresented: $showGameModeView) {
-                    SelectGameModeView()
-                        .environmentObject(gameManager)
+                    SelectGameModeView(gameManager: gameManager)
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
