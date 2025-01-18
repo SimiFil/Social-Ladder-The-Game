@@ -17,7 +17,6 @@ extension GameManager: GKLocalPlayerListener {
     
     /// Presents the matchmaker interface when the local player accepts an invitation from another player.
     func player(_ player: GKPlayer, didAccept invite: GKInvite) {
-        // Present the matchmaker view controller in the invitation state.
         joinLobby(invite)
     }
 }
