@@ -58,7 +58,7 @@ class GameManager: NSObject, ObservableObject {
     
     /// min/max
     let maxRounds: Int = 10 // MARK: MAX_ROUNDS
-    let minPlayers: Int = 4 // MARK: MIN_PLAYERS
+    let minPlayers: Int = 2 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
     
     var match: GKMatch?
@@ -76,7 +76,7 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: Find MAtch
     /// GKMatchmakingMode - nearbyOnly or inviteOnly
-    func createLobby() {
+    func createLobby(with mode: GKMatchmakingMode) {
         let request = GKMatchRequest()
         request.minPlayers = minPlayers
         request.maxPlayers = maxPlayers
@@ -89,6 +89,7 @@ class GameManager: NSObject, ObservableObject {
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
         viewController?.isHosted = true // Force hosted games only
+        viewController?.matchmakingMode = mode
         
         rootViewController.present(viewController!, animated: true)
     }
