@@ -81,9 +81,9 @@ struct SelectGameModeView: View {
                             }
                             .onTapGesture {
                                 if id == 0 {
-                                    gameManager.createLobby(with: .inviteOnly)
+                                    gameManager.createLobby(with: .nearbyOnly)
                                 } else {
-                                    print("join lobby")
+                                    gameManager.createLobby(with: .inviteOnly)
                                 }
                             }
                         }
