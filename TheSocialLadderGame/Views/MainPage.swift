@@ -188,16 +188,17 @@ struct MainPage: View {
                         Text("@\(Constants.gameName.removeSpaces())")
                             .font(.headline)
                             .foregroundColor(.textGray)
-                            .padding(.top, 25)
+                            .padding(.top, 20)
                     }
                     
                     ToolbarItem(placement: .principal) {
                         Text(gameManager.playerAuthState.rawValue)
                             .font(.headline)
                             .foregroundColor(.yellow.opacity(0.7))
-                            .padding(.top, 25)
+                            .padding(.top, 20)
                     }
                     
+                    // FIXME: put it in the group so the styling doesnt repeat
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             isMusicDisabled.toggle()
@@ -205,7 +206,7 @@ struct MainPage: View {
                             Image(systemName: isMusicDisabled ? "speaker.slash.fill" : "speaker.wave.3.fill")
                                 .foregroundColor(.textGray)
                                 .font(.title2)
-                                .padding(.top, 25)
+                                .padding(.top, 20)
                                 .animation(.default, value: isMusicDisabled)
                         }
                     }
@@ -217,7 +218,7 @@ struct MainPage: View {
                             Image(systemName: "globe")
                                 .foregroundColor(.textGray)
                                 .font(.title2)
-                                .padding(.top, 25)
+                                .padding(.top, 20)
                                 .animation(.default, value: isMusicDisabled)
                         }
                     }

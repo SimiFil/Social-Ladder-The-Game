@@ -89,7 +89,7 @@ class GameManager: NSObject, ObservableObject {
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
         viewController?.isHosted = true // Force hosted games only
-        viewController?.matchmakingMode = mode
+        viewController?.matchmakingMode = mode // setting the matchmaking mode
         
         rootViewController.present(viewController!, animated: true)
     }
