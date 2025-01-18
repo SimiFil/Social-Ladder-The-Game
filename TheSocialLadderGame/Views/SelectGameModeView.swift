@@ -19,30 +19,30 @@ struct SelectGameModeView: View {
                 AppBackground()
                 
                 VStack {
-                    HStack {
-                        Button(action: {
-                            dismiss()
-                        }) {
-                            HStack(spacing: 10) {
-                                Image(systemName: "arrow.left")
-                                    .foregroundStyle(Color.textGray)
-                                Text("Go Back")
-                                    .foregroundStyle(Color.white.opacity(0.9))
-                            }
-                            .padding(13)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(Color.cardBlue)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .stroke(Color.white.opacity(0.1), lineWidth: 1)
-                                    )
-                            )
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal, 50)
-                    .padding(.top, 25)
+//                    HStack {
+//                        Button(action: {
+//                            dismiss()
+//                        }) {
+//                            HStack(spacing: 10) {
+//                                Image(systemName: "arrow.left")
+//                                    .foregroundStyle(Color.textGray)
+//                                Text("Go Back")
+//                                    .foregroundStyle(Color.white.opacity(0.9))
+//                            }
+//                            .padding(13)
+//                            .background(
+//                                RoundedRectangle(cornerRadius: 20)
+//                                    .fill(Color.cardBlue)
+//                                    .overlay(
+//                                        RoundedRectangle(cornerRadius: 20)
+//                                            .stroke(Color.white.opacity(0.1), lineWidth: 1)
+//                                    )
+//                            )
+//                        }
+//                        Spacer()
+//                    }
+//                    .padding(.horizontal, 50)
+//                    .padding(.top, 25)
                     
                     HStack(spacing: 50) {
                         ForEach(0..<2, id: \.self) { id in

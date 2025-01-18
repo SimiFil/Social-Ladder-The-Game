@@ -145,7 +145,7 @@ struct MainPage: View {
                                     Spacer()
                                     
                                     Image(systemName: "lightbulb.max.fill")
-                                        .font(.title)
+                                        .font(.title2)
                                         .fontWeight(.bold)
                                         .padding(geo.size.height/29)
                                         .frame(minWidth: geo.size.width/9)
@@ -180,9 +180,9 @@ struct MainPage: View {
                     }
                     .padding(-geo.size.width/20)
                 }
-                .fullScreenCover(isPresented: $showGameModeView) {
-                    SelectGameModeView(gameManager: gameManager)
-                }
+                .navigationDestination(isPresented: $showGameModeView, destination: {
+                    SelectGameModeView(gameManager: gameManager);
+                })
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("@\(Constants.gameName.removeSpaces())")
