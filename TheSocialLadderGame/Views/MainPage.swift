@@ -12,6 +12,8 @@ struct MainPage: View {
     
     @State private var isMusicDisabled: Bool = false
     @State private var showGameModeView: Bool = false
+    @State private var showSettings: Bool = false
+    @State private var showHowToPlayView: Bool = false
     
     var body: some View {
         GeometryReader { geo in
@@ -37,147 +39,26 @@ struct MainPage: View {
                         .padding(.leading, geo.size.width/13)
                         
                         // MARK: BUTTONS
-                        VStack(spacing: 20) {
+                        VStack(spacing: geo.size.height * 0.05) {
                             // MARK: PLAY BUTTON
-                            Button(action: {
-                                // action -> go to connect lobby
-                                showGameModeView.toggle()
-                            }) {
-                                HStack {
-                                    Image(systemName: "gamecontroller")
-                                        .font(.title)
-                                        .foregroundColor(.white)
-                                        .padding(23)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: gameManager.playerAuthState == .authenticated ? [.primaryButtonImageBG, .primaryButtonImageBG.opacity(0.8)] : [.black.opacity(0.6), .black.opacity(0.4)]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                        )
-                                        .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                                    
-                                    Spacer()
-                                    
-                                    Text("Play")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .padding(.trailing, geo.size.width/19)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .fill(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: gameManager.playerAuthState == .authenticated ? [Color.activeBlue, Color.activeBlue.opacity(0.8)] : [.gray, .gray.opacity(0.8)]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            )
-                                        )
-                                )
-                                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                            }
+                            MainButton(action: {
+                                showGameModeView = true
+                            }, title: "Play", icon: "gamecontroller", isLeadingIcon: true, isEnabled: gameManager.playerAuthState == .authenticated, geo: geo)
                             .disabled(gameManager.playerAuthState != .authenticated)
                             
                             // MARK: SETTINGS
-                            Button(action: {
-                                // action -> go to settings
-                            }) {
-                                HStack {
-                                    Text("Settings")
-                                        .font(.title2)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .padding(.leading, geo.size.width/19)
-                                    
-                                    Spacer()
-                                    
-                                    Image(systemName: "slider.horizontal.3")
-                                        .font(.title)
-                                        .fontWeight(.bold)
-                                        .padding(geo.size.height/29)
-                                        .frame(minWidth: geo.size.width/9)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [Color.secondaryButtonImageBg, Color.secondaryButtonImageBg.opacity(0.8)]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                        )
-                                        .foregroundColor(.white)
-                                        .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .fill(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [Color.cardBlue, Color.cardBlue.opacity(0.8)]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            )
-                                        )
-                                )
-                                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                            }
+                            MainButton(action: {
+                                showSettings = true
+                            }, title: "Settings", icon: "slider.horizontal.3", isLeadingIcon: false, isEnabled: true, geo: geo)
                             
                             // MARK: HOW TO PLAY
-                            Button(action: {
-                                // action -> go to the about page/sheet
-                            }) {
-                                HStack {
-                                    Text("How to play")
-                                        .font(.title2)
-                                        .fontWeight(.medium)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .padding(.leading, geo.size.width/19)
-                                    
-                                    Spacer()
-                                    
-                                    Image(systemName: "lightbulb.max.fill")
-                                        .font(.title2)
-                                        .fontWeight(.bold)
-                                        .padding(geo.size.height/29)
-                                        .frame(minWidth: geo.size.width/9)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [Color.secondaryButtonImageBg, Color.secondaryButtonImageBg.opacity(0.8)]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                        )
-                                        .foregroundColor(.white)
-                                        .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .fill(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [Color.cardBlue, Color.cardBlue.opacity(0.8)]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
-                                            )
-                                        )
-                                )
-                                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 4, y: 4)
-                            }
+                            MainButton(action: {
+                                showHowToPlayView = true
+                            }, title: "How To Play", icon: "lightbulb.max.fill", isLeadingIcon: false, isEnabled: true, geo: geo, isHowToPlayButton: true)
                         }
                         .padding(.horizontal, geo.size.width/13)
                     }
+                    .lineLimit(1)
                     .padding(-geo.size.width/20)
                 }
                 .navigationDestination(isPresented: $showGameModeView, destination: {
@@ -197,8 +78,7 @@ struct MainPage: View {
                             .foregroundColor(.yellow.opacity(0.7))
                             .padding(.top, 20)
                     }
-                    
-                    // FIXME: put it in the group so the styling doesnt repeat
+
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             isMusicDisabled.toggle()

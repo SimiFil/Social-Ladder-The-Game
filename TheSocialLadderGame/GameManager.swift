@@ -37,6 +37,7 @@ class GameManager: NSObject, ObservableObject {
     /// players
     @Published var players: [GKPlayer] = []
     @Published var playerOrder: [String] = []
+    @Published var playerRoundOrder: [String] = []
     
     /// questions
     @Published var questions: [String] = []
@@ -112,6 +113,16 @@ class GameManager: NSObject, ObservableObject {
         
         let gameData = GameData(messageType: .choosingDeck, data: [:])
         sendDataToAllPlayers(data: gameData)
+    }
+    
+    // MARK: Choose question for round
+    func chooseQuestion() {
+        // TODO
+    }
+    
+    // MARK: Play round
+    func playRound() {
+        // TODO
     }
     
     // MARK: Start game func
