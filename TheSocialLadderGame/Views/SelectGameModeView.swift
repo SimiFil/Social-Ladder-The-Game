@@ -11,7 +11,7 @@ struct SelectGameModeView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var gameManager: GameManager
     
-    @State private var showGameView: Bool = false
+    @State private var showMatchView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -94,12 +94,12 @@ struct SelectGameModeView: View {
                 }
                 .background(Color.darkNavy)
             }
-            .fullScreenCover(isPresented: $showGameView, content: {
+            .fullScreenCover(isPresented: $showMatchView, content: {
                 MatchView(gameManager: gameManager)
             })
             .onChange(of: gameManager.gameState, { newState, _ in
                 if newState == .choosingQuestions {
-                    showGameView = true
+                    showMatchView = true
                 }
             })
         }

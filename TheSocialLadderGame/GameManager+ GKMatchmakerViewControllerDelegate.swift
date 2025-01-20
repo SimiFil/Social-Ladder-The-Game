@@ -22,7 +22,7 @@ extension GameManager: GKMatchmakerViewControllerDelegate {
         viewController.dismiss(animated: true)
         self.match = match
         match.delegate = self
-        players = match.players
-        gameState = .waitingForPlayers
+        players = match.players // mby remove later
+        gameState = .choosingQuestions
     }
 }

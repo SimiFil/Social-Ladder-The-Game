@@ -38,7 +38,7 @@ enum QuestionsType: String, CaseIterable {
         case .wildQuestions:
             "Wild Questions"
         case .customQuestions:
-            "Create Custom Questions"
+            "Custom Questions"
         }
     }
 }

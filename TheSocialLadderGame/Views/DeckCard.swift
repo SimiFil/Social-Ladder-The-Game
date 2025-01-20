@@ -8,32 +8,51 @@
 import SwiftUI
 
 struct DeckCard: View {
+    let id: Int
     let type: QuestionsType
     let isSelected: Bool
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 16) {
-                Circle()
-                    .fill(.ultraThinMaterial.opacity(0.3))
-                    .frame(width: 80, height: 80)
-                    .overlay {
-                        Image(systemName: "book.fill")
-                            .font(.system(size: 30))
+            ZStack {
+                VStack(spacing: 16) {
+                    Circle()
+                        .fill(.ultraThinMaterial.opacity(0.3))
+                        .frame(width: 80, height: 80)
+                        .overlay {
+                            Image(systemName: "book.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(.white)
+                        }
+                        .overlay {
+                            Circle()
+                                .stroke(.white.opacity(0.2), lineWidth: 1)
+                        }
+                        .padding(.bottom)
+                        .padding(.top)
+                    
+                    Text(type.name)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.8)
+                        .lineLimit(1)
+                }
+                
+                if id == QuestionsType.allCases.count - 1 {
+                    ZStack {
+                        Rectangle()
+                            .fill(.darkRed.opacity(0.8))
+                        
+                        Text("Coming Soon...")
                             .foregroundStyle(.white)
                     }
-                    .overlay {
-                        Circle()
-                            .stroke(.white.opacity(0.2), lineWidth: 1)
-                    }
-                    .padding(.bottom)
-                
-                Text(type.name)
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
+                    .frame(width: .infinity, height: 40)
+                    .rotationEffect(Angle(degrees: -50))
+                    .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
-                    .minimumScaleFactor(0.8)
+                }
             }
             .frame(width: 160, height: 200)
             .background {

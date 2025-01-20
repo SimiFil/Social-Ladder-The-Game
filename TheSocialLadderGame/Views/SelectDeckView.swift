@@ -26,9 +26,9 @@ struct SelectDeckView: View {
                 LazyVGrid(columns: [
                     GridItem(.adaptive(minimum: 150, maximum: 180), spacing: 16)
                 ], spacing: 16) {
-                    ForEach(QuestionsType.allCases, id: \.self) { qt in
+                    ForEach(Array(QuestionsType.allCases.enumerated()), id: \.element) { idx, qt in
                         DeckCard(
-                            type: qt,
+                            id: idx, type: qt,
                             isSelected: selectedDeck == String(describing: qt),
                             action: {
                                 withAnimation(.spring(response: 0.3)) {
