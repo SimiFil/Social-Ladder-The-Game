@@ -25,25 +25,22 @@ extension GameManager: GKMatchmakerViewControllerDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            viewController.dismiss(animated: true)
+//            viewController.dismiss(animated: true)
             self.match = match
             match.delegate = self
             
-            // Include local player in the players array
             self.players = match.players + [self.localPlayer]
-//            print("Total players in lobby: \(self.players.count)")
-//
-//            for player in self.players {
-//                print("\(player.gamePlayerID): \(isHost)")
-//            }
+            
+            self.showMatchView = true
             
             if self.isHost {
                 self.gameState = .choosingQuestions
-                self.showMatchView = true
             } else {
                 self.gameState = .waitingForPlayers
-                self.showMatchView = true
             }
+            
+            // Dismiss after setting up everything
+            viewController.dismiss(animated: true)
         }
     }
     

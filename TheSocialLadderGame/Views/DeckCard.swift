@@ -16,7 +16,9 @@ struct DeckCard: View {
     let action: () -> Void
     
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             ZStack {
                 VStack(spacing: 16) {
                     Circle()
@@ -86,7 +88,7 @@ struct DeckCard: View {
             }
             .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
         }
-//        .disabled(gameManager.isHost || (id == QuestionsType.allCases.count - 1) ? false : true)
+        .disabled(id == QuestionsType.allCases.count - 1)  // Only disable the last card
         .buttonStyle(.plain)
     }
 }

@@ -28,18 +28,15 @@ struct DeckSelectionView: View {
                 ], spacing: 16) {
                     ForEach(Array(QuestionsType.allCases.enumerated()), id: \.element) { idx, qt in
                         DeckCard(
-                            gameManager: gameManager, id: idx, type: qt,
-                            isSelected: selectedDeck == String(describing: qt),
-                            action: {
-                                withAnimation(.spring(response: 0.3)) {
-                                    selectedDeck = String(describing: qt)
-                                }
-                                
-                                if let questionType = QuestionsType(fromString: selectedDeck) {
-                                    gameManager.startMatch(with: questionType)
-                                }
-                            }
-                        )
+                            gameManager: gameManager,
+                            id: idx,
+                            type: qt,
+                            isSelected: selectedDeck == String(describing: qt)
+                        ) {
+                            print(selectedDeck)
+                            selectedDeck = String(describing: qt)
+                            gameManager.startMatch(with: qt)
+                        }
                     }
                 }
                 .padding(.horizontal, 24)
