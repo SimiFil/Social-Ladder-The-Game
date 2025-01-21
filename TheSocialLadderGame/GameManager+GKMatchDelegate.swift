@@ -14,54 +14,62 @@ extension GameManager: GKMatchDelegate {
             let gameData = try JSONDecoder().decode(GameData.self, from: data)
             
             DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                print("Received game message: \(gameData.messageType) from \(player.displayName)")
+                
                 switch gameData.messageType {
                 case .choosingDeck:
-                    self?.gameState = .choosingQuestions
+                    self.gameState = .choosingQuestions
+                    self.showMatchView = true
                 case .startGame:
-                    self?.gameState = .playing
+                    self.gameState = .playing
+                    self.showMatchView = true
                 case .playerChoice:
                     if let playerId = gameData.data["playerId"] {
-                        self?.isTheChosenOne = playerId == self?.localPlayer.gamePlayerID
+                        self.isTheChosenOne = playerId == self.localPlayer.gamePlayerID
                     }
                 case .playerOrder:
                     if let orderString = gameData.data["order"] {
-                        self?.playerOrder = orderString.split(separator: ",").map(String.init)
+                        self.playerOrder = orderString.split(separator: ",").map(String.init)
                     }
                 case .roundEnd:
-                    self?.currentRound += 1
-                case .playerJoined:
-                    if let self = self {
-                        self.canStartGame = self.players.count >= self.minPlayers
-                    }
-                case .playerLeft:
-                    if let self = self {
-                        self.canStartGame = self.players.count >= self.minPlayers
-                    }
+                    self.currentRound += 1
+                case .playerJoined, .playerLeft:
+                    self.canStartGame = self.players.count >= self.minPlayers
                 }
             }
         } catch {
+            print("Failed to process game data: \(error)")
             errorMessage = "Failed to process game data: \(error.localizedDescription)"
         }
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
         DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            print("Player \(player.displayName) state changed to: \(state)")
+            
             switch state {
             case .connected:
-                self?.players = match.players
-                
-                if let self = self {
-                    self.canStartGame = self.players.count >= self.minPlayers
+                if !self.players.contains(player) {
+                    self.players.append(player)
                 }
+                self.canStartGame = self.players.count >= self.minPlayers
+                
             case .disconnected:
-                self?.players = match.players
-                if let self = self, self.players.count < self.minPlayers {
+                self.players.removeAll { $0 == player }
+                
+                if self.players.count < self.minPlayers {
                     self.errorMessage = "Not enough players to continue. Need at least \(self.minPlayers) players."
                     self.gameState = .waitingForPlayers
                 }
+                
             default:
                 break
             }
+            
+            print("Updated players count: \(self.players.count)")
         }
     }
 }

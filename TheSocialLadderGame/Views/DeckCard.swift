@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DeckCard: View {
+    @ObservedObject var gameManager: GameManager
+    
     let id: Int
     let type: QuestionsType
     let isSelected: Bool
@@ -48,7 +50,7 @@ struct DeckCard: View {
                         Text("Coming Soon...")
                             .foregroundStyle(.white)
                     }
-                    .frame(width: .infinity, height: 40)
+                    .frame(width: 200, height: 40)
                     .rotationEffect(Angle(degrees: -50))
                     .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
@@ -84,6 +86,7 @@ struct DeckCard: View {
             }
             .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
         }
+//        .disabled(gameManager.isHost || (id == QuestionsType.allCases.count - 1) ? false : true)
         .buttonStyle(.plain)
     }
 }

@@ -11,8 +11,6 @@ struct SelectGameModeView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var gameManager: GameManager
     
-    @State private var showMatchView: Bool = false
-    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -75,14 +73,9 @@ struct SelectGameModeView: View {
                 }
                 .background(Color.darkNavy)
             }
-            .fullScreenCover(isPresented: $showMatchView, content: {
+            .fullScreenCover(isPresented: $gameManager.showMatchView) {
                 MatchView(gameManager: gameManager)
-            })
-            .onChange(of: gameManager.gameState, { newState, _ in
-                if newState == .choosingQuestions {
-                    showMatchView = true
-                }
-            })
+            }
         }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)

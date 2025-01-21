@@ -2,17 +2,53 @@
 //  DeckSelectionView.swift
 //  TheSocialLadderGame
 //
-//  Created by Filip Simandl on 17.01.2025.
+//  Created by Filip Simandl on 18.01.2025.
 //
 
 import SwiftUI
 
 struct DeckSelectionView: View {
+    @ObservedObject var gameManager: GameManager
+    @State var selectedDeck: String = "basicQuestions"
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            AppBackground()
+            
+            VStack(alignment: .leading, spacing: 24) {
+                Text("Select Deck")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 24)
+                
+                // cards
+                LazyVGrid(columns: [
+                    GridItem(.adaptive(minimum: 150, maximum: 180), spacing: 16)
+                ], spacing: 16) {
+                    ForEach(Array(QuestionsType.allCases.enumerated()), id: \.element) { idx, qt in
+                        DeckCard(
+                            gameManager: gameManager, id: idx, type: qt,
+                            isSelected: selectedDeck == String(describing: qt),
+                            action: {
+                                withAnimation(.spring(response: 0.3)) {
+                                    selectedDeck = String(describing: qt)
+                                }
+                                
+                                if let questionType = QuestionsType(fromString: selectedDeck) {
+                                    gameManager.startMatch(with: questionType)
+                                }
+                            }
+                        )
+                    }
+                }
+                .padding(.horizontal, 24)
+            }
+        }
     }
 }
 
-#Preview {
-    DeckSelectionView()
+#Preview(traits: .landscapeLeft) {
+    DeckSelectionView(gameManager: GameManager())
 }
+

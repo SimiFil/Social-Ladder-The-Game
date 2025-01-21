@@ -7,6 +7,7 @@
 
 import Foundation
 import GameKit
+import CoreBluetooth
 
 // MARK: Game State
 enum GameState: String, Codable {
@@ -51,6 +52,7 @@ class GameManager: NSObject, ObservableObject {
     @Published var errorMessage: String?
     @Published var canStartGame: Bool = false
     @Published var showGameCenterSettings: Bool = false
+    @Published var showMatchView: Bool = false
     
     /// time
     @Published var currentRound: Int = 0
@@ -89,15 +91,19 @@ class GameManager: NSObject, ObservableObject {
         
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
-        viewController?.isHosted = true // Force hosted games only
+        viewController?.isHosted = mode == .inviteOnly
         viewController?.matchmakingMode = mode // setting the matchmaking mode
         
+        print("Creating lobby as host: \(localPlayer.displayName), isHost: \(isHost)")
         rootViewController.present(viewController!, animated: true)
     }
     
     // MARK: Join Lobby
     func joinLobby(_ inviteToAccept: GKInvite) {
         guard let rootViewController = self.rootViewController else { return }
+        
+        isHost = false
+        print("Joining lobby as player: \(localPlayer.displayName), isHost: \(isHost)")
         
         let viewController = GKMatchmakerViewController(invite: inviteToAccept)
         viewController?.matchmakerDelegate = self
@@ -126,15 +132,33 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Start game func
-    func startMatch(with questionsType: QuestionsType) -> Void {
-        guard isHost else { return }
+    func startMatch(with questionsType: QuestionsType) {
+        guard isHost else {
+            print("Only host can start the match")
+            return
+        }
         
-        let gameData = GameData(messageType: .startGame, data: [:])
-        sendDataToAllPlayers(data: gameData)
+        guard let match = match else {
+            errorMessage = "No active match found"
+            return
+        }
         
+        // Load questions first
         loadQuestions(from: questionsType)
+        print("loading questions from JSON")
         
-        gameState = .playing
+        do {
+            let gameData = GameData(messageType: .startGame, data: [:])
+            let encodedData = try JSONEncoder().encode(gameData)
+            try match.sendData(toAllPlayers: encodedData, with: .reliable)
+            
+            print("Starting game with \(players.count) players")
+            gameState = .playing
+            
+        } catch {
+            print("Failed to start match: \(error)")
+            errorMessage = "Failed to start game: \(error.localizedDescription)"
+        }
     }
     
     // MARK: Send data to players

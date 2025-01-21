@@ -10,6 +10,7 @@ import GameKit
 
 extension GameManager: GKMatchmakerViewControllerDelegate {
     func matchmakerViewControllerWasCancelled(_ viewController: GKMatchmakerViewController) {
+        isHost = false
         viewController.dismiss(animated: true)
     }
     
@@ -19,10 +20,51 @@ extension GameManager: GKMatchmakerViewControllerDelegate {
     }
     
     func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
-        viewController.dismiss(animated: true)
-        self.match = match
-        match.delegate = self
-        players = match.players // mby remove later
-        gameState = .choosingQuestions
+        print("Match found with \(match.players.count + 1) players")
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            viewController.dismiss(animated: true)
+            self.match = match
+            match.delegate = self
+            
+            // Include local player in the players array
+            self.players = match.players + [self.localPlayer]
+//            print("Total players in lobby: \(self.players.count)")
+//
+//            for player in self.players {
+//                print("\(player.gamePlayerID): \(isHost)")
+//            }
+            
+            if self.isHost {
+                self.gameState = .choosingQuestions
+                self.showMatchView = true
+            } else {
+                self.gameState = .waitingForPlayers
+                self.showMatchView = true
+            }
+        }
+    }
+    
+    func matchmakerViewController(_ viewController: GKMatchmakerViewController, hostedPlayerDidAccept player: GKPlayer) {
+        print("Player \(player.displayName) accepted the invitation")
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            if !self.players.contains(player) {
+                self.players.append(player)
+                print("Added player \(player.displayName), total players: \(self.players.count)")
+                
+                // Notify other players about the new player
+                let gameData = GameData(messageType: .playerJoined, data: [:])
+                if let match = self.match {
+                    try? match.sendData(toAllPlayers: JSONEncoder().encode(gameData), with: .reliable)
+                }
+                
+                self.canStartGame = self.players.count >= self.minPlayers
+            }
+        }
     }
 }

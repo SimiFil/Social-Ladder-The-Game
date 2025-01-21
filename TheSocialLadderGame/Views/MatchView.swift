@@ -18,10 +18,9 @@ struct MatchView: View {
                 
                 switch gameManager.gameState {
                 case .waitingForPlayers:
-                    EmptyView()
+                    Text("Waiting For Players...")
                 case .choosingQuestions:
-                    Text("Choosing questions...")
-                    DeckSelectionView()
+                    DeckSelectionView(gameManager: gameManager)
                 case .playing:
                     GamePage()
                 case .talking:
