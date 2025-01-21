@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct MainPage: View {
     @ObservedObject var gameManager: GameManager
+    
+    @State private var audioPlayer: AVAudioPlayer!
     
     @State private var isMusicDisabled: Bool = false
     @State private var showGameModeView: Bool = false
@@ -78,7 +81,7 @@ struct MainPage: View {
                             .foregroundColor(.yellow.opacity(0.7))
                             .padding(.top, 20)
                     }
-
+                    
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             isMusicDisabled.toggle()
@@ -105,6 +108,7 @@ struct MainPage: View {
                 }
                 .preferredColorScheme(.dark)
                 .onAppear {
+//                    playAudio()
                     gameManager.authenticatePlayer()
                 }
                 .alert("Game Center Required",
@@ -121,12 +125,31 @@ struct MainPage: View {
                 } message: {
                     Text("Please sign in to Game Center to play multiplayer games.")
                 }
+                .fullScreenCover(isPresented: $showSettings) {
+                    SettingsView()
+                }
+                .fullScreenCover(isPresented: $showHowToPlayView) {
+                    HowToPlayView()
+                }
             }
         }
     }
     
-    private func playMusic() -> Bool {
-        return true
+    private func playAudio() {
+        let sound = Bundle.main.path(forResource: "lobbyMusic", ofType: "mp3")
+        
+        audioPlayer = try! AVAudioPlayer(contentsOf: URL(filePath: sound!))
+        
+        audioPlayer.numberOfLoops = -1 // infinity
+        audioPlayer.play()
+    }
+    
+    private func pauseAudio() {
+        audioPlayer.pause()
+    }
+    
+    private func continueAudio() {
+        audioPlayer.play()
     }
 }
 
