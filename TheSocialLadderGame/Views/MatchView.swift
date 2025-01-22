@@ -18,7 +18,12 @@ struct MatchView: View {
                 
                 switch gameManager.gameState {
                 case .waitingForPlayers:
-                    Text("Waiting For Players...")
+                    VStack {
+                        Text("Waiting For Players...")
+                            .font(.title)
+                            .foregroundColor(.white)
+                        ProgressView()
+                    }
                 case .choosingQuestions:
                     DeckSelectionView(gameManager: gameManager)
                 case .playing:
@@ -36,10 +41,12 @@ struct MatchView: View {
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Leave") {
-                        gameManager.match?.disconnect()
-                        dismiss()
+                if gameManager.gameState == .waitingForPlayers {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button("Leave") {
+                            gameManager.match?.disconnect()
+                            dismiss()
+                        }
                     }
                 }
             }

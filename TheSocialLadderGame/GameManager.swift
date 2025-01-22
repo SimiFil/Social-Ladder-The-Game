@@ -50,7 +50,6 @@ class GameManager: NSObject, ObservableObject {
     
     /// other
     @Published var errorMessage: String?
-    @Published var canStartGame: Bool = false
     @Published var showGameCenterSettings: Bool = false
     @Published var showMatchView: Bool = false
     
@@ -91,10 +90,8 @@ class GameManager: NSObject, ObservableObject {
         
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
-        viewController?.isHosted = mode == .inviteOnly
-        viewController?.matchmakingMode = mode // setting the matchmaking mode
+        viewController?.matchmakingMode = mode
         
-        print("Creating lobby as host: \(localPlayer.displayName), isHost: \(isHost)")
         rootViewController.present(viewController!, animated: true)
     }
     
@@ -162,7 +159,7 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Send data to players
-    private func sendDataToAllPlayers(data: GameData) {
+    func sendDataToAllPlayers(data: GameData) {
         guard let match = match else { return }
         
         do {

@@ -88,7 +88,7 @@ struct DeckCard: View {
             }
             .shadow(color: .black.opacity(0.15), radius: 10, x: 0, y: 5)
         }
-        .disabled(id == QuestionsType.allCases.count - 1)  // Only disable the last card
+        .disabled(!gameManager.isHost || id == QuestionsType.allCases.count - 1)
         .buttonStyle(.plain)
     }
 }

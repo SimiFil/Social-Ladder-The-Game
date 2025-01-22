@@ -35,7 +35,7 @@ extension GameManager: GKMatchDelegate {
                 case .roundEnd:
                     self.currentRound += 1
                 case .playerJoined, .playerLeft:
-                    self.canStartGame = self.players.count >= self.minPlayers
+                    print("do nothing for now...")
                 }
             }
         } catch {
@@ -48,17 +48,30 @@ extension GameManager: GKMatchDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
-            print("Player \(player.displayName) state changed to: \(state)")
+            print("\n--- Connection State Change ---")
+            print("Player \(player.displayName) state: \(state)")
+            print("Local player: \(self.localPlayer.displayName)")
+            print("Is host: \(self.isHost)")
             
             switch state {
             case .connected:
                 if !self.players.contains(player) {
                     self.players.append(player)
+                    print("Player added to list")
                 }
-                self.canStartGame = self.players.count >= self.minPlayers
                 
+                if self.isHost {
+                    print("Host sending current game state")
+                    let gameData = GameData(
+                        messageType: .choosingDeck,
+                        data: [:]
+                    )
+                    self.sendDataToAllPlayers(data: gameData)
+                }
+            
             case .disconnected:
                 self.players.removeAll { $0 == player }
+                print("Player removed, remaining: \(self.players.map { $0.displayName })")
                 
                 if self.players.count < self.minPlayers {
                     self.errorMessage = "Not enough players to continue. Need at least \(self.minPlayers) players."
@@ -69,7 +82,7 @@ extension GameManager: GKMatchDelegate {
                 break
             }
             
-            print("Updated players count: \(self.players.count)")
+            print("Final players count: \(self.players.count)")
         }
     }
 }

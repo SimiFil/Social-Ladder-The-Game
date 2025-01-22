@@ -67,6 +67,9 @@ struct MainPage: View {
                 .navigationDestination(isPresented: $showGameModeView, destination: {
                     SelectGameModeView(gameManager: gameManager);
                 })
+                .fullScreenCover(isPresented: $gameManager.showMatchView) {
+                    MatchView(gameManager: gameManager)
+                }
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("@\(Constants.gameName.removeSpaces())")
@@ -108,7 +111,7 @@ struct MainPage: View {
                 }
                 .preferredColorScheme(.dark)
                 .onAppear {
-//                    playAudio()
+                    playAudio()
                     gameManager.authenticatePlayer()
                 }
                 .alert("Game Center Required",

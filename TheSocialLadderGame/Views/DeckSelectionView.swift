@@ -15,8 +15,8 @@ struct DeckSelectionView: View {
         ZStack {
             AppBackground()
             
-            VStack(alignment: .leading, spacing: 24) {
-                Text("Select Deck")
+            VStack(alignment: gameManager.isHost ? .leading : .center, spacing: 24) {
+                Text(gameManager.isHost ? "Select Deck" : "Waiting For The Host To Select A Deck")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
