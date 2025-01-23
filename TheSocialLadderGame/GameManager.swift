@@ -21,7 +21,8 @@ enum GameState: String, Codable {
 enum GameMessage: String, Codable {
     case choosingDeck
     case startGame
-    case playerOrder
+    case chosenQuestion
+    case chosenPlayer
     case roundEnd
     case playerChoice
     case playerJoined
@@ -37,11 +38,12 @@ class GameManager: NSObject, ObservableObject {
     
     /// players
     @Published var players: [GKPlayer] = []
-    @Published var playerOrder: [String] = []
-    @Published var playerRoundOrder: [String] = []
+    @Published var playerOrder: [GKPlayer] = []
+    @Published var playerCardsOrder: [String] = []
     
     /// questions
-    @Published var questions: [String] = []
+    var questions: [String] = []
+    var usedQuestions: [String] = []
     @Published var currentQuestion: String?
     
     /// game state and auth state
@@ -118,14 +120,47 @@ class GameManager: NSObject, ObservableObject {
         sendDataToAllPlayers(data: gameData)
     }
     
+    // MARK: Picking player order in which will players be chosen
+    func pickPlayerOrderForMatch() {
+        playerOrder.append(contentsOf: self.players)
+        playerOrder.shuffle()
+        print(playerOrder)
+    }
+    
     // MARK: Choose question for round
     func chooseQuestion() {
-        // TODO
+        if questions.count == 0 {
+            questions = usedQuestions
+        }
+        
+        // remove last used questions from questions so that they do NOT repeat
+        if currentRound != 1 {
+            questions.removeAll(where: { $0 == usedQuestions[-1] })
+        }
+        
+        // choose current question
+        currentQuestion = questions.randomElement()
+        
+        // append it to the used ones
+        // we can force because there wont be an option for an empty array
+        usedQuestions.append(currentQuestion!)
     }
     
     // MARK: Play round
     func playRound() {
-        // TODO
+        gameState = .playing
+        isTheChosenOne = playerOrder[currentRound] == localPlayer
+        currentRound += 1
+        
+        if isHost {
+            chooseQuestion()
+            print("choosing question")
+            sendDataToAllPlayers(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"])) // send chosen question to all players
+        }
+        
+        // if timer runs out -> end round
+        
+        // if player locks in his answers -> end round
     }
     
     // MARK: Start game func
@@ -140,9 +175,12 @@ class GameManager: NSObject, ObservableObject {
             return
         }
         
-        // Load questions first
+        // load questions first
         loadQuestions(from: questionsType)
         print("loading questions from JSON")
+        
+        // pick player order from all players joined
+        pickPlayerOrderForMatch()
         
         do {
             let gameData = GameData(messageType: .startGame, data: [:])
@@ -152,6 +190,7 @@ class GameManager: NSObject, ObservableObject {
             print("Starting game with \(players.count) players")
             gameState = .playing
             
+            playRound()
         } catch {
             print("Failed to start match: \(error)")
             errorMessage = "Failed to start game: \(error.localizedDescription)"
@@ -240,12 +279,9 @@ class GameManager: NSObject, ObservableObject {
         GKLocalPlayer.local.register(self)
     }
     
+    // MARK: Question struct
     private struct Question: Codable {
         let question: String
-    }
-    
-    // MARK: Picking player whose order will be important for that round
-    func pickPlayerForRound() {
     }
 }
 

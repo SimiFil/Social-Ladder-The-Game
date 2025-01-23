@@ -6,19 +6,23 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct GamePage: View {
-    private let players: [String]
+    @ObservedObject var gameManager: GameManager
+    
+    private var playerNames: [String]
     private let chosenPlayer: String
     
     @State private var dropZoneContents: [Int: String] = [:]
     @State private var timeRemaining: Int = 118
     @State private var draggedItem: String?
-    @State private var isTargeted: [Int: Bool] = [:]  // Track which zones are targeted
+    @State private var isTargeted: [Int: Bool] = [:]
     
-    init() {
-        self.players = ["Philip", "Jeff", "Marvel Jesus", "Godfray", "Johanna", "Jeff23", "Slayer23", "Hodomir"]
-        self.chosenPlayer = players.randomElement()!
+    init(gameManager: GameManager) {
+        self.gameManager = gameManager
+        self.playerNames = gameManager.players.map { $0.displayName }
+        self.chosenPlayer = gameManager.players.randomElement()?.displayName ?? "Unknown"
     }
     
     var body: some View {
@@ -29,7 +33,7 @@ struct GamePage: View {
                     
                     VStack(alignment: .center) {
                         // MARK: Question
-                        Text("Who would survive the longest on an abandoned Island?")
+                        Text(gameManager.currentQuestion ?? "Question was NOT found")
                             .font(.title)
                             .frame(width: geo.size.width/2, height: geo.size.height/6)
                             .padding(.top, geo.size.width/30)
@@ -39,14 +43,14 @@ struct GamePage: View {
                         
                         // MARK: Player boxes
                         HStack(spacing: 10) {
-                            ForEach(Array(players.enumerated()), id: \.0) { idx, name in
+                            ForEach(Array(playerNames.enumerated()), id: \.0) { idx, name in
                                 VStack(alignment: .leading) {
                                     // box label
                                     if idx == 0 {
                                         Text("Most")
                                             .foregroundStyle(.green)
                                             .padding(.leading, 5)
-                                    } else if idx == (players.count - 1) {
+                                    } else if idx == (playerNames.count - 1) {
                                         HStack {
                                             Spacer()
                                             Text("Least")
@@ -73,7 +77,7 @@ struct GamePage: View {
                                                 .scaleEffect(0.8)
                                         }
                                     }
-                                    .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, players.count + 1))), height: geo.size.width / 6)
+                                    .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, playerNames.count + 1))), height: geo.size.width / 6)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .draggable(dropZoneContents[idx] ?? "") {
                                         if let playerName = dropZoneContents[idx] {
@@ -82,11 +86,8 @@ struct GamePage: View {
                                         }
                                     }
                                     .dropDestination(for: String.self) { playerCards, _ in
-                                        // check if we're even dropping anything...
                                         if let droppedPlayer = playerCards.first {
-                                            // handle the case where we're dropping onto a position that already has a player
                                             if let existingPlayer = dropZoneContents[idx] {
-                                                // find where the dropped player came from
                                                 if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
                                                     dropZoneContents[oldIndex] = existingPlayer
                                                     dropZoneContents[idx] = droppedPlayer
@@ -94,16 +95,12 @@ struct GamePage: View {
                                                     dropZoneContents[idx] = droppedPlayer
                                                 }
                                             } else {
-                                                // If the position is empty, just place the player
-                                                // First remove from old position if it exists
                                                 if let oldIndex = dropZoneContents.first(where: { $0.value == droppedPlayer })?.key {
                                                     dropZoneContents.removeValue(forKey: oldIndex)
                                                 }
                                                 dropZoneContents[idx] = droppedPlayer
                                             }
                                         }
-                                        
-                                        //                                        print(dropZoneContents)
                                         isTargeted[idx] = false
                                         return true
                                     } isTargeted: { targeted in
@@ -114,22 +111,22 @@ struct GamePage: View {
                                 .fontWeight(.bold)
                             }
                         }
-                        .padding(.horizontal, players.count <= 6
-                                 ? (geo.size.width - (geo.size.width / 7 * CGFloat(players.count) + 10 * CGFloat(players.count - 1))) / 2
+                        .padding(.horizontal, playerNames.count <= 6
+                                 ? (geo.size.width - (geo.size.width / 7 * CGFloat(playerNames.count) + 10 * CGFloat(playerNames.count - 1))) / 2
                                  : 20)
                         .padding(.bottom, 20)
                         .minimumScaleFactor(0.6)
                         
                         // MARK: Player cards
                         ZStack {
-                            ForEach(Array(players.enumerated()), id: \.0) { index, name in
+                            ForEach(Array(playerNames.enumerated()), id: \.0) { index, name in
                                 if !dropZoneContents.values.contains(name) {
-                                    let baseOffset = CGFloat(index - players.count / 2) * 60
+                                    let baseOffset = CGFloat(index - playerNames.count / 2) * 60
                                     let isBeingDragged = draggedItem == name
                                     
                                     PlayerCard(playerName: name)
                                         .offset(x: baseOffset)
-                                        .rotationEffect(.degrees(Double(index - players.count / 2) * 2.7))
+                                        .rotationEffect(.degrees(Double(index - playerNames.count / 2) * 2.7))
                                         .scaleEffect(isBeingDragged ? 1.5 : 1.0)
                                         .opacity(isBeingDragged ? 0 : 1)
                                         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isBeingDragged)
@@ -185,7 +182,7 @@ struct GamePage: View {
     }
 }
 
-// MARK: - Supporting Views
+// Supporting Views remain the same
 struct PlayerCard: View {
     let playerName: String
     
@@ -213,6 +210,8 @@ struct PlayerCard: View {
             )
     }
 }
+
+// ... rest of your supporting views remain the same ...
 
 struct TimeRemainingView: View {
     let seconds: Int
@@ -312,5 +311,5 @@ struct ToolbarButton: View {
 }
 
 #Preview(traits: .landscapeRight) {
-    GamePage()
+    GamePage(gameManager: GameManager())
 }
