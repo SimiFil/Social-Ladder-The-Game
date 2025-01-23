@@ -32,12 +32,14 @@ extension GameManager: GKMatchDelegate {
                     if let chosenQuestion = gameData.data["currentQuestion"] {
                         self.currentQuestion = chosenQuestion
                     }
+                case .chosenPlayer:
+                    if let chosenPlayer = gameData.data["chosenPlayer"] {
+                        self.chosenPlayerName = chosenPlayer
+                    }
                 case .roundEnd:
                     self.currentRound += 1
                 case .playerJoined, .playerLeft:
                     print("do nothing for now...")
-                case .chosenPlayer:
-                    print("he is the chosen one")
                 }
             }
         } catch {

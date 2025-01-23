@@ -22,7 +22,7 @@ struct GamePage: View {
     init(gameManager: GameManager) {
         self.gameManager = gameManager
         self.playerNames = gameManager.players.map { $0.displayName }
-        self.chosenPlayer = gameManager.players.randomElement()?.displayName ?? "Unknown"
+        self.chosenPlayer = gameManager.chosenPlayerName
     }
     
     var body: some View {

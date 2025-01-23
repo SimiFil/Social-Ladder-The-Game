@@ -32,13 +32,14 @@ enum GameMessage: String, Codable {
 // MARK: Game Class
 class GameManager: NSObject, ObservableObject {
     /// who is who
-    @Published var isHost: Bool = false
-    @Published var isTimeKeeper: Bool = false // so that the timer runs only on one device
-    @Published var isTheChosenOne: Bool = false // one player will be chosen each round to be the "leader" of the round
+    var isHost: Bool = false
+    var isTimeKeeper: Bool = false // so that the timer runs only on one device
+    var isTheChosenOne: Bool = false // one player will be chosen each round to be the "leader" of the round
     
     /// players
     @Published var players: [GKPlayer] = []
-    @Published var playerOrder: [GKPlayer] = []
+    var playerOrder: [GKPlayer] = []
+    @Published var chosenPlayerName: String = ""
     @Published var playerCardsOrder: [String] = []
     
     /// questions
@@ -124,7 +125,7 @@ class GameManager: NSObject, ObservableObject {
     func pickPlayerOrderForMatch() {
         playerOrder.append(contentsOf: self.players)
         playerOrder.shuffle()
-        print(playerOrder)
+//        print(playerOrder)
     }
     
     // MARK: Choose question for round
@@ -152,10 +153,16 @@ class GameManager: NSObject, ObservableObject {
         isTheChosenOne = playerOrder[currentRound] == localPlayer
         currentRound += 1
         
+        // chosen one sends his name to all players
+        if isTheChosenOne {
+            chosenPlayerName = localPlayer.displayName
+            sendDataToAllPlayers(data: GameData(messageType: .chosenPlayer, data: ["chosenPlayer":localPlayer.displayName]))
+        }
+        
+        // pick question and send it to all players
         if isHost {
             chooseQuestion()
-            print("choosing question")
-            sendDataToAllPlayers(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"])) // send chosen question to all players
+            sendDataToAllPlayers(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         }
         
         // if timer runs out -> end round
@@ -190,6 +197,7 @@ class GameManager: NSObject, ObservableObject {
             print("Starting game with \(players.count) players")
             gameState = .playing
             
+            // actual game mechanics
             playRound()
         } catch {
             print("Failed to start match: \(error)")
