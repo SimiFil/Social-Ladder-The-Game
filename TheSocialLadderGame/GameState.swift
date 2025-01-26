@@ -1,0 +1,16 @@
+//
+//  GameState.swift
+//  TheSocialLadderGame
+//
+//  Created by Filip Simandl on 26.01.2025.
+//
+
+// MARK: Game State
+enum GameState: String, Codable {
+    case waitingForPlayers
+    case choosingQuestions
+    case playing
+    case roundEnd
+    case talking
+    case finished
+}

@@ -37,6 +37,8 @@ struct MatchView: View {
                             dismiss()
                         }
                     }
+                case .roundEnd:
+                    Text("Discussion time...")
                 }
             }
             .navigationBarBackButtonHidden(true)

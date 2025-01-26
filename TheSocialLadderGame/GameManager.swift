@@ -9,38 +9,21 @@ import Foundation
 import GameKit
 import CoreBluetooth
 
-// MARK: Game State
-enum GameState: String, Codable {
-    case waitingForPlayers
-    case choosingQuestions
-    case playing
-    case talking
-    case finished
-}
-
-enum GameMessage: String, Codable {
-    case choosingDeck
-    case startGame
-    case chosenQuestion
-    case chosenPlayer
-    case roundEnd
-    case playerChoice
-    case playerJoined
-    case playerLeft
-}
-
 // MARK: Game Class
 class GameManager: NSObject, ObservableObject {
     /// who is who
     var isHost: Bool = false
-    var isTimeKeeper: Bool = false // so that the timer runs only on one device
-    var isTheChosenOne: Bool = false // one player will be chosen each round to be the "leader" of the round
-    
+
     /// players
     @Published var players: [GKPlayer] = []
-    var playerOrder: [GKPlayer] = []
+    var playerOrder: [String] = []
+    var chosenPlayerID: String = ""
     @Published var chosenPlayerName: String = ""
     @Published var playerCardsOrder: [String] = []
+    
+    /// score
+    @Published var playerScoreDict: [String:[String]] = [:]
+    @Published var score: Int = 0
     
     /// questions
     var questions: [String] = []
@@ -57,11 +40,12 @@ class GameManager: NSObject, ObservableObject {
     @Published var showMatchView: Bool = false
     
     /// time
-    @Published var currentRound: Int = 0
-    @Published var roundTime: Int = 120 // 2 minutes to play
+    @Published var timeRemaining: Int = 120 // 2 minutes to play // FIXME: change to constant mby
+    private var syncTimer: Timer? // my timer
     @Published var talkTime: Int = 300 // 5 minutes to talk about it
     
-    /// min/max
+    /// rounds/players
+    @Published var currentRound: Int = 0
     let maxRounds: Int = 10 // MARK: MAX_ROUNDS
     let minPlayers: Int = 2 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
@@ -111,6 +95,31 @@ class GameManager: NSObject, ObservableObject {
         rootViewController.present(viewController!, animated: true)
     }
     
+    // MARK: Start round timer
+    func startRoundTimer() {
+        timeRemaining = 120
+        
+        if isHost {
+            syncTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+                guard let self = self else { return }
+                self.timeRemaining -= 1
+                
+                let gameData = GameData(
+                    messageType: .timerSync,
+                    data: ["timeRemaining": String(self.timeRemaining)]
+                )
+                self.sendDataTo(data: gameData)
+                
+                // FIXME: handle when timer ends -> send message round end
+                if self.timeRemaining <= 0 {
+                    self.syncTimer?.invalidate()
+                    gameState = .roundEnd
+                    sendDataTo(data: GameData(messageType: .roundEnd, data: [:]))
+                }
+            }
+        }
+    }
+    
     // MARK: Choose question deck
     func chooseQuestionSet() {
         guard isHost else { return }
@@ -118,14 +127,17 @@ class GameManager: NSObject, ObservableObject {
         gameState = .choosingQuestions
         
         let gameData = GameData(messageType: .choosingDeck, data: [:])
-        sendDataToAllPlayers(data: gameData)
+        sendDataTo(data: gameData)
     }
     
     // MARK: Picking player order in which will players be chosen
     func pickPlayerOrderForMatch() {
-        playerOrder.append(contentsOf: self.players)
+        for player in players {
+            let playerID = player.gamePlayerID
+            playerOrder.append(playerID)
+        }
+        
         playerOrder.shuffle()
-//        print(playerOrder)
     }
     
     // MARK: Choose question for round
@@ -135,7 +147,7 @@ class GameManager: NSObject, ObservableObject {
         }
         
         // remove last used questions from questions so that they do NOT repeat
-        if currentRound != 1 {
+        if currentRound != 0 {
             questions.removeAll(where: { $0 == usedQuestions[-1] })
         }
         
@@ -149,36 +161,40 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: Play round
     func playRound() {
-        gameState = .playing
-        isTheChosenOne = playerOrder[currentRound] == localPlayer
-        currentRound += 1
-        
-        // chosen one sends his name to all players
-        if isTheChosenOne {
-            chosenPlayerName = localPlayer.displayName
-            sendDataToAllPlayers(data: GameData(messageType: .chosenPlayer, data: ["chosenPlayer":localPlayer.displayName]))
-        }
+        // chosen player
+        chosenPlayerID = playerOrder[currentRound]
+        chosenPlayerName = players.first(where: { $0.gamePlayerID == chosenPlayerID })!.displayName
+        sendDataTo(data: GameData(messageType: .chosenPlayerName, data: ["chosenPlayerName": chosenPlayerName]))
+        sendDataTo(data: GameData(messageType: .chosenPlayerID, data: ["chosenPlayerID": chosenPlayerID]))
         
         // pick question and send it to all players
         if isHost {
+            startRoundTimer()
             chooseQuestion()
-            sendDataToAllPlayers(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
+            sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         }
         
         // if timer runs out -> end round
+        if gameState == .roundEnd {
+            print("round ended")
+            // send my player choice to the host
+            
+            // host resolves points and distributes them
+            
+            // host sends the score info to all players
+        }
         
         // if player locks in his answers -> end round
+        
+        currentRound += 1
     }
+    
+    // MARK: Check cards and resolve score
     
     // MARK: Start game func
     func startMatch(with questionsType: QuestionsType) {
         guard isHost else {
             print("Only host can start the match")
-            return
-        }
-        
-        guard let match = match else {
-            errorMessage = "No active match found"
             return
         }
         
@@ -188,30 +204,34 @@ class GameManager: NSObject, ObservableObject {
         
         // pick player order from all players joined
         pickPlayerOrderForMatch()
+        let playerOrderStr = playerOrder.joined(separator: ",")
+        let playerOrderData = GameData(messageType: .playerOrder, data: ["playerOrder": playerOrderStr])
+        sendDataTo(data: playerOrderData)
         
-        do {
-            let gameData = GameData(messageType: .startGame, data: [:])
-            let encodedData = try JSONEncoder().encode(gameData)
-            try match.sendData(toAllPlayers: encodedData, with: .reliable)
-            
-            print("Starting game with \(players.count) players")
-            gameState = .playing
-            
-            // actual game mechanics
-            playRound()
-        } catch {
-            print("Failed to start match: \(error)")
-            errorMessage = "Failed to start game: \(error.localizedDescription)"
-        }
+        // set gameState to playing
+        let gameData = GameData(messageType: .startGame, data: [:])
+        sendDataTo(data: gameData)
+        gameState = .playing
+        
+        playMatch()
+    }
+    
+    // MARK: Play match
+    func playMatch() {
+        playRound()
     }
     
     // MARK: Send data to players
-    func sendDataToAllPlayers(data: GameData) {
+    func sendDataTo(players: [GKPlayer]? = nil, data: GameData) {
         guard let match = match else { return }
         
         do {
             let encodedData = try JSONEncoder().encode(data)
-            try match.sendData(toAllPlayers: encodedData, with: .reliable)
+            if let msgRecievers = players {
+                try match.send(encodedData, to: msgRecievers, dataMode: .reliable)
+            } else {
+                try match.sendData(toAllPlayers: encodedData, with: .reliable)
+            }
         } catch {
             errorMessage = "Failed to send game data: \(error.localizedDescription)"
         }
@@ -231,7 +251,6 @@ class GameManager: NSObject, ObservableObject {
             
             if let questionArray = questionJSON[type.rawValue] {
                 questions = questionArray.map { $0.question }
-                //                print(questions)
                 questions.shuffle()
             }
         } catch {
@@ -286,14 +305,4 @@ class GameManager: NSObject, ObservableObject {
         // Register for real-time invitations from other players.
         GKLocalPlayer.local.register(self)
     }
-    
-    // MARK: Question struct
-    private struct Question: Codable {
-        let question: String
-    }
-}
-
-struct GameData: Codable {
-    let messageType: GameMessage
-    let data: [String: String]
 }

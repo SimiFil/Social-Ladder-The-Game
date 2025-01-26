@@ -12,17 +12,14 @@ struct GamePage: View {
     @ObservedObject var gameManager: GameManager
     
     private var playerNames: [String]
-    private let chosenPlayer: String
     
     @State private var dropZoneContents: [Int: String] = [:]
-    @State private var timeRemaining: Int = 118
     @State private var draggedItem: String?
     @State private var isTargeted: [Int: Bool] = [:]
     
     init(gameManager: GameManager) {
         self.gameManager = gameManager
         self.playerNames = gameManager.players.map { $0.displayName }
-        self.chosenPlayer = gameManager.chosenPlayerName
     }
     
     var body: some View {
@@ -154,11 +151,11 @@ struct GamePage: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    TimeRemainingView(seconds: timeRemaining)
+                    TimeRemainingView(seconds: gameManager.timeRemaining)
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    ChosenPlayerView(playerName: chosenPlayer)
+                    ChosenPlayerView(playerName: gameManager.chosenPlayerName)
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -182,7 +179,6 @@ struct GamePage: View {
     }
 }
 
-// Supporting Views remain the same
 struct PlayerCard: View {
     let playerName: String
     
@@ -210,8 +206,6 @@ struct PlayerCard: View {
             )
     }
 }
-
-// ... rest of your supporting views remain the same ...
 
 struct TimeRemainingView: View {
     let seconds: Int

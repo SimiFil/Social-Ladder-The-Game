@@ -21,25 +21,35 @@ extension GameManager: GKMatchDelegate {
                 case .choosingDeck:
                     self.gameState = .choosingQuestions
                     self.showMatchView = true
+                case .playerOrder:
+                    if let playerOrderStr = gameData.data["playerOder"] {
+                        self.playerOrder = playerOrderStr.split(separator: ",").map{ String($0) }
+                    }
                 case .startGame:
                     self.gameState = .playing
                     self.showMatchView = true
                 case .playerChoice:
-                    if let playerId = gameData.data["playerId"] {
-                        self.isTheChosenOne = playerId == self.localPlayer.gamePlayerID
-                    }
+                    print("player's choice")
                 case .chosenQuestion:
                     if let chosenQuestion = gameData.data["currentQuestion"] {
                         self.currentQuestion = chosenQuestion
                     }
-                case .chosenPlayer:
-                    if let chosenPlayer = gameData.data["chosenPlayer"] {
-                        self.chosenPlayerName = chosenPlayer
+                case .chosenPlayerID:
+                    if let chosenPlayerID = gameData.data["chosenPlayerID"] {
+                        self.chosenPlayerID = chosenPlayerID
+                    }
+                case .chosenPlayerName:
+                    if let chosenPlayerName = gameData.data["chosenPlayerName"] {
+                        self.chosenPlayerName = chosenPlayerName
                     }
                 case .roundEnd:
-                    self.currentRound += 1
+                    self.gameState = .roundEnd
                 case .playerJoined, .playerLeft:
                     print("do nothing for now...")
+                case .timerSync:
+                    if !self.isHost, let timeStr = gameData.data["timeRemaining"], let time = Int(timeStr) {
+                        self.timeRemaining = time
+                    }
                 }
             }
         } catch {
@@ -70,9 +80,9 @@ extension GameManager: GKMatchDelegate {
                         messageType: .choosingDeck,
                         data: [:]
                     )
-                    self.sendDataToAllPlayers(data: gameData)
+                    self.sendDataTo(data: gameData)
                 }
-            
+                
             case .disconnected:
                 self.players.removeAll { $0 == player }
                 print("Player removed, remaining: \(self.players.map { $0.displayName })")

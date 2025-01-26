@@ -73,9 +73,6 @@ struct SelectGameModeView: View {
                 }
                 .background(Color.darkNavy)
             }
-            .navigationDestination(isPresented: $gameManager.showMatchView, destination: {
-                MatchView(gameManager: gameManager)
-            })
         }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
