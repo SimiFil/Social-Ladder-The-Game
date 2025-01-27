@@ -147,20 +147,21 @@ struct MainPage: View {
     }
     
     private func playAudio() {
-        let sound = Bundle.main.path(forResource: "lobbyMusic", ofType: "mp3")
-        
-        audioPlayer = try! AVAudioPlayer(contentsOf: URL(filePath: sound!))
-        
-        audioPlayer.numberOfLoops = -1 // infinity
-        audioPlayer.play()
-    }
-    
-    private func pauseAudio() {
-        audioPlayer.pause()
-    }
-    
-    private func continueAudio() {
-        audioPlayer.play()
+        guard let sound = Bundle.main.path(forResource: "lobbyMusic", ofType: "mp3") else {
+                    print("Could not find audio file")
+                    return
+                }
+                
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: URL(filePath: sound))
+                    audioPlayer?.numberOfLoops = -1 // infinity
+                    audioPlayer?.volume = volume
+                    if !isMusicDisabled {
+                        audioPlayer?.play()
+                    }
+                } catch {
+                    print("Could not create audio player: \(error.localizedDescription)")
+                }
     }
 }
 

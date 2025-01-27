@@ -210,55 +210,6 @@ struct ChosenPlayerView: View {
     }
 }
 
-// MARK: Toolbar TOP buttons
-struct ToolbarTopButtons: View {
-    var body: some View {
-        HStack(spacing: 16) {
-            Button {
-                // Settings action
-            } label: {
-                ToolbarButton(iconName: "slider.horizontal.3")
-            }
-            
-            Button {
-                // Leaderboard action
-            } label: {
-                ToolbarButton(iconName: "trophy.fill")
-            }
-        }
-        .padding(.top, 20)
-    }
-}
-
-// MARK: Toolbar Bottom Button
-struct ToolbarBottomButtons: View {
-    var body: some View {
-        HStack {
-            Button {
-                // Leaderboard action
-            } label: {
-                Text("Lock in")
-            }
-        }
-    }
-}
-
-// MARK: Toolbar button
-struct ToolbarButton: View {
-    let iconName: String
-    
-    var body: some View {
-        Image(systemName: iconName)
-            .font(.system(size: 20))
-            .foregroundStyle(.textGray)
-            .frame(width: 40, height: 40)
-            .background(
-                Circle()
-                    .fill(Color.black.opacity(0.2))
-            )
-    }
-}
-
 #Preview(traits: .landscapeLeft) {
     RoundPlayingView(gameManager: GameManager())
 }
