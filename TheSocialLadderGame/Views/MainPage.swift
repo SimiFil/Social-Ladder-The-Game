@@ -12,8 +12,9 @@ struct MainPage: View {
     @ObservedObject var gameManager: GameManager
     
     @State private var audioPlayer: AVAudioPlayer!
-    
     @State private var isMusicDisabled: Bool = false
+    @State private var volume: Float = 1.0
+    
     @State private var showGameModeView: Bool = false
     @State private var showSettings: Bool = false
     @State private var showHowToPlayView: Bool = false
@@ -87,7 +88,14 @@ struct MainPage: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            isMusicDisabled.toggle()
+                            withAnimation {
+                                isMusicDisabled.toggle()
+                            }
+                            if isMusicDisabled {
+                                audioPlayer.pause()
+                            } else {
+                                audioPlayer.play()
+                            }
                         } label: {
                             Image(systemName: isMusicDisabled ? "speaker.slash.fill" : "speaker.wave.3.fill")
                                 .foregroundColor(.textGray)
@@ -99,7 +107,7 @@ struct MainPage: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            isMusicDisabled.toggle()
+                            // localization Picker insted of a button
                         } label: {
                             Image(systemName: "globe")
                                 .foregroundColor(.textGray)
@@ -129,7 +137,7 @@ struct MainPage: View {
                     Text("Please sign in to Game Center to play multiplayer games.")
                 }
                 .fullScreenCover(isPresented: $showSettings) {
-                    SettingsView()
+                    SettingsView(audioPlayer: audioPlayer, volume: $volume)
                 }
                 .fullScreenCover(isPresented: $showHowToPlayView) {
                     HowToPlayView()
