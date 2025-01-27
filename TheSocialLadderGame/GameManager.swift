@@ -32,6 +32,7 @@ class GameManager: NSObject, ObservableObject {
     
     /// game state and auth state
     @Published var gameState: GameState = .waitingForPlayers
+    @Published var roundState: RoundState = .roundStart
     @Published var playerAuthState: PlayerAuthState = .unauthenticated
     
     /// other
@@ -113,8 +114,8 @@ class GameManager: NSObject, ObservableObject {
                 // FIXME: handle when timer ends -> send message round end
                 if self.timeRemaining <= 0 {
                     self.syncTimer?.invalidate()
-                    gameState = .roundEnd
-                    sendDataTo(data: GameData(messageType: .roundEnd, data: [:]))
+                    roundState = .roundEnd
+                    sendDataTo(data: GameData(messageType: .roundState, data: ["roundEnded":""]))
                 }
             }
         }
@@ -161,6 +162,9 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: Play round
     func playRound() {
+        roundState = .playing
+        sendDataTo(data: GameData(messageType: .roundState, data: ["roundPlaying":""]))
+        
         // chosen player
         chosenPlayerID = playerOrder[currentRound]
         chosenPlayerName = players.first(where: { $0.gamePlayerID == chosenPlayerID })!.displayName

@@ -42,8 +42,8 @@ extension GameManager: GKMatchDelegate {
                     if let chosenPlayerName = gameData.data["chosenPlayerName"] {
                         self.chosenPlayerName = chosenPlayerName
                     }
-                case .roundEnd:
-                    self.gameState = .roundEnd
+                case .roundState:
+                   self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
                 case .playerJoined, .playerLeft:
                     print("do nothing for now...")
                 case .timerSync:
