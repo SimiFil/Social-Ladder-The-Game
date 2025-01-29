@@ -13,6 +13,7 @@ import CoreBluetooth
 class GameManager: NSObject, ObservableObject {
     /// who is who
     var isHost: Bool = false
+    var hostID: String = ""
 
     /// players
     @Published var players: [GKPlayer] = []
@@ -22,7 +23,8 @@ class GameManager: NSObject, ObservableObject {
     @Published var playerCardsOrder: [String] = []
     
     /// score
-    @Published var playerScoreDict: [String:[String]] = [:]
+    @Published var playerOrderDict: [String:[String]] = [:] // host tracks -> ["playerID":["playerID", "playerID", ...]
+    @Published var playerScoreDict: [String:Int] = [:] // host tracks -> ["playerID":5]
     @Published var score: Int = 0
     
     /// questions
@@ -73,6 +75,7 @@ class GameManager: NSObject, ObservableObject {
         request.inviteMessage = "Join me for a game of \(Constants.gameName)!"
         
         isHost = true
+        hostID = localPlayer.gamePlayerID
         
         guard let rootViewController = self.rootViewController else { return }
         
@@ -98,7 +101,7 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: Start round timer
     func startRoundTimer() {
-        timeRemaining = 120
+        timeRemaining = 10 // FIXME: only for debug
         
         if isHost {
             syncTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
@@ -201,6 +204,9 @@ class GameManager: NSObject, ObservableObject {
             print("Only host can start the match")
             return
         }
+        
+        // send all players who the host is
+        sendDataTo(data: GameData(messageType: .hostID, data: ["hostID":localPlayer.gamePlayerID]))
         
         // load questions first
         loadQuestions(from: questionsType)

@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: Game Message
 enum GameMessage: String, Codable {
+    case hostID
     case choosingDeck
     case startGame
     case chosenQuestion

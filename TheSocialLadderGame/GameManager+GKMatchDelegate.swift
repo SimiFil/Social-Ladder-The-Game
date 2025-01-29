@@ -18,6 +18,10 @@ extension GameManager: GKMatchDelegate {
                 print("Received game message: \(gameData.messageType) from \(player.displayName)")
                 
                 switch gameData.messageType {
+                case .hostID:
+                    if let hostID = gameData.data["hostID"] {
+                        self.hostID = hostID
+                    }
                 case .choosingDeck:
                     self.gameState = .choosingQuestions
                     self.showMatchView = true
@@ -29,7 +33,9 @@ extension GameManager: GKMatchDelegate {
                     self.gameState = .playing
                     self.showMatchView = true
                 case .playerChoice:
-                    print("player's choice")
+                    if let playerGameOrder = gameData.data["playerGameOrder"] {
+                        self.playerOrderDict[player.displayName] = playerGameOrder.split(separator: ",").map(String.init)
+                    }
                 case .chosenQuestion:
                     if let chosenQuestion = gameData.data["currentQuestion"] {
                         self.currentQuestion = chosenQuestion
@@ -43,7 +49,9 @@ extension GameManager: GKMatchDelegate {
                         self.chosenPlayerName = chosenPlayerName
                     }
                 case .roundState:
-                   self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
+                    self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
+                    
+                    print(roundState)
                 case .playerJoined, .playerLeft:
                     print("do nothing for now...")
                 case .timerSync:

@@ -104,18 +104,6 @@ struct MainPage: View {
                                 .animation(.default, value: isMusicDisabled)
                         }
                     }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            // localization Picker insted of a button
-                        } label: {
-                            Image(systemName: "globe")
-                                .foregroundColor(.textGray)
-                                .font(.title2)
-                                .padding(.top, 20)
-                                .animation(.default, value: isMusicDisabled)
-                        }
-                    }
                 }
                 .preferredColorScheme(.dark)
                 .onAppear {

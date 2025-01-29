@@ -21,7 +21,7 @@ struct GamePage: View {
                     RoundPlayingView(gameManager: gameManager)
                 case .roundEnd:
                     // this is where i show the user correct answers
-                    RoundEndedView()
+                    RoundEndedView(gameManager: gameManager)
                 }
             }
             .toolbar {
@@ -34,7 +34,7 @@ struct GamePage: View {
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
-                    ToolbarTopButtons()
+                    ToolbarTopButtons(gm: gameManager)
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
@@ -85,6 +85,8 @@ struct TimeRemainingView: View {
 
 // MARK: Toolbar TOP buttons
 struct ToolbarTopButtons: View {
+    @ObservedObject var gm: GameManager
+    
     var body: some View {
         HStack(spacing: 16) {
             Button {
@@ -95,6 +97,7 @@ struct ToolbarTopButtons: View {
             
             Button {
                 // Leaderboard action
+                LeaderboardView(gameManager: gm) // FIXME: leaderboard view not showing.... use bool and fullDisplayCover
             } label: {
                 ToolbarButton(iconName: "trophy.fill")
             }
