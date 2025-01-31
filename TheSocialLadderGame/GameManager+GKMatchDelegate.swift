@@ -34,7 +34,17 @@ extension GameManager: GKMatchDelegate {
                     self.showMatchView = true
                 case .playerChoice:
                     if let playerGameOrder = gameData.data["playerGameOrder"] {
-                        self.playerOrderDict[player.displayName] = playerGameOrder.split(separator: ",").map(String.init)
+                        self.playerOrderDict[player.displayName] = playerGameOrder.decodePlayersDictString(players: self.players)
+                        
+                        if self.isHost {
+                            self.receivedResponsesCount += 1
+//                            print("Received response \(self.receivedResponsesCount) of \(self.players.count - 1)")
+                            
+                            // only resolve when all responses are received
+                            if self.receivedResponsesCount == self.players.count - 1 {
+                                self.resolveScore()
+                            }
+                        }
                     }
                 case .chosenQuestion:
                     if let chosenQuestion = gameData.data["currentQuestion"] {

@@ -21,6 +21,7 @@ class GameManager: NSObject, ObservableObject {
     var chosenPlayerID: String = ""
     @Published var chosenPlayerName: String = ""
     @Published var playerCardsOrder: [String] = []
+    @Published var receivedResponsesCount: Int = 0
     
     /// score
     @Published var playerOrderDict: [String:[String]] = [:] // host tracks -> ["playerID":["playerID", "playerID", ...]
@@ -100,7 +101,7 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Start round timer
-    func startRoundTimer() {
+    private func startRoundTimer() {
         timeRemaining = 10 // FIXME: only for debug
         
         if isHost {
@@ -125,7 +126,7 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Choose question deck
-    func chooseQuestionSet() {
+    private func chooseQuestionSet() {
         guard isHost else { return }
         
         gameState = .choosingQuestions
@@ -135,7 +136,7 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Picking player order in which will players be chosen
-    func pickPlayerOrderForMatch() {
+    private func pickPlayerOrderForMatch() {
         for player in players {
             let playerID = player.gamePlayerID
             playerOrder.append(playerID)
@@ -145,7 +146,7 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Choose question for round
-    func chooseQuestion() {
+    private func chooseQuestion() {
         if questions.count == 0 {
             questions = usedQuestions
         }
@@ -163,8 +164,30 @@ class GameManager: NSObject, ObservableObject {
         usedQuestions.append(currentQuestion!)
     }
     
+    func resolveScore() {
+        // FIXME: add guard statement that all the players have sent their answers, also fix empty spaces
+        
+//        let chosenPlayerOrder: [String] = playerOrderDict[chosenPlayerName]!
+        print("playerOrderDict: \(playerOrderDict)")
+        
+        for (key, value) in playerOrderDict {
+//            if key == chosenPlayerName {
+//                continue
+//            }
+            
+            print("\(key): \(value)")
+            
+            let player: GKPlayer = players.first(where: { $0.displayName == key })!
+            
+//            playerScoreDict[key]
+        }
+    }
+    
     // MARK: Play round
     func playRound() {
+        // set received repsponses count to 0
+        receivedResponsesCount = 0
+        
         roundState = .playing
         sendDataTo(data: GameData(messageType: .roundState, data: ["roundPlaying":""]))
         
@@ -175,21 +198,9 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: GameData(messageType: .chosenPlayerID, data: ["chosenPlayerID": chosenPlayerID]))
         
         // pick question and send it to all players
-        if isHost {
-            startRoundTimer()
-            chooseQuestion()
-            sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
-        }
-        
-        // if timer runs out -> end round
-        if gameState == .roundEnd {
-            print("round ended")
-            // send my player choice to the host
-            
-            // host resolves points and distributes them
-            
-            // host sends the score info to all players
-        }
+        startRoundTimer()
+        chooseQuestion()
+        sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         
         // if player locks in his answers -> end round
         

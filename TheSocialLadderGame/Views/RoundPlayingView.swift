@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct RoundPlayingView: View {
     @ObservedObject var gameManager: GameManager
@@ -155,22 +156,30 @@ struct RoundPlayingView: View {
                 .foregroundStyle(.customWhitesmoke)
             }
         }
-        .onDisappear {
-            if gameManager.roundState == .roundEnd {
+        .onReceive(gameManager.$roundState) { newState in
+            if newState == .roundEnd {
+                let codedMSG: String = codeDict(dropZoneContents)
+                
                 if gameManager.isHost {
-                    gameManager.playerOrderDict[gameManager.localPlayer.displayName] = Array(dropZoneContents.values)
+                    gameManager.playerOrderDict[gameManager.localPlayer.displayName] = codedMSG.decodePlayersDictString(players: gameManager.players)
                 } else {
                     guard let host = gameManager.players.first(where: { $0.gamePlayerID == gameManager.hostID }) else {
                         print("Error: Could not find host player")
                         return
                     }
                     
-                    let playerCardsOrderStr: String = Array(dropZoneContents.values).joined(separator: ",")
-                    print(playerCardsOrderStr)
-                    gameManager.sendDataTo(players: [host], data: GameData(messageType: .playerChoice, data: ["playerGameOrder":playerCardsOrderStr]))
+                    gameManager.sendDataTo(players: [host], data: GameData(messageType: .playerChoice, data: ["playerGameOrder":codedMSG]))
                 }
             }
         }
+    }
+    
+    private func codeDict(_ dict: [Int:String]) -> String {
+        let keyvals = dict.map { key, value in
+            return "\(key):\(value)"
+        }.joined(separator: ",")
+        
+        return keyvals
     }
 }
 
