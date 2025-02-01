@@ -43,6 +43,7 @@ extension GameManager: GKMatchDelegate {
                             // only resolve when all responses are received
                             if self.receivedResponsesCount == self.players.count - 1 {
                                 self.resolveScore()
+                                print("player score dict: \(self.playerScoreDict)")
                             }
                         }
                     }

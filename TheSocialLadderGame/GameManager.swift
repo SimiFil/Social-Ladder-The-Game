@@ -185,6 +185,25 @@ class GameManager: NSObject, ObservableObject {
         let chosenPlayerOrderArray: [String] = playerOrderDict[chosenPlayerName]!
         var scoreMSG: String = ""
         
+        // if the chosenPlayer doesn't play give him -1
+        // and all the other player +1
+        if Set(chosenPlayerOrderArray).count == 1 {
+            for player in self.players {
+                let playerName: String = player.displayName
+                
+                if playerName == chosenPlayerName {
+                    playerScoreDict[playerName]?.append(-1)
+                    scoreMSG.append("\(playerName):-1")
+                } else {
+                    playerScoreDict[playerName]?.append(1)
+                    scoreMSG.append("\(playerName):1")
+                }
+            }
+            
+            sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
+            return
+        }
+        
         for (playerName, playerArray) in playerOrderDict {
             if playerName == chosenPlayerName {
                 continue
@@ -226,7 +245,6 @@ class GameManager: NSObject, ObservableObject {
         
         // send score to all other players
         sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
-        print(playerScoreDict)
     }
     
     // MARK: Play round
