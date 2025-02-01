@@ -75,8 +75,10 @@ extension GameManager: GKMatchDelegate {
                     }
                 case .roundState:
                     self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
-                    self.currentRound += 1
-                    print(self.currentRound)
+                    if roundState == .roundEnd {
+                        self.currentRound += 1
+                        print(self.currentRound)
+                    }
                 case .playerJoined, .playerLeft:
                     print("do nothing for now...")
                 case .timerSync:
