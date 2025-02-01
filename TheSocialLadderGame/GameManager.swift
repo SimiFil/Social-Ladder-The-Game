@@ -101,8 +101,8 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Start round timer
-    private func startRoundTimer() {
-        timeRemaining = 10 // FIXME: only for debug
+    func startRoundTimer(time: Int) {
+        timeRemaining = time
         
         if isHost {
             syncTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
@@ -118,8 +118,16 @@ class GameManager: NSObject, ObservableObject {
                 // FIXME: handle when timer ends -> send message round end
                 if self.timeRemaining <= 0 {
                     self.syncTimer?.invalidate()
-                    roundState = .roundEnd
-                    sendDataTo(data: GameData(messageType: .roundState, data: ["roundEnded":""]))
+                    
+                    if roundState == .playing {
+                        print("round ENDED")
+                        roundState = .roundEnd
+                        sendDataTo(data: GameData(messageType: .roundState, data: ["roundEnded":""]))
+                    } else if roundState == .roundEnd {
+                        print("round STARTS")
+                        roundState = .playing
+                        playRound()
+                    }
                 }
             }
         }
@@ -153,7 +161,9 @@ class GameManager: NSObject, ObservableObject {
         
         // remove last used questions from questions so that they do NOT repeat
         if currentRound != 0 {
-            questions.removeAll(where: { $0 == usedQuestions[-1] })
+            print(currentRound)
+            print("used questions: \(usedQuestions)")
+            questions.removeAll(where: { $0 == usedQuestions.last })
         }
         
         // choose current question
@@ -221,6 +231,11 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: Play round
     func playRound() {
+        if currentRound == self.players.count {
+            print("GAME ENDED")
+            return
+        }
+        
         // set received repsponses count to 0
         receivedResponsesCount = 0
         
@@ -234,11 +249,9 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: GameData(messageType: .chosenPlayerID, data: ["chosenPlayerID": chosenPlayerID]))
         
         // pick question and send it to all players
-        startRoundTimer()
+        startRoundTimer(time: 10)
         chooseQuestion()
         sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
-        
-        // if player locks in his answers -> end round
         
         currentRound += 1
     }
@@ -270,11 +283,6 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: gameData)
         gameState = .playing
         
-        playMatch()
-    }
-    
-    // MARK: Play match
-    func playMatch() {
         playRound()
     }
     
