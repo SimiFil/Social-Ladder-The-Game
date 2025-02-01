@@ -10,6 +10,7 @@ import GameKit
 
 struct GamePage: View {
     @ObservedObject var gameManager: GameManager
+    @State private var hasAppeared = false
     
     var body: some View {
         NavigationStack {
@@ -48,6 +49,11 @@ struct GamePage: View {
                     .padding(.leading)
                     .padding(.bottom)
                     .padding(.trailing, -50)
+                }
+            }
+            .onAppear {
+                if !hasAppeared {
+                    gameManager.initializePlayerScoreDict()
                 }
             }
         }

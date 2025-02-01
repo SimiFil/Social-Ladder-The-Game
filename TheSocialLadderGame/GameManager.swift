@@ -25,7 +25,7 @@ class GameManager: NSObject, ObservableObject {
     
     /// score
     @Published var playerOrderDict: [String:[String]] = [:] // host tracks -> ["playerID":["playerID", "playerID", ...]
-    @Published var playerScoreDict: [String:Int] = [:] // host tracks -> ["playerID":5]
+    @Published var playerScoreDict: [String:[Int]] = [:] // host tracks -> ["playerID":[5, 0, 10]] /// points each round
     @Published var score: Int = 0
     
     /// questions
@@ -164,23 +164,59 @@ class GameManager: NSObject, ObservableObject {
         usedQuestions.append(currentQuestion!)
     }
     
-    func resolveScore() {
-        // FIXME: add guard statement that all the players have sent their answers, also fix empty spaces
-        
-//        let chosenPlayerOrder: [String] = playerOrderDict[chosenPlayerName]!
-        print("playerOrderDict: \(playerOrderDict)")
-        
-        for (key, value) in playerOrderDict {
-//            if key == chosenPlayerName {
-//                continue
-//            }
-            
-            print("\(key): \(value)")
-            
-            let player: GKPlayer = players.first(where: { $0.displayName == key })!
-            
-//            playerScoreDict[key]
+    func initializePlayerScoreDict() {
+        for player in players {
+            playerScoreDict[player.displayName] = []
         }
+    }
+    
+    func resolveScore() {
+        print("playerOrderDict: \(playerOrderDict)")
+        let chosenPlayerOrderArray: [String] = playerOrderDict[chosenPlayerName]!
+        var scoreMSG: String = ""
+        
+        for (playerName, playerArray) in playerOrderDict {
+            if playerName == chosenPlayerName {
+                continue
+            }
+            
+            guard chosenPlayerOrderArray.count == playerArray.count else {
+                print("Error - The arrays are not the same length")
+                return
+            }
+            
+            // check if they are equal
+            // meaning the the player get full points + 1
+            if chosenPlayerOrderArray.elementsEqual(playerArray) {
+                playerScoreDict[playerName]?.append(self.players.count + 1)
+                if let lastScore = playerScoreDict[playerName]?.last {
+                    scoreMSG.append("\(playerName):\(lastScore),")
+                }
+                continue
+            }
+            
+            var score = 0
+            
+            for (idx, name) in chosenPlayerOrderArray.enumerated() {
+                if name == playerArray[idx] {
+                    score += 1
+                }
+            }
+            
+            playerScoreDict[playerName]?.append(score)
+//            print("\(playerName):\(String(describing: playerScoreDict[playerName]))")
+            if let lastScore = playerScoreDict[playerName]?.last {
+                scoreMSG.append("\(playerName):\(lastScore),")
+            }
+        }
+        
+        // FIXME: figure out the points for the chosen player
+        playerScoreDict[chosenPlayerName]?.append(0)
+        scoreMSG.append("\(chosenPlayerName):0")
+        
+        // send score to all other players
+        sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
+        print(playerScoreDict)
     }
     
     // MARK: Play round

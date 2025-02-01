@@ -46,6 +46,21 @@ extension GameManager: GKMatchDelegate {
                             }
                         }
                     }
+                case .playerScore:
+                    if let playersScore = gameData.data["playerScore"] {
+                        let decodedMSG = playersScore.split(separator: ",").map(String.init)
+//                        print(decodedMSG) // example: ["HranýŠmoula68:3", "SimiFil:0"]
+                        
+                        for item in decodedMSG {
+                            let parts = item.split(separator: ":").map(String.init)
+                            if parts.count == 2 {
+                                let playerName = parts[0]
+                                self.playerScoreDict[playerName]?.append(Int(parts[1])!)
+                            }
+                        }
+                        
+                        print(self.playerScoreDict)
+                    }
                 case .chosenQuestion:
                     if let chosenQuestion = gameData.data["currentQuestion"] {
                         self.currentQuestion = chosenQuestion

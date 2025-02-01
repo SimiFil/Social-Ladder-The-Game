@@ -19,6 +19,7 @@ enum GameMessage: String, Codable {
     case playerOrder
     case timerSync
     case playerChoice
+    case playerScore
     case playerJoined
     case playerLeft
 }
