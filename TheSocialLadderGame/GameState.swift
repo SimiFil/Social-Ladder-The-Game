@@ -12,6 +12,5 @@ enum GameState: String, Codable {
     case waitingForPlayers
     case choosingQuestions
     case playing
-    case talking
     case finished
 }

@@ -28,8 +28,6 @@ struct MatchView: View {
                     DeckSelectionView(gameManager: gameManager)
                 case .playing:
                     GamePage(gameManager: gameManager)
-                case .talking:
-                    Text("Discussion time...")  // replace with discussion view
                 case .finished:
                     GameOverView(gm: gameManager)
                 }
