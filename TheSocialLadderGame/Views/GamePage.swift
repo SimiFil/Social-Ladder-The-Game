@@ -112,7 +112,7 @@ struct ToolbarTopButtons: View {
             }
         }
         .padding(.top, 20)
-        .fullScreenCover(isPresented: $showLeaderboard) {
+        .sheet(isPresented: $showLeaderboard) {
             LeaderboardView(gameManager: gm)
         }
     }

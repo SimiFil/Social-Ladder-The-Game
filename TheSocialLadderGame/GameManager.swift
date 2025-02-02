@@ -198,6 +198,8 @@ class GameManager: NSObject, ObservableObject {
                     playerScoreDict[playerName]?.append(1)
                     scoreMSG.append("\(playerName):1")
                 }
+                
+                scoreMSG.append(",")
             }
             
             sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
@@ -389,5 +391,13 @@ class GameManager: NSObject, ObservableObject {
         
         // Register for real-time invitations from other players.
         GKLocalPlayer.local.register(self)
+    }
+    
+    func getSortedScores() -> [(key: String, value: [Int])] {
+        return playerScoreDict.sorted { first, second in
+            let firstTotal = first.value.reduce(0, +)
+            let secondTotal = second.value.reduce(0, +)
+            return firstTotal > secondTotal
+        }
     }
 }
