@@ -80,12 +80,12 @@ extension GameManager: GKMatchDelegate {
                         self.currentRound += 1
                         print(self.currentRound)
                     }
-                case .playerJoined, .playerLeft:
-                    print("do nothing for now...")
                 case .timerSync:
                     if !self.isHost, let timeStr = gameData.data["timeRemaining"], let time = Int(timeStr) {
                         self.timeRemaining = time
                     }
+                case .gameEnded:
+                    self.gameState = .finished
                 }
             }
         } catch {

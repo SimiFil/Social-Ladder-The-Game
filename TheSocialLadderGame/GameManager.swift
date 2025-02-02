@@ -251,6 +251,8 @@ class GameManager: NSObject, ObservableObject {
     func playRound() {
         if currentRound == self.players.count {
             print("GAME ENDED")
+            gameState = .finished
+            sendDataTo(data: GameData(messageType: .gameEnded, data: [:]))
             return
         }
         
