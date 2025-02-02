@@ -92,23 +92,29 @@ struct TimeRemainingView: View {
 // MARK: Toolbar TOP buttons
 struct ToolbarTopButtons: View {
     @ObservedObject var gm: GameManager
+    @State var showSettings: Bool = false
+    @State var showLeaderboard: Bool = false
     
     var body: some View {
         HStack(spacing: 16) {
             Button {
                 // Settings action
+                showSettings.toggle()
             } label: {
                 ToolbarButton(iconName: "slider.horizontal.3")
             }
             
             Button {
                 // Leaderboard action
-                LeaderboardView(gameManager: gm) // FIXME: leaderboard view not showing.... use bool and fullDisplayCover
+                showLeaderboard.toggle()
             } label: {
                 ToolbarButton(iconName: "trophy.fill")
             }
         }
         .padding(.top, 20)
+        .fullScreenCover(isPresented: $showLeaderboard) {
+            LeaderboardView(gameManager: gm)
+        }
     }
 }
 
