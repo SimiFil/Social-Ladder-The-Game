@@ -21,7 +21,6 @@ struct GamePage: View {
                 case .playing:
                     RoundPlayingView(gameManager: gameManager)
                 case .roundEnd:
-                    // this is where i show the user correct answers
                     RoundEndedView(gameManager: gameManager)
                 }
             }

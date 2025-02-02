@@ -31,12 +31,7 @@ struct MatchView: View {
                 case .talking:
                     Text("Discussion time...")  // replace with discussion view
                 case .finished:
-                    VStack {
-                        Text("Game Over")
-                        Button("Back to Menu") {
-                            dismiss()
-                        }
-                    }
+                    GameOverView(gm: gameManager)
                 }
             }
             .navigationBarBackButtonHidden(true)

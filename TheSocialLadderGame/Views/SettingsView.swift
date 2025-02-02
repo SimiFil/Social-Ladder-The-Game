@@ -75,7 +75,6 @@ struct SettingsView: View {
                             Picker("Select Language", selection: $selectedLanguage) {
                                 ForEach(Array(languages.keys), id: \.self) { key in
                                     Text(languages[key] ?? key)
-//                                        .tag(key)
                                 }
                             }
                             .pickerStyle(.segmented)
@@ -84,7 +83,6 @@ struct SettingsView: View {
                     .padding()
                     .background(Color.black.opacity(0.3))
                     .cornerRadius(16)
-//                    .padding()
                 }
             }
         }

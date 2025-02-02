@@ -46,11 +46,9 @@ class GameManager: NSObject, ObservableObject {
     /// time
     @Published var timeRemaining: Int = 120 // 2 minutes to play // FIXME: change to constant mby
     private var syncTimer: Timer? // my timer
-    @Published var talkTime: Int = 300 // 5 minutes to talk about it
     
     /// rounds/players
     @Published var currentRound: Int = 0
-    let maxRounds: Int = 10 // MARK: MAX_ROUNDS
     let minPlayers: Int = 2 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
     
@@ -181,7 +179,6 @@ class GameManager: NSObject, ObservableObject {
     }
     
     func resolveScore() {
-        print("playerOrderDict: \(playerOrderDict)")
         let chosenPlayerOrderArray: [String] = playerOrderDict[chosenPlayerName]!
         var scoreMSG: String = ""
         
@@ -286,6 +283,12 @@ class GameManager: NSObject, ObservableObject {
             print("Only host can start the match")
             return
         }
+        
+        // refresh all stats
+        currentRound = 0
+        playerOrder.removeAll()
+        playerOrderDict.removeAll()
+        playerScoreDict.removeAll()
         
         // send all players who the host is
         sendDataTo(data: GameData(messageType: .hostID, data: ["hostID":localPlayer.gamePlayerID]))
