@@ -24,15 +24,13 @@ struct LeaderboardView: View {
                         
                         Spacer()
                         
-                        Text("Leaderboard")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                        
-                        Image(systemName: "trophy")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
+                        HStack {
+                            Text("Leaderboard")
+                            Image(systemName: "trophy")
+                        }
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.white)
                     }
                     .padding(.horizontal)
                     .padding(.top, geo.size.width/30)

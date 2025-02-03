@@ -24,53 +24,61 @@ struct GameOverView: View {
                     .opacity(0.3)
                 
                 VStack(spacing: 30) {
-                    Text("Game Over".uppercased())
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
-                    
-                    VStack(spacing: 15) {
-                        Text("The winner is:")
-                            .font(.title2)
+                    if gm.players.count < gm.minPlayers {
+                        Text("Not enough players to continue.\nPlease return the main menu.")
+                            .multilineTextAlignment(.center)
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                    } else {
+                        Text("Game Over".uppercased())
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
                             .foregroundStyle(.white)
                         
-                        Text(matchWinner)
-                            .font(.system(size: 40, weight: .heavy))
-                            .foregroundStyle(.yellow)
-                    }
-                    
-                    VStack(spacing: 20) {
-                        if gm.isHost {
-                            Button {
-                                gm.gameState = .choosingQuestions
-                            } label: {
-                                Text("Play Again")
-                                    .font(.headline)
-                                    .frame(width: geo.size.width * 0.3)
-                                    .padding()
-                                    .background(.blue)
-                                    .foregroundStyle(.white)
-                                    .cornerRadius(12)
-                            }
-                        } else {
-                            Text("Waiting for the host to start the next game.")
-                                .font(.subheadline)
+                        VStack(spacing: 15) {
+                            Text("The winner is:")
+                                .font(.title2)
                                 .foregroundStyle(.white)
+                            
+                            Text(matchWinner)
+                                .font(.system(size: 40, weight: .heavy))
+                                .foregroundStyle(.yellow)
                         }
                         
-                        Button {
-                            gm.match?.disconnect()
-                            gm.match = nil
-                            dismiss()
-                        } label: {
-                            Text("Back to Menu")
-                                .font(.headline)
-                                .frame(width: geo.size.width * 0.3)
-                                .padding()
-                                .background(.red)
-                                .foregroundStyle(.white)
-                                .cornerRadius(12)
+                        VStack(spacing: 20) {
+                            if gm.isHost {
+                                Button {
+                                    gm.gameState = .choosingQuestions
+                                } label: {
+                                    Text("Play Again")
+                                        .font(.headline)
+                                        .frame(width: geo.size.width * 0.3)
+                                        .padding()
+                                        .background(.blue)
+                                        .foregroundStyle(.white)
+                                        .cornerRadius(12)
+                                }
+                            } else {
+                                Text("Waiting for the host to start the next game.")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                            }
                         }
+                    }
+                    
+                    Button {
+                        gm.match?.disconnect()
+                        gm.match = nil
+                        dismiss()
+                    } label: {
+                        Text("Back to Menu")
+                            .font(.headline)
+                            .frame(width: geo.size.width * 0.3)
+                            .padding()
+                            .background(.red)
+                            .foregroundStyle(.white)
+                            .cornerRadius(12)
                     }
                 }
                 .padding()

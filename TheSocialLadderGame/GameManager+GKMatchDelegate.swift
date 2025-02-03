@@ -88,6 +88,14 @@ extension GameManager: GKMatchDelegate {
                     }
                 case .gameEnded:
                     self.gameState = .finished
+                case .disconnected:
+                    if let match = self.match {
+                        match.delegate = nil
+                        match.disconnect()
+                    }
+                    self.players.removeAll(where: { $0.gamePlayerID == player.gamePlayerID })
+                    self.match = nil
+                    self.gameState = .finished
                 }
             }
         } catch {

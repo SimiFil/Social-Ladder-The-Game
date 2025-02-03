@@ -21,4 +21,5 @@ enum GameMessage: String, Codable {
     case playerChoice
     case playerScore
     case gameEnded
+    case disconnected
 }

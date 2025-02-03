@@ -23,9 +23,10 @@ struct LeaveMatchView: View {
                         .padding(.bottom, geo.size.width/15)
                     
                     Button {
+                        gm.sendDataTo(data: GameData(messageType: .disconnected, data: [:]))
                         onLeave()
-                        dismiss()
                         gm.match?.disconnect()
+                        dismiss()
                         gm.match = nil
                     } label: {
                         Text("Leave Match")
