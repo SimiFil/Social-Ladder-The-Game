@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// FIXME: finish this struct
 struct RoundEndedView: View {
     @ObservedObject var gameManager: GameManager
     
@@ -15,7 +16,7 @@ struct RoundEndedView: View {
             Text("time remaining: \(gameManager.timeRemaining)")
         }
         .onAppear {
-            gameManager.startRoundTimer(time: 30) // FIXME: fix the timer
+            gameManager.startRoundTimer(time: 30)
         }
     }
 }

@@ -91,28 +91,32 @@ struct TimeRemainingView: View {
 // MARK: Toolbar TOP buttons
 struct ToolbarTopButtons: View {
     @ObservedObject var gm: GameManager
-    @State var showSettings: Bool = false
+    @State var showLeaveMatchView: Bool = false
     @State var showLeaderboard: Bool = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         HStack(spacing: 16) {
             Button {
-                // Settings action
-                showSettings.toggle()
-            } label: {
-                ToolbarButton(iconName: "slider.horizontal.3")
-            }
-            
-            Button {
-                // Leaderboard action
                 showLeaderboard.toggle()
             } label: {
                 ToolbarButton(iconName: "trophy.fill")
+            }
+            
+            Button {
+                showLeaveMatchView.toggle()
+            } label: {
+                ToolbarButton(iconName: "return", leaving: true)
             }
         }
         .padding(.top, 20)
         .sheet(isPresented: $showLeaderboard) {
             LeaderboardView(gameManager: gm)
+        }
+        .sheet(isPresented: $showLeaveMatchView) {
+            LeaveMatchView(gm: gm) {
+                dismiss()
+            }
         }
     }
 }
@@ -122,7 +126,7 @@ struct ToolbarBottomButtons: View {
     var body: some View {
         HStack {
             Button {
-                // Leaderboard action
+                // action
             } label: {
                 Text("Lock in")
             }
@@ -133,15 +137,16 @@ struct ToolbarBottomButtons: View {
 // MARK: Toolbar button
 struct ToolbarButton: View {
     let iconName: String
+    var leaving: Bool = false
     
     var body: some View {
         Image(systemName: iconName)
             .font(.system(size: 20))
-            .foregroundStyle(.textGray)
+            .foregroundStyle(leaving ? .black : .textGray)
             .frame(width: 40, height: 40)
             .background(
                 Circle()
-                    .fill(Color.black.opacity(0.2))
+                    .fill(leaving ? .red.opacity(0.8) : .black.opacity(0.2))
             )
     }
 }

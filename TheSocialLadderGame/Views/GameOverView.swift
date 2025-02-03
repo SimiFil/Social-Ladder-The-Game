@@ -60,6 +60,7 @@ struct GameOverView: View {
                         
                         Button {
                             gm.match?.disconnect()
+                            gm.match = nil
                             dismiss()
                         } label: {
                             Text("Back to Menu")

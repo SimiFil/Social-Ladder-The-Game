@@ -12,33 +12,38 @@ struct MatchView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                AppBackground()
-                
-                switch gameManager.gameState {
-                case .waitingForPlayers:
-                    VStack {
-                        Text("Waiting For Players...")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        ProgressView()
+        GeometryReader { geo in
+            NavigationStack {
+                ZStack {
+                    AppBackground()
+                    
+                    switch gameManager.gameState {
+                    case .waitingForPlayers:
+                        VStack {
+                            Text("Waiting For Players...")
+                                .font(.title)
+                                .foregroundColor(.white)
+                            ProgressView()
+                        }
+                    case .choosingQuestions:
+                        DeckSelectionView(gameManager: gameManager)
+                    case .playing:
+                        GamePage(gameManager: gameManager)
+                    case .finished:
+                        GameOverView(gm: gameManager)
                     }
-                case .choosingQuestions:
-                    DeckSelectionView(gameManager: gameManager)
-                case .playing:
-                    GamePage(gameManager: gameManager)
-                case .finished:
-                    GameOverView(gm: gameManager)
                 }
-            }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                if gameManager.gameState == .waitingForPlayers {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Leave") {
-                            gameManager.match?.disconnect()
-                            dismiss()
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                    if gameManager.gameState == .waitingForPlayers {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            GoBackButton()
+                                .padding(.top, geo.size.width/30)
+                                .onTapGesture {
+                                    gameManager.match?.disconnect()
+                                    gameManager.match = nil
+                                    dismiss()
+                                }
                         }
                     }
                 }

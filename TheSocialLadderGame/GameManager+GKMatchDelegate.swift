@@ -43,7 +43,6 @@ extension GameManager: GKMatchDelegate {
                         
                         if self.isHost {
                             self.receivedResponsesCount += 1
-//                            print("Received response \(self.receivedResponsesCount) of \(self.players.count - 1)")
                             
                             // only resolve when all responses are received
                             if self.receivedResponsesCount == self.players.count - 1 {
@@ -126,7 +125,7 @@ extension GameManager: GKMatchDelegate {
                 self.players.removeAll { $0 == player }
                 print("Player removed, remaining: \(self.players.map { $0.displayName })")
                 
-                if self.players.count < self.minPlayers {
+                if player.gamePlayerID == self.hostID || self.players.count < self.minPlayers {
                     self.errorMessage = "Not enough players to continue. Need at least \(self.minPlayers) players."
                     self.gameState = .waitingForPlayers
                 }

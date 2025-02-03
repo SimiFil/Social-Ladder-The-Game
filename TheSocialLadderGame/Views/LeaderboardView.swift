@@ -28,9 +28,14 @@ struct LeaderboardView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundStyle(.white)
+                        
+                        Image(systemName: "trophy")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
                     }
                     .padding(.horizontal)
-                    .padding(.top, geo.size.width/13)
+                    .padding(.top, geo.size.width/30)
                     
                     // MARK: leaderboard table
                     ScrollView {

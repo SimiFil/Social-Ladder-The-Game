@@ -41,9 +41,9 @@ struct SettingsView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top)
+                        .padding(.top, geo.size.width/30)
                     }
-                    .padding()
+                    .padding(.horizontal)
                     
                     VStack(alignment: .leading, spacing: 24) {
                         // MARK: Audio Settings

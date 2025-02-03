@@ -113,7 +113,6 @@ class GameManager: NSObject, ObservableObject {
                 )
                 self.sendDataTo(data: gameData)
                 
-                // FIXME: handle when timer ends -> send message round end
                 if self.timeRemaining <= 0 {
                     self.syncTimer?.invalidate()
                     
@@ -232,7 +231,6 @@ class GameManager: NSObject, ObservableObject {
             }
             
             playerScoreDict[playerName]?.append(score)
-//            print("\(playerName):\(String(describing: playerScoreDict[playerName]))")
             if let lastScore = playerScoreDict[playerName]?.last {
                 scoreMSG.append("\(playerName):\(lastScore),")
             }
@@ -275,7 +273,13 @@ class GameManager: NSObject, ObservableObject {
         currentRound += 1
     }
     
-    // MARK: Check cards and resolve score
+    // MARK: reset game stats
+    private func resetGameStats() {
+        currentRound = 0
+        playerOrder.removeAll()
+        playerOrderDict.removeAll()
+        playerScoreDict.removeAll()
+    }
     
     // MARK: Start game func
     func startMatch(with questionsType: QuestionsType) {
@@ -285,10 +289,7 @@ class GameManager: NSObject, ObservableObject {
         }
         
         // refresh all stats
-        currentRound = 0
-        playerOrder.removeAll()
-        playerOrderDict.removeAll()
-        playerScoreDict.removeAll()
+        resetGameStats()
         
         // send all players who the host is
         sendDataTo(data: GameData(messageType: .hostID, data: ["hostID":localPlayer.gamePlayerID]))
