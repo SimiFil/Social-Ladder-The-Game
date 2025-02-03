@@ -8,18 +8,25 @@
 import SwiftUI
 import AVKit
 
+enum SettingsKeys {
+    static let volume = "appVolume"
+    static let language = "selectedLanguage"
+}
+
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     var audioPlayer: AVAudioPlayer
     @Binding var volume: Float
     
-    @State private var selectedLanguage = "eng"
+    @AppStorage(SettingsKeys.language) private var selectedLanguage = "eng"
     let languages = [
         "eng": "English",
         "cz": "Čeština",
         "spa": "Español",
         "de": "Deutsch"
     ]
+    
+    private let defaults = UserDefaults.standard
     
     var body: some View {
         GeometryReader { geo in
@@ -58,6 +65,7 @@ struct SettingsView: View {
                                 
                                 VolumeSlider(volume: $volume) { newVolume in
                                     audioPlayer.volume = newVolume
+                                    defaults.set(newVolume, forKey: SettingsKeys.volume)
                                 }
                             }
                             .padding(.horizontal)
@@ -73,8 +81,11 @@ struct SettingsView: View {
                                 .foregroundColor(.white)
                             
                             Picker("Select Language", selection: $selectedLanguage) {
-                                ForEach(Array(languages.keys), id: \.self) { key in
+                                ForEach(Array(languages.keys.sorted(by: { $0 > $1 })), id: \.self) { key in
                                     Text(languages[key] ?? key)
+                                        .onTapGesture {
+                                            defaults.set(selectedLanguage, forKey: "selectedLanguage")
+                                        }
                                 }
                             }
                             .pickerStyle(.segmented)
@@ -87,6 +98,11 @@ struct SettingsView: View {
             }
         }
         .preferredColorScheme(.dark)
+        .onAppear {
+            volume = defaults.float(forKey: SettingsKeys.volume)
+            audioPlayer.volume = volume
+            selectedLanguage = defaults.string(forKey: SettingsKeys.language) ?? "eng"
+        }
     }
 }
 

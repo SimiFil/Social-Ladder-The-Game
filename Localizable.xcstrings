@@ -1,0 +1,129 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "-" : {
+
+    },
+    "@%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "👑" : {
+
+    },
+    "0" : {
+
+    },
+    "Are you sure you want to leave the match?" : {
+
+    },
+    "Audio" : {
+
+    },
+    "Back to Menu" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Coming Soon..." : {
+
+    },
+    "Game Center Required" : {
+
+    },
+    "Go Back" : {
+
+    },
+    "hi" : {
+
+    },
+    "How To Play" : {
+
+    },
+    "Language" : {
+
+    },
+    "Leaderboard" : {
+
+    },
+    "Least" : {
+
+    },
+    "Leave Match" : {
+
+    },
+    "LOCAL" : {
+
+    },
+    "Lock in" : {
+
+    },
+    "Most" : {
+
+    },
+    "Nickname" : {
+
+    },
+    "Not enough players to continue.\nPlease return the main menu." : {
+
+    },
+    "ONLINE" : {
+
+    },
+    "Open Settings" : {
+
+    },
+    "Play Again" : {
+
+    },
+    "Player" : {
+
+    },
+    "Please sign in to Game Center to play multiplayer games." : {
+
+    },
+    "R%lld" : {
+
+    },
+    "Return to Game" : {
+
+    },
+    "Select Deck" : {
+
+    },
+    "Select Language" : {
+
+    },
+    "Settings" : {
+
+    },
+    "SWIPE TO START" : {
+
+    },
+    "The winner is:" : {
+
+    },
+    "time remaining: %lld" : {
+
+    },
+    "Total" : {
+
+    },
+    "Waiting For Players..." : {
+
+    },
+    "Waiting For The Host To Select A Deck" : {
+
+    },
+    "Waiting for the host to start the next game." : {
+
+    }
+  },
+  "version" : "1.0"
+}

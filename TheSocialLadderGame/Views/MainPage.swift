@@ -50,15 +50,15 @@ struct MainPage: View {
                             }, title: "Play", icon: "gamecontroller", isLeadingIcon: true, isEnabled: gameManager.playerAuthState == .authenticated, geo: geo)
                             .disabled(gameManager.playerAuthState != .authenticated)
                             
-                            // MARK: SETTINGS
-                            MainButton(action: {
-                                showSettings = true
-                            }, title: "Settings", icon: "slider.horizontal.3", isLeadingIcon: false, isEnabled: true, geo: geo)
-                            
                             // MARK: HOW TO PLAY
                             MainButton(action: {
                                 showHowToPlayView = true
                             }, title: "How To Play", icon: "lightbulb.max.fill", isLeadingIcon: false, isEnabled: true, geo: geo, isHowToPlayButton: true)
+                            
+                            // MARK: SETTINGS
+                            MainButton(action: {
+                                showSettings = true
+                            }, title: "Settings", icon: "slider.horizontal.3", isLeadingIcon: false, isEnabled: true, geo: geo)
                         }
                         .padding(.horizontal, geo.size.width/13)
                     }

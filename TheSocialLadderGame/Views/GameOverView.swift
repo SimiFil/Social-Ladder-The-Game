@@ -21,7 +21,6 @@ struct GameOverView: View {
         GeometryReader { geo in
             ZStack {
                 AppBackground()
-                    .opacity(0.3)
                 
                 VStack(spacing: 30) {
                     if gm.players.count < gm.minPlayers {
