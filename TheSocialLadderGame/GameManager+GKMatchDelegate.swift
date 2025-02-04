@@ -50,6 +50,9 @@ extension GameManager: GKMatchDelegate {
                             }
                         }
                     }
+                case .playerLockedIn:
+                    print("\(player.displayName) is locked IN")
+                    self.playersLockedIn += 1
                 case .playerScore:
                     if let playersScore = gameData.data["playerScore"] {
                         let decodedMSG = playersScore.split(separator: ",").map(String.init)
@@ -81,6 +84,8 @@ extension GameManager: GKMatchDelegate {
                     self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
                     if roundState == .roundEnd {
                         self.currentRound += 1
+                    } else if roundState == .playing {
+                        self.isLockedIn = false
                     }
                 case .timerSync:
                     if !self.isHost, let timeStr = gameData.data["timeRemaining"], let time = Int(timeStr) {

@@ -51,6 +51,8 @@ class GameManager: NSObject, ObservableObject {
     @Published var currentRound: Int = 0
     let minPlayers: Int = 2 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
+    @Published var isLockedIn: Bool = false
+    var playersLockedIn: Int = 0
     
     var match: GKMatch?
     var gameTimer: Timer?
@@ -112,6 +114,16 @@ class GameManager: NSObject, ObservableObject {
                     data: ["timeRemaining": String(self.timeRemaining)]
                 )
                 self.sendDataTo(data: gameData)
+                
+                // if all player lock in their answers before the timer runs out
+                print("players locked in: \(playersLockedIn)")
+                if playersLockedIn == players.count {
+                    self.syncTimer?.invalidate()
+                    print("round ENDED")
+                    roundState = .roundEnd
+                    sendDataTo(data: GameData(messageType: .roundState, data: ["roundEnded":""]))                    
+                    playersLockedIn = 0
+                }
                 
                 if self.timeRemaining <= 0 {
                     self.syncTimer?.invalidate()
@@ -254,6 +266,8 @@ class GameManager: NSObject, ObservableObject {
         }
         
         // set received repsponses count to 0
+        isLockedIn = false
+        playersLockedIn = 0
         receivedResponsesCount = 0
         
         roundState = .playing
@@ -276,6 +290,7 @@ class GameManager: NSObject, ObservableObject {
     // MARK: reset game stats
     private func resetGameStats() {
         currentRound = 0
+        playersLockedIn = 0
         playerOrder.removeAll()
         playerOrderDict.removeAll()
         playerScoreDict.removeAll()

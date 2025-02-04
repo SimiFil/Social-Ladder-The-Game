@@ -39,7 +39,7 @@ struct GamePage: View {
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
-                    ToolbarBottomButtons()
+                    ToolbarBottomButtons(gameManager: gameManager)
                         .padding([.trailing, .bottom], 50)
                         .padding(.bottom)
                 }
@@ -117,7 +117,7 @@ struct ToolbarTopButtons: View {
 
 // MARK: Toolbar Bottom Button
 struct ToolbarBottomButtons: View {
-    @State var isLockedIn: Bool = false
+    @ObservedObject var gameManager: GameManager
     
     var body: some View {
         // FIXME: fix lockIn button clicking and funcionality
@@ -127,15 +127,24 @@ struct ToolbarBottomButtons: View {
                 
                 Button {
                     withAnimation(.spring(duration: 0.3)) {
-                        isLockedIn.toggle()
+                        gameManager.isLockedIn.toggle()
+                        
+                        if gameManager.isHost {
+                            gameManager.playersLockedIn += 1
+                            return
+                        }
+                        
+                        let host = gameManager.players.first(where: { $0.gamePlayerID == gameManager.hostID})!
+                        
+                        gameManager.sendDataTo(players: [host], data: GameData(messageType: .playerLockedIn, data: [:]))
                     }
                 } label: {
                     VStack(alignment: .center) {
-                        Image(systemName: isLockedIn ? "lock.fill" : "lock.open.fill")
+                        Image(systemName: gameManager.isLockedIn ? "lock.fill" : "lock.open.fill")
                             .imageScale(.large)
                             .opacity(0.8)
                         
-                        Text(isLockedIn ? "Locked In" : "Lock In")
+                        Text(gameManager.isLockedIn ? "Locked In" : "Lock In")
                             .minimumScaleFactor(0.5)
                             .font(.title2)
                     }
@@ -143,7 +152,9 @@ struct ToolbarBottomButtons: View {
                     .fontWeight(.bold)
                     .foregroundStyle(.customWhitesmoke)
                     .frame(width: 100, height: 100)
+                    .opacity(gameManager.isLockedIn ? 0.5 : 1)
                 }
+                .disabled(gameManager.isLockedIn)
             }
             .padding(.leading, geo.size.width/1.05)
         }
