@@ -24,6 +24,7 @@ struct GamePage: View {
                     RoundEndedView(gameManager: gameManager)
                 }
             }
+            .preferredColorScheme(.dark)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     TimeRemainingView(seconds: gameManager.timeRemaining)
@@ -38,16 +39,9 @@ struct GamePage: View {
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
-                    HStack {
-                        Spacer()
-                        
-                        ToolbarBottomButtons()
-                            .ignoresSafeArea()
-                            .padding()
-                    }
-                    .padding(.leading)
-                    .padding(.bottom)
-                    .padding(.trailing, -50)
+                    ToolbarBottomButtons()
+                        .padding([.trailing, .bottom], 50)
+                        .padding(.bottom)
                 }
             }
             .onAppear {
@@ -123,13 +117,35 @@ struct ToolbarTopButtons: View {
 
 // MARK: Toolbar Bottom Button
 struct ToolbarBottomButtons: View {
+    @State var isLockedIn: Bool = false
+    
     var body: some View {
-        HStack {
-            Button {
-                // action
-            } label: {
-                Text("Lock in")
+        // FIXME: fix lockIn button clicking and funcionality
+        GeometryReader { geo in
+            HStack {
+                Spacer()
+                
+                Button {
+                    withAnimation(.spring(duration: 0.3)) {
+                        isLockedIn.toggle()
+                    }
+                } label: {
+                    VStack(alignment: .center) {
+                        Image(systemName: isLockedIn ? "lock.fill" : "lock.open.fill")
+                            .imageScale(.large)
+                            .opacity(0.8)
+                        
+                        Text(isLockedIn ? "Locked In" : "Lock In")
+                            .minimumScaleFactor(0.5)
+                            .font(.title2)
+                    }
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.customWhitesmoke)
+                    .frame(width: 100, height: 100)
+                }
             }
+            .padding(.leading, geo.size.width/1.05)
         }
     }
 }

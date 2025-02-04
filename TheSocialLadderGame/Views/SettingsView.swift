@@ -18,10 +18,10 @@ struct SettingsView: View {
     var audioPlayer: AVAudioPlayer
     @Binding var volume: Float
     
-    @AppStorage(SettingsKeys.language) private var selectedLanguage = "eng"
+    @AppStorage(SettingsKeys.language) private var selectedLanguage = getDefaultLanguage()
     let languages = [
         "eng": "English",
-        "cz": "Čeština",
+        "cs-CZ": "Čeština",
         "spa": "Español",
         "de": "Deutsch"
     ]
@@ -48,9 +48,9 @@ struct SettingsView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-                        .padding(.top, geo.size.width/30)
                     }
                     .padding(.horizontal)
+                    .padding(.top, -geo.size.width/30)
                     
                     VStack(alignment: .leading, spacing: 24) {
                         // MARK: Audio Settings
@@ -149,6 +149,16 @@ struct VolumeSlider: View {
         }
         .frame(height: 50)
     }
+}
+
+func getDefaultLanguage() -> String {
+    // Get the system's preferred languages
+    let preferredLanguages = Locale.preferredLanguages
+    
+    // Get the first preferred language code
+    let primaryLanguage = preferredLanguages.first ?? "eng"
+    
+    return primaryLanguage
 }
 
 #Preview(traits: .landscapeRight) {

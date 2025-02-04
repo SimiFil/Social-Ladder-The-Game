@@ -20,73 +20,220 @@
 
     },
     "Are you sure you want to leave the match?" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opravdu chceš opustit tento zápas?"
+          }
+        }
+      }
     },
     "Audio" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zvuk"
+          }
+        }
+      }
     },
     "Back to Menu" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zpět do menu"
+          }
+        }
+      }
     },
     "Cancel" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zrušit"
+          }
+        }
+      }
     },
     "Coming Soon..." : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Již Brzy…"
+          }
+        }
+      }
     },
     "Game Center Required" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potřebné Game Center"
+          }
+        }
+      }
     },
     "Go Back" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zpět"
+          }
+        }
+      }
     },
     "hi" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ahoj"
+          }
+        }
+      }
     },
     "How To Play" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jak Se To Hraje"
+          }
+        }
+      }
     },
     "Language" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jazyk"
+          }
+        }
+      }
     },
     "Leaderboard" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pořadí"
+          }
+        }
+      }
     },
     "Least" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejméně"
+          }
+        }
+      }
     },
     "Leave Match" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opustit zápas"
+          }
+        }
+      }
     },
     "LOCAL" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOKÁLNĚ"
+          }
+        }
+      }
     },
     "Lock in" : {
 
     },
     "Most" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejvíce"
+          }
+        }
+      }
     },
     "Nickname" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přezdívka"
+          }
+        }
+      }
     },
     "Not enough players to continue.\nPlease return the main menu." : {
 
     },
     "ONLINE" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ONLINE"
+          }
+        }
+      }
     },
     "Open Settings" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřít Nastavení"
+          }
+        }
+      }
     },
     "Play Again" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hrát Znovu"
+          }
+        }
+      }
     },
     "Player" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hráč"
+          }
+        }
+      }
     },
     "Please sign in to Game Center to play multiplayer games." : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím přihlaste se do Game Center, abyste mohli hrát tuto hru."
+          }
+        }
+      }
     },
     "R%lld" : {
 
@@ -98,10 +245,24 @@
 
     },
     "Select Language" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyber jazyk"
+          }
+        }
+      }
     },
     "Settings" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavení"
+          }
+        }
+      }
     },
     "SWIPE TO START" : {
 
@@ -113,13 +274,34 @@
 
     },
     "Total" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Celkem"
+          }
+        }
+      }
     },
     "Waiting For Players..." : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čekáme na hráče…"
+          }
+        }
+      }
     },
     "Waiting For The Host To Select A Deck" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Čekání až hostitel vybere balíček"
+          }
+        }
+      }
     },
     "Waiting for the host to start the next game." : {
 
