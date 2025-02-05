@@ -20,8 +20,8 @@ struct SettingsView: View {
     
     @StateObject private var languageManager = LanguageManager.shared
     let languages = [
-        "eng": "English",
-        "cs": "Čeština",
+        "eng-US": "English",
+        "cs-CZ": "Čeština",
         "spa": "Español",
         "de": "Deutsch"
     ]
@@ -83,6 +83,7 @@ struct SettingsView: View {
                             Picker("Select Language", selection: $languageManager.currentLanguage) {
                                 ForEach(Array(languages.keys.sorted(by: { $0 > $1 })), id: \.self) { key in
                                     Text(languages[key] ?? key)
+                                        .tag(key)
                                 }
                             }
                             .pickerStyle(.palette)
@@ -96,7 +97,6 @@ struct SettingsView: View {
         }
         .preferredColorScheme(.dark)
         .onAppear {
-            volume = defaults.float(forKey: SettingsKeys.volume)
             audioPlayer.volume = volume
         }
     }
@@ -164,7 +164,7 @@ func getDefaultLanguage() -> String {
     case "de":
         return "de"
     default:
-        return "eng"
+        return "eng-US"
     }
 }
 

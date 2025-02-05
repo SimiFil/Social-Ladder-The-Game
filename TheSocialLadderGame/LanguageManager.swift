@@ -13,6 +13,7 @@ class LanguageManager: ObservableObject {
     @Published var currentLanguage: String {
         didSet {
             UserDefaults.standard.set(currentLanguage, forKey: SettingsKeys.language)
+            print(currentLanguage)
         }
     }
     
