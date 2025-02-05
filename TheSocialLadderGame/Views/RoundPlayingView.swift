@@ -28,7 +28,7 @@ struct RoundPlayingView: View {
                 
                 VStack(alignment: .center) {
                     // MARK: Question
-                    Text(gameManager.currentQuestion ?? "Question was NOT found")
+                    Text(LocalizedStringKey(gameManager.currentQuestion ?? "Question was NOT found"))
                         .font(.title)
                         .frame(width: geo.size.width/2, height: geo.size.height/6)
                         .padding(.top, geo.size.width/30)

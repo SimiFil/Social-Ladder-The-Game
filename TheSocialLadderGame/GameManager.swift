@@ -134,11 +134,6 @@ class GameManager: NSObject, ObservableObject {
                     } else if roundState == .roundEnd {
                         print("round STARTS")
                         roundState = .playing
-                        
-                        
-                        if playRound() == false {
-                            self.syncTimer?.invalidate()
-                        }
                     }
                 }
             }
@@ -260,14 +255,14 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Play round
-    func playRound() -> Bool {
-        guard players.count > minPlayers else { return false }
+    func playRound() {
+        guard players.count >= minPlayers else { return }
         
         if currentRound == self.players.count {
             print("GAME ENDED")
             gameState = .finished
             sendDataTo(data: GameData(messageType: .gameEnded, data: [:]))
-            return true
+            return
         }
         
         // set received repsponses count to 0
@@ -290,8 +285,6 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         
         currentRound += 1
-        
-        return true
     }
     
     // MARK: reset game stats
@@ -331,9 +324,10 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: gameData)
         gameState = .playing
         
-        if playRound() == false {
-            syncTimer?.invalidate()
-        }
+        playRound()
+//        if playRound() == false {
+//            syncTimer?.invalidate()
+//        }
     }
     
     // MARK: Send data to players

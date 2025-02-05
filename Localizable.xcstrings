@@ -798,6 +798,926 @@
           }
         }
       }
+    },
+    "Who has the most adventurous travel stories?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdobrodružnější cestovatelské příběhy?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die abenteuerlichsten Reisegeschichten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene las historias de viaje más aventureras?"
+          }
+        }
+      }
+    },
+    "Who has the most contagious laugh?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejnákaznější smích?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das ansteckendste Lachen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la risa más contagiosa?"
+          }
+        }
+      }
+    },
+    "Who is most likely to become a professional artist?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se stane profesionálním umělcem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten ein professioneller Künstler werden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a convertirse en un artista profesional?"
+          }
+        }
+      }
+    },
+    "Who is most likely to come up with the best game idea?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že přijde s nejlepším herním nápadem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten die beste Spielidee entwickeln?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a proponer la mejor idea de juego?"
+          }
+        }
+      }
+    },
+    "Who is most likely to cry during a movie?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se rozbrečí při filmu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei einem Film am ehesten weinen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a llorar durante una película?"
+          }
+        }
+      }
+    },
+    "Who is most likely to get up early to watch the sunrise?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že vstane brzy, aby sledoval východ slunce?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten früh aufstehen, um den Sonnenaufgang zu sehen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a levantarse temprano para ver el amanecer?"
+          }
+        }
+      }
+    },
+    "Who is most likely to start a viral social media trend?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že začne virální trend na sociálních sítích?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen viralen Social-Media-Trend starten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a iniciar una tendencia viral en redes sociales?"
+          }
+        }
+      }
+    },
+    "Who is most likely to take up an unusual hobby?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se ujme neobvyklého koníčku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten ein ungewöhnliches Hobby aufnehmen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a adoptar un pasatiempo inusual?"
+          }
+        }
+      }
+    },
+    "Who is most likely to win a singing competition?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější vítěz pěvecké soutěže?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen Gesangswettbewerb gewinnen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a ganar una competencia de canto?"
+          }
+        }
+      }
+    },
+    "Who is most likely to win a sports competition?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější vítěz sportovní soutěže?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen Sportwettbewerb gewinnen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a ganar una competencia deportiva?"
+          }
+        }
+      }
+    },
+    "Who is most likely to write a book?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že napíše knihu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten ein Buch schreiben?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a escribir un libro?"
+          }
+        }
+      }
+    },
+    "Who is the best at keeping calm under pressure?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v zachování klidu pod tlakem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer bleibt am besten unter Druck ruhig?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor manteniendo la calma bajo presión?"
+          }
+        }
+      }
+    },
+    "Who is the best at making new friends?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v navazování nových přátelství?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am besten darin, neue Freunde zu finden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor haciendo nuevos amigos?"
+          }
+        }
+      }
+    },
+    "Who is the best at organizing events?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v organizování akcí?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am besten darin, Veranstaltungen zu organisieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor organizando eventos?"
+          }
+        }
+      }
+    },
+    "Who is the best at planning trips?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v plánování cest?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am besten darin, Reisen zu planen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor planeando viajes?"
+          }
+        }
+      }
+    },
+    "Who is the best listener in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší posluchač ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist in der Gruppe der beste Zuhörer?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor escuchando en el grupo?"
+          }
+        }
+      }
+    },
+    "Who is the best storyteller in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší vypravěč ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist in der Gruppe der beste Geschichtenerzähler?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor narrador del grupo?"
+          }
+        }
+      }
+    },
+    "Who is the most adventurous eater?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejdobrodružnější jedlík?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist der abenteuerlustigste Esser?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más aventurero comiendo?"
+          }
+        }
+      }
+    },
+    "Who is the most competitive in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejsoutěživější ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist im Gruppe am wettbewerbsfähigsten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más competitivo del grupo?"
+          }
+        }
+      }
+    },
+    "Who is the most creative in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejkreativnější ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist in der Gruppe am kreativsten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más creativo del grupo?"
+          }
+        }
+      }
+    },
+    "Who is the most detail-oriented?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpečlivější v detailech?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am detailliertesten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más meticuloso?"
+          }
+        }
+      }
+    },
+    "Who is the most likely to become famous?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se stane slavným?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten berühmt werden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a volverse famoso?"
+          }
+        }
+      }
+    },
+    "Who is the most organized in their day-to-day life?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejorganizovanější ve svém každodenním životě?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist im Alltag am besten organisiert?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más organizado en su vida diaria?"
+          }
+        }
+      }
+    },
+    "Who would ace a puzzle challenge?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by excelentně zvládl výzvu s puzzle?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Puzzle-Herausforderung meistern?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién destacaría en un desafío de rompecabezas?"
+          }
+        }
+      }
+    },
+    "Who would be the best at decorating a home?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší v zařizování domova?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am besten darin, ein Zuhause zu dekorieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor decorando una casa?"
+          }
+        }
+      }
+    },
+    "Who would be the best at keeping a secret?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší v udržení tajemství?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am besten darin, ein Geheimnis zu bewahren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor guardando un secreto?"
+          }
+        }
+      }
+    },
+    "Who would be the best at learning a new language?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší v učení se nového jazyka?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am besten darin, eine neue Sprache zu lernen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor aprendiendo un nuevo idioma?"
+          }
+        }
+      }
+    },
+    "Who would be the best at stand-up comedy?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší ve stand-up comedy?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am besten bei Stand-up-Comedy?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor en comedia en vivo?"
+          }
+        }
+      }
+    },
+    "Who would be the first to volunteer for a good cause?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl první, kdo se přihlásí dobrovolníkem pro dobrou věc?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde sich als Erster für eine gute Sache melden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el primero en ser voluntario para una buena causa?"
+          }
+        }
+      }
+    },
+    "Who would be the most fashionable in a high-profile event?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlépe oblečený na významné akci?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei einem High-Profile-Event am modischsten aussehen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el más elegante en un evento de alto perfil?"
+          }
+        }
+      }
+    },
+    "Who would be the most successful in starting their own business?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejúspěšnější v založení vlastního podnikání?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre beim Gründen eines eigenen Unternehmens am erfolgreichsten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tendría más éxito iniciando su propio negocio?"
+          }
+        }
+      }
+    },
+    "Who would host the best dinner party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by uspořádal nejlepší večeři?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die beste Dinnerparty ausrichten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría la mejor cena?"
+          }
+        }
+      }
+    },
+    "Who would make the best motivational speaker?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepším motivačním řečníkem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre der beste Motivationsredner?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor orador motivacional?"
+          }
+        }
+      }
+    },
+    "Who would make the best teacher?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepším učitelem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde der beste Lehrer sein?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor maestro?"
+          }
+        }
+      }
+    },
+    "Who would perform best in a talent show?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by nejlépe uspěl v talentové soutěži?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde in einer Talentshow am besten performen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tendría el mejor desempeño en un show de talentos?"
+          }
+        }
+      }
+    },
+    "Who would run the most successful charity fundraiser?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by zorganizoval nejúspěšnější dobročinnou sbírku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die erfolgreichste Wohltätigkeitsveranstaltung durchführen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría la recaudación de fondos benéfica más exitosa?"
+          }
+        }
+      }
+    },
+    "Who would spend the longest binge-watching TV shows?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by strávil nejdelší dobu sledováním seriálů v jednom zápřahu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am längsten TV-Serien am Stück schauen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién pasaría más tiempo viendo series de televisión sin parar?"
+          }
+        }
+      }
+    },
+    "Who would survive the longest in a wilderness survival challenge?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by přežil nejdéle v divočině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Überlebensherausforderung in der Wildnis am längsten überstehen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sobreviviría más tiempo en un desafío de supervivencia en la naturaleza?"
+          }
+        }
+      }
+    },
+    "Who would survive the longest on a deserted island?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by přežil nejdéle na opuštěném ostrově?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde auf einer einsamen Insel am längsten überleben?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sobreviviría más tiempo en una isla desierta?"
+          }
+        }
+      }
+    },
+    "Who would win a marathon?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by vyhrál maraton?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde einen Marathon gewinnen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ganaría un maratón?"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

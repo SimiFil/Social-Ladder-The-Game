@@ -143,9 +143,10 @@ struct ToolbarBottomButtons: View {
                         Image(systemName: gameManager.isLockedIn ? "lock.fill" : "lock.open.fill")
                             .imageScale(.large)
                             .opacity(0.8)
+                            .lineLimit(1)
+                            
                         
                         Text(gameManager.isLockedIn ? "Locked In" : "Lock In")
-                            .minimumScaleFactor(0.5)
                             .font(.title2)
                     }
                     .font(.title)
@@ -153,6 +154,7 @@ struct ToolbarBottomButtons: View {
                     .foregroundStyle(.customWhitesmoke)
                     .frame(width: 100, height: 100)
                     .opacity(gameManager.isLockedIn ? 0.5 : 1)
+                    .minimumScaleFactor(0.5)
                 }
                 .disabled(gameManager.isLockedIn)
             }
