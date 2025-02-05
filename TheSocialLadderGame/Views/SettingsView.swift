@@ -18,10 +18,10 @@ struct SettingsView: View {
     var audioPlayer: AVAudioPlayer
     @Binding var volume: Float
     
-    @AppStorage(SettingsKeys.language) private var selectedLanguage = getDefaultLanguage()
+    @StateObject private var languageManager = LanguageManager.shared
     let languages = [
         "eng": "English",
-        "cs-CZ": "Čeština",
+        "cs": "Čeština",
         "spa": "Español",
         "de": "Deutsch"
     ]
@@ -42,7 +42,7 @@ struct SettingsView: View {
                         
                         HStack {
                             Text("Settings")
-                                
+                            
                             Image(systemName: "gear")
                         }
                         .font(.title)
@@ -80,15 +80,12 @@ struct SettingsView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                             
-                            Picker("Select Language", selection: $selectedLanguage) {
+                            Picker("Select Language", selection: $languageManager.currentLanguage) {
                                 ForEach(Array(languages.keys.sorted(by: { $0 > $1 })), id: \.self) { key in
                                     Text(languages[key] ?? key)
-                                        .onTapGesture {
-                                            defaults.set(selectedLanguage, forKey: "selectedLanguage")
-                                        }
                                 }
                             }
-                            .pickerStyle(.segmented)
+                            .pickerStyle(.palette)
                         }
                     }
                     .padding()
@@ -101,7 +98,6 @@ struct SettingsView: View {
         .onAppear {
             volume = defaults.float(forKey: SettingsKeys.volume)
             audioPlayer.volume = volume
-            selectedLanguage = defaults.string(forKey: SettingsKeys.language) ?? "eng"
         }
     }
 }
@@ -156,9 +152,20 @@ func getDefaultLanguage() -> String {
     let preferredLanguages = Locale.preferredLanguages
     
     // Get the first preferred language code
-    let primaryLanguage = preferredLanguages.first ?? "eng"
+    let primaryLanguage = preferredLanguages.first?.split(separator: "-").first ?? "en"
     
-    return primaryLanguage
+    switch primaryLanguage {
+    case "en":
+        return "eng"
+    case "cs":
+        return "cs-CZ"
+    case "es":
+        return "spa"
+    case "de":
+        return "de"
+    default:
+        return "eng"
+    }
 }
 
 #Preview(traits: .landscapeRight) {

@@ -116,7 +116,6 @@ class GameManager: NSObject, ObservableObject {
                 self.sendDataTo(data: gameData)
                 
                 // if all player lock in their answers before the timer runs out
-                print("players locked in: \(playersLockedIn)")
                 if playersLockedIn == players.count {
                     self.syncTimer?.invalidate()
                     print("round ENDED")
@@ -135,7 +134,11 @@ class GameManager: NSObject, ObservableObject {
                     } else if roundState == .roundEnd {
                         print("round STARTS")
                         roundState = .playing
-                        playRound()
+                        
+                        
+                        if playRound() == false {
+                            self.syncTimer?.invalidate()
+                        }
                     }
                 }
             }
@@ -257,12 +260,14 @@ class GameManager: NSObject, ObservableObject {
     }
     
     // MARK: Play round
-    func playRound() {
+    func playRound() -> Bool {
+        guard players.count > minPlayers else { return false }
+        
         if currentRound == self.players.count {
             print("GAME ENDED")
             gameState = .finished
             sendDataTo(data: GameData(messageType: .gameEnded, data: [:]))
-            return
+            return true
         }
         
         // set received repsponses count to 0
@@ -285,6 +290,8 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         
         currentRound += 1
+        
+        return true
     }
     
     // MARK: reset game stats
@@ -324,7 +331,9 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: gameData)
         gameState = .playing
         
-        playRound()
+        if playRound() == false {
+            syncTimer?.invalidate()
+        }
     }
     
     // MARK: Send data to players

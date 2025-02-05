@@ -115,7 +115,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jak Se To Hraje"
+            "value" : "Jak to funguje?"
           }
         }
       }
@@ -174,10 +174,24 @@
       }
     },
     "Lock In" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzavřít výběr"
+          }
+        }
+      }
     },
     "Locked In" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Výběr uzavřen"
+          }
+        }
+      }
     },
     "Most" : {
       "localizations" : {
@@ -200,7 +214,14 @@
       }
     },
     "Not enough players to continue.\nPlease return the main menu." : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Není dostatek hráčů na pokračování.\nVraťte se prosím do hlavní nabídky."
+          }
+        }
+      }
     },
     "ONLINE" : {
       "localizations" : {
