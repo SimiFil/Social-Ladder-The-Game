@@ -26,6 +26,18 @@
             "state" : "translated",
             "value" : "Opravdu chceš opustit tento zápas?"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du das Spiel wirklich verlassen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás seguro de que quieres abandonar la partida?"
+          }
         }
       }
     },
@@ -35,6 +47,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zvuk"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio"
           }
         }
       }
@@ -46,6 +70,18 @@
             "state" : "translated",
             "value" : "Zpět do menu"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück zum Menü"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver al Menú"
+          }
         }
       }
     },
@@ -55,6 +91,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zrušit"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         }
       }
@@ -66,6 +114,18 @@
             "state" : "translated",
             "value" : "Již Brzy…"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demnächst..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximamente..."
+          }
         }
       }
     },
@@ -76,16 +136,40 @@
             "state" : "translated",
             "value" : "Potřebné Game Center"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center erforderlich"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center Requerido"
+          }
         }
       }
     },
     "GAME OVER" : {
-      "extractionState" : "manual",
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "KONEC HRY"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SPIEL VORBEI"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JUEGO TERMINADO"
           }
         }
       }
@@ -97,6 +181,18 @@
             "state" : "translated",
             "value" : "Zpět"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver"
+          }
         }
       }
     },
@@ -105,7 +201,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ahoj"
+            "value" : "Ahoj"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hallo"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola"
           }
         }
       }
@@ -117,11 +225,20 @@
             "state" : "translated",
             "value" : "Jak to funguje?"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spielanleitung"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cómo Jugar"
+          }
         }
       }
-    },
-    "Key" : {
-      "extractionState" : "manual"
     },
     "Language" : {
       "localizations" : {
@@ -129,6 +246,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jazyk"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Idioma"
           }
         }
       }
@@ -140,6 +269,18 @@
             "state" : "translated",
             "value" : "Pořadí"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestenliste"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clasificación"
+          }
         }
       }
     },
@@ -149,6 +290,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nejméně"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am wenigsten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menos"
           }
         }
       }
@@ -160,6 +313,18 @@
             "state" : "translated",
             "value" : "Opustit zápas"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spiel verlassen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dejar el partido"
+          }
         }
       }
     },
@@ -169,6 +334,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LOKÁLNĚ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOCAL"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LOCAL"
           }
         }
       }
@@ -180,6 +357,18 @@
             "state" : "translated",
             "value" : "Uzavřít výběr"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmar"
+          }
         }
       }
     },
@@ -189,6 +378,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Výběr uzavřen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmado"
           }
         }
       }
@@ -200,6 +401,18 @@
             "state" : "translated",
             "value" : "Nejvíce"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am meisten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más"
+          }
         }
       }
     },
@@ -209,6 +422,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Přezdívka"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spitzname"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apodo"
           }
         }
       }
@@ -220,6 +445,18 @@
             "state" : "translated",
             "value" : "Není dostatek hráčů na pokračování.\nVraťte se prosím do hlavní nabídky."
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht genug Spieler zum Fortfahren.\nBitte kehre zum Hauptmenü zurück."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay suficientes jugadores para continuar.\nPor favor, vuelve al menú principal."
+          }
         }
       }
     },
@@ -230,6 +467,18 @@
             "state" : "translated",
             "value" : "ONLINE"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ONLINE"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EN LÍNEA"
+          }
         }
       }
     },
@@ -238,18 +487,41 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Otevřít Nastavení"
+            "value" : "Otevřít nastavení"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen öffnen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Configuración"
           }
         }
       }
     },
     "Play" : {
-      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hraj"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spielen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar"
           }
         }
       }
@@ -259,7 +531,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hrát Znovu"
+            "value" : "Hrát znovu"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nochmal Spielen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugar de nuevo"
           }
         }
       }
@@ -271,6 +555,18 @@
             "state" : "translated",
             "value" : "Hráč"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spieler"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jugador"
+          }
         }
       }
     },
@@ -279,7 +575,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prosím přihlaste se do Game Center, abyste mohli hrát tuto hru."
+            "value" : "Prosím přihlas se do Game Center, aby jsi mohl hrát multiplayer."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte melden Sie sich im Game Center an, um Multiplayer-Spiele zu spielen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicie sesión en Game Center para jugar juegos multijugador."
           }
         }
       }
@@ -294,6 +602,18 @@
             "state" : "translated",
             "value" : "Zpět do hry"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück zum Spielen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver al juego"
+          }
         }
       }
     },
@@ -303,6 +623,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vyber balíček otázek"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deck Auswählen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar mazo"
           }
         }
       }
@@ -314,6 +646,18 @@
             "state" : "translated",
             "value" : "Vyber jazyk"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache auswählen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar idioma"
+          }
         }
       }
     },
@@ -323,6 +667,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nastavení"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes"
           }
         }
       }
@@ -337,6 +693,18 @@
             "state" : "translated",
             "value" : "Vítěz:"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Gewinner ist:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El ganador es:"
+          }
         }
       }
     },
@@ -350,6 +718,18 @@
             "state" : "translated",
             "value" : "Celkem"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total"
+          }
         }
       }
     },
@@ -360,6 +740,18 @@
             "state" : "translated",
             "value" : "Čeká se na hráče…"
           }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte auf Spieler..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperando Jugadores..."
+          }
         }
       }
     },
@@ -368,7 +760,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Čekání až hostitel vybere balíček"
+            "value" : "Počkej než host vybere balíček otázek."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warten darauf, dass der Host ein Deck auswählt"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperando a que el anfitrión seleccione una baraja"
           }
         }
       }
@@ -378,7 +782,19 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Počkej než hostitel začne další hru."
+            "value" : "Čekání než host začne hru."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warten darauf, dass der Gastgeber das nächste Spiel startet.\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esperando a que el anfitrión comience el próximo juego."
           }
         }
       }
