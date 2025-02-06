@@ -25,7 +25,7 @@ struct DeckCard: View {
                         .fill(.ultraThinMaterial.opacity(0.3))
                         .frame(width: 80, height: 80)
                         .overlay {
-                            Image(systemName: "book.fill")
+                            Image(systemName: type.icon)
                                 .font(.system(size: 30))
                                 .foregroundStyle(.white)
                         }

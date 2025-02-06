@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 // MARK: Question Types
 enum QuestionsType: String, CaseIterable {
@@ -29,7 +30,7 @@ enum QuestionsType: String, CaseIterable {
         }
     }
     
-    var name: String {
+    var name: LocalizedStringKey {
         switch self {
         case .basicQuestions:
             "Basic Questions"
@@ -39,6 +40,19 @@ enum QuestionsType: String, CaseIterable {
             "Wild Questions"
         case .customQuestions:
             "Custom Questions"
+        }
+    }
+    
+    var icon: String {
+        switch self {
+        case .basicQuestions:
+            "text.book.closed"
+        case .partyQuestions:
+            "party.popper"
+        case .wildQuestions:
+            "flame"
+        case .customQuestions:
+            "pencil"
         }
     }
 }

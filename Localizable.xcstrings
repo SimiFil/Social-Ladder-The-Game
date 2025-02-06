@@ -85,6 +85,29 @@
         }
       }
     },
+    "Basic Questions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Normální Otázky"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grundlegende Fragen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas basicas"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "cs" : {
@@ -129,6 +152,29 @@
         }
       }
     },
+    "Custom Questions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vlastní otázky"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzerdefinierte Fragen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas personalizadas"
+          }
+        }
+      }
+    },
     "Game Center Required" : {
       "localizations" : {
         "cs" : {
@@ -152,7 +198,7 @@
       }
     },
     "GAME OVER" : {
-      "extractionState" : "stale",
+      "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -223,7 +269,7 @@
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jak to funguje?"
+            "value" : "Jak Hrát"
           }
         },
         "de" : {
@@ -500,6 +546,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Abrir Configuración"
+          }
+        }
+      }
+    },
+    "Party Questions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Párty Otázky"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parteifragen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas del partido"
           }
         }
       }
@@ -4843,6 +4912,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién ganaría un maratón?"
+          }
+        }
+      }
+    },
+    "Wild Questions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Divoké otázky"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wilde Fragen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preguntas salvajes"
           }
         }
       }

@@ -131,9 +131,11 @@ class GameManager: NSObject, ObservableObject {
                         print("round ENDED")
                         roundState = .roundEnd
                         sendDataTo(data: GameData(messageType: .roundState, data: ["roundEnded":""]))
+                        isLockedIn = true
                     } else if roundState == .roundEnd {
                         print("round STARTS")
                         roundState = .playing
+                        isLockedIn = false
                     }
                 }
             }
