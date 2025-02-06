@@ -84,6 +84,7 @@ extension GameManager: GKMatchDelegate {
                     self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
                     if roundState == .roundEnd {
                         self.currentRound += 1
+                        self.isLockedIn = true
                     } else if roundState == .playing {
                         self.isLockedIn = false
                     }

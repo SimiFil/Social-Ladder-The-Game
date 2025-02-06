@@ -799,6 +799,972 @@
         }
       }
     },
+    "What's the best costume someone has seen at a costume party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaký je nejlepší kostým, který někdo viděl na maškarním plese?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war das beste Kostüm, das jemand auf einer Kostümparty gesehen hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el mejor disfraz que alguien ha visto en una fiesta de disfraces?"
+          }
+        }
+      }
+    },
+    "What’s the best drinking game someone has played?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejlepší pitná hra, kterou někdo hrál?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist das beste Trinkspiel, das jemand gespielt hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el mejor juego de beber que alguien ha jugado?"
+          }
+        }
+      }
+    },
+    "What's the best party snack?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaké je nejlepší pohoštění na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist der beste Partyschnack?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el mejor bocadillo de fiesta?"
+          }
+        }
+      }
+    },
+    "What's the best prank someone has pulled during a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaký je nejlepší žertík, který někdo provedl na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war der beste Streich, den jemand auf einer Party gespielt hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la mejor broma que alguien ha hecho en una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the craziest theme someone has had for a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaké je nejšílenější téma, které někdo měl na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war das verrückteste Thema, das jemand für eine Party hatte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el tema más loco que alguien ha tenido para una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the funniest dare someone has done at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejzábavnější výzva, kterou někdo splnil na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war die lustigste Mutprobe, die jemand auf einer Party gemacht hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el reto más gracioso que alguien ha hecho en una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the funniest photo someone has from a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejzábavnější fotka, kterou někdo má z párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist das lustigste Foto, das jemand von einer Party hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la foto más graciosa que alguien tiene de una fiesta?"
+          }
+        }
+      }
+    },
+    "What’s the funniest thing that happened at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co je nejvtipnější věc, která se stala na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist das Lustigste, das auf einer Party passiert ist?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la cosa más divertida que ha sucedido en una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the most awkward party story someone has?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaký je nejneobhájitelnější příběh z párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist die peinlichste Partygeschichte, die jemand hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la historia más incómoda de una fiesta que alguien tiene?"
+          }
+        }
+      }
+    },
+    "What's the most creative drinking rule for a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaké je nejkreativnější pravidlo pro pití na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist die kreativste Trinkregel für eine Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la regla de beber más creativa para una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the most epic party someone's hosted or attended?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejepičtější párty, kterou někdo hostil nebo které byl součástí?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war die epischste Party, die jemand ausgerichtet oder besucht hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la fiesta más épica que alguien ha organizado o a la que ha asistido?"
+          }
+        }
+      }
+    },
+    "What's the most memorable toast someone's heard?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaký je nejpamátnější přípitek, který někdo slyšel?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war der unvergesslichste Toast, den jemand gehört hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es el brindis más memorable que alguien ha escuchado?"
+          }
+        }
+      }
+    },
+    "What's the most unforgettable party someone has ever attended?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejnezapomenutelnější párty, které někdo někdy byl?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war die unvergesslichste Party, die jemand je besucht hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la fiesta más inolvidable a la que alguien ha asistido?"
+          }
+        }
+      }
+    },
+    "What's the silliest thing someone has done at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co je největší hlouposti, kterou někdo na párty udělal?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war das dümmste, was jemand auf einer Party gemacht hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la cosa más tonta que alguien ha hecho en una fiesta?"
+          }
+        }
+      }
+    },
+    "What's the weirdest drink combo someone has tried?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejpodivnější kombinace nápojů, kterou někdo zkusil?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war die seltsamste Getränkekombination, die jemand probiert hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la combinación de bebidas más extraña que alguien ha probado?"
+          }
+        }
+      }
+    },
+    "What's the weirdest party someone has been to?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jaká je nejdivnější párty, které někdo byl?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was war die merkwürdigste Party, auf der jemand war?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuál es la fiesta más extraña a la que alguien ha asistido?"
+          }
+        }
+      }
+    },
+    "Who brings the best party snacks?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo nosí nejlepší párty občerstvení?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer bringt die besten Party-Snacks mit?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién trae los mejores aperitivos para la fiesta?"
+          }
+        }
+      }
+    },
+    "Who can chug a drink the fastest?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo dokáže nejrychleji vypít drink?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer kann ein Getränk am schnellsten exen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién puede beberse un trago más rápido?"
+          }
+        }
+      }
+    },
+    "Who has been to the most unforgettable party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo byl na nejnezapomenutelnější párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer war auf der unvergesslichsten Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha estado en la fiesta más inolvidable?"
+          }
+        }
+      }
+    },
+    "Who has been to the weirdest party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo byl na nejpodivnější párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer war auf der seltsamsten Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha estado en la fiesta más extraña?"
+          }
+        }
+      }
+    },
+    "Who has been to the wildest party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo byl na nejdivočejší párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer war auf der wildesten Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha estado en la fiesta más salvaje?"
+          }
+        }
+      }
+    },
+    "Who has completed the wildest dare?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo splnil nejšílenější výzvu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildeste Mutprobe gemeistert?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha completado el reto más loco?"
+          }
+        }
+      }
+    },
+    "Who has done the funniest dare at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo splnil tu nejvtipnější výzvu na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die lustigste Mutprobe auf einer Party gemacht?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha hecho el reto más divertido en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who has done the silliest thing at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo udělal na párty tu nejhloupější věc?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das albernste Ding auf einer Party gemacht?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha hecho la cosa más tonta en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who has experienced the most awkward night out?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo zažil nejnepatrnější noc venku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hatte den peinlichsten Abend?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha tenido la noche más incómoda?"
+          }
+        }
+      }
+    },
+    "Who has had the weirdest date experience?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejpodivnější zkušenost ze rande?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hatte die seltsamste Verabredung?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha tenido la experiencia de cita más extraña?"
+          }
+        }
+      }
+    },
+    "Who has heard the most memorable toast?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo slyšel ten nejpamátnější přípitek?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den denkwürdigsten Trinkspruch gehört?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha escuchado el brindis más memorable?"
+          }
+        }
+      }
+    },
+    "Who has hosted or attended the most epic party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo uspořádal nebo navštívil nejepičtější párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die epischste Party veranstaltet oder besucht?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha organizado o asistido a la fiesta más épica?"
+          }
+        }
+      }
+    },
+    "Who has invented the most creative cocktail?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo vymyslel nejkreativnější koktejl?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den kreativsten Cocktail erfunden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha inventado el cóctel más creativo?"
+          }
+        }
+      }
+    },
+    "Who has made the craziest drunk purchase?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo udělal nejšílenější nákup v opilosti?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den verrücktesten Einkauf unter Alkoholeinfluss getätigt?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha hecho la compra más loca estando borracho?"
+          }
+        }
+      }
+    },
+    "Who has made the most embarrassing drunk confession?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo udělal nejtrápnější opilecké přiznání?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das peinlichste Geständnis unter Alkoholeinfluss gemacht?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha hecho la confesión más vergonzosa estando borracho?"
+          }
+        }
+      }
+    },
+    "Who has played the most creative drinking game?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo hrál nejkreativnější alkoholovou hru?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das kreativste Trinkspiel gespielt?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha jugado el juego de beber más creativo?"
+          }
+        }
+      }
+    },
+    "Who has played the most unusual drinking game?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo hrál nejneobvyklejší alkoholovou hru?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das ungewöhnlichste Trinkspiel gespielt?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha jugado el juego de beber más inusual?"
+          }
+        }
+      }
+    },
+    "Who has pulled the best prank during a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo provedl nejlepší vtípek na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den besten Streich auf einer Party gespielt?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha hecho la mejor broma durante una fiesta?"
+          }
+        }
+      }
+    },
+    "Who has taken the funniest party photo?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo vyfotil nejvtipnější fotku z párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das lustigste Party-Foto gemacht?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha tomado la foto más divertida en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who has the boldest party outfit?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejodvážnější párty oblečení?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das kühnste Partykleid?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene el atuendo de fiesta más atrevido?"
+          }
+        }
+      }
+    },
+    "Who has the boldest tattoo or piercing story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejodvážnější příběh o tetování nebo piercingu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die kühnste Tattoo- oder Piercing-Geschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia de tatuaje o piercing más atrevida?"
+          }
+        }
+      }
+    },
+    "Who has the funniest drunk story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejzábavnější opileckou historku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die lustigste Betrunkenen-Geschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia más divertida de borrachera?"
+          }
+        }
+      }
+    },
+    "Who has the funniest party story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejzábavnější příběh z párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die lustigste Partygeschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia de fiesta más divertida?"
+          }
+        }
+      }
+    },
+    "Who has the highest alcohol tolerance?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má největší toleranci vůči alkoholu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die höchste Alkoholtoleranz?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la mayor tolerancia al alcohol?"
+          }
+        }
+      }
+    },
+    "Who has the most adventurous bucket list?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdobrodružnější seznam přání?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die abenteuerlichste Bucket List?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la lista de deseos más aventurera?"
+          }
+        }
+      }
+    },
+    "Who has the most adventurous sexual bucket list?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdobrodružnější sexuální seznam přání?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die abenteuerlichste sexuelle Wunschliste?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la lista sexual más aventurera?"
+          }
+        }
+      }
+    },
     "Who has the most adventurous travel stories?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -818,6 +1784,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién tiene las historias de viaje más aventureras?"
+          }
+        }
+      }
+    },
+    "Who has the most awkward party story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejtrapnější historku z párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die peinlichste Party-Geschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia más incómoda de una fiesta?"
           }
         }
       }
@@ -845,6 +1834,650 @@
         }
       }
     },
+    "Who has the most creative dance moves?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejkreativnější taneční pohyby?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die kreativsten Tanzbewegungen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene los movimientos de baile más creativos?"
+          }
+        }
+      }
+    },
+    "Who has the most creative drinking rule?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejkreativnější pravidlo pití?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die kreativste Trinkregel?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la regla de beber más creativa?"
+          }
+        }
+      }
+    },
+    "Who has the most creative sexual roleplay scenario?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejkreativnější scénář sexuálního rolování?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat das kreativste sexuelle Rollenspiel-Szenario?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene el escenario de roleplay sexual más creativo?"
+          }
+        }
+      }
+    },
+    "Who has the most embarrassing sexual mishap?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejtrápnější sexuální nepříjemnost?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die peinlichste sexuelle Panne?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la metida de pata sexual más vergonzosa?"
+          }
+        }
+      }
+    },
+    "Who has the most experience with online dating apps?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejvíce zkušeností s online datovacími aplikacemi?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die meiste Erfahrung mit Dating-Apps?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene más experiencia con aplicaciones de citas en línea?"
+          }
+        }
+      }
+    },
+    "Who has the most outrageous Instagram post from a night out?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejodvázanější příspěvek na Instagramu z nočního tahu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den ausgefallensten Instagram-Post von einem Abend out?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la publicación de Instagram más escandalosa de una noche de fiesta?"
+          }
+        }
+      }
+    },
+    "Who has the most random hookup story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejnáhodnější příběh z krátkodobého vztahu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die zufälligste Aufhier-Geschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia de ligue más aleatoria?"
+          }
+        }
+      }
+    },
+    "Who has the most random sexual encounter story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejnáhodnější příběh o sexuálním setkání?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die zufälligste Geschichte einer sexuellen Begegnung?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia de encuentro sexual más aleatoria?"
+          }
+        }
+      }
+    },
+    "Who has the most sexual partners in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má největší počet sexuálních partnerů ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die meisten Sexualpartner in der Gruppe?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene más parejas sexuales en el grupo?"
+          }
+        }
+      }
+    },
+    "Who has the most unconventional relationship style?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejnekonvenčnější styl vztahu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den unkonventionellsten Beziehungsstil?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene el estilo de relación más poco convencional?"
+          }
+        }
+      }
+    },
+    "Who has the most unexpected kinks?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejneočekávanější sexuální preference?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die unerwartendsten Vorlieben?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene los fetiches más inesperados?"
+          }
+        }
+      }
+    },
+    "Who has the most unexpected sexual fetish?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejneočekávanější sexuální fetiš?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat den unerwartesteten sexuellen Fetisch?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene el fetiche sexual más inesperado?"
+          }
+        }
+      }
+    },
+    "Who has the most unique drunk food craving?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejoriginálnější opileckou chuť na jídlo?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die ungewöhnlichsten Essensgelüste unter Alkoholeinfluss?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene el antojo de comida más peculiar cuando está borracho?"
+          }
+        }
+      }
+    },
+    "Who has the riskiest phone photos?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejrizikovější fotky v telefonu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die riskantesten Fotos auf dem Handy?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene las fotos más comprometedoras en su teléfono?"
+          }
+        }
+      }
+    },
+    "Who has the wildest drunk story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejšílenější opilecký příběh?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildeste Geschichte vom Betrunkensein?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia más loca de borrachera?"
+          }
+        }
+      }
+    },
+    "Who has the wildest party playlist?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdivočejší playlist na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildeste Party-Playlist?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la lista de reproducción más salvaje para fiestas?"
+          }
+        }
+      }
+    },
+    "Who has the wildest sexting skills?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdivočejší dovednosti v sexuálních zprávách?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildesten Sexting-Fähigkeiten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene las habilidades de sexting más salvajes?"
+          }
+        }
+      }
+    },
+    "Who has the wildest sexual fantasy?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejdivočejší sexuální fantazii?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildeste sexuelle Fantasie?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la fantasía sexual más salvaje?"
+          }
+        }
+      }
+    },
+    "Who has the wildest vacation story?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo má nejšílenější příběh z dovolené?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die wildeste Urlaubsgeschichte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién tiene la historia de vacaciones más loca?"
+          }
+        }
+      }
+    },
+    "Who has tried the weirdest drink combination?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo vyzkoušel nejpodivnější kombinaci nápojů?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hat die seltsamste Getränkekombination probiert?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha probado la combinación de bebidas más extraña?"
+          }
+        }
+      }
+    },
+    "Who has worn the best costume at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo měl na párty nejlepší kostým?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer hatte das beste Kostüm auf einer Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ha llevado el mejor disfraz en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who in the group can hype everyone up the best?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině dokáže nejlépe nadchnout ostatní?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe kann alle am besten motivieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién del grupo puede animar a todos mejor?"
+          }
+        }
+      }
+    },
+    "Who in the group is most likely to forget their belongings at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině je nejpravděpodobnější, že zapomene své věci na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe würde am ehesten seine Sachen auf einer Party vergessen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién del grupo es más propenso a olvidar sus pertenencias en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who in the group is most likely to have a one-night stand?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině je nejpravděpodobnější kandidát na jednodenní známost?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe ist am ehesten für einen One-Night-Stand zu haben?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién del grupo es más propenso a tener una aventura de una noche?"
+          }
+        }
+      }
+    },
+    "Who in the group is most likely to start a dance-off?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině nejpravděpodobněji začne taneční souboj?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe startet am ehesten ein Tanzduell?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién en el grupo es más probable que inicie un duelo de baile?"
+          }
+        }
+      }
+    },
+    "Who in the group is the best at keeping the vibe alive?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině je nejlepší v udržování skvělé atmosféry?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe ist am besten darin, die Stimmung aufrechtzuerhalten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién del grupo es el mejor manteniendo el ambiente vivo?"
+          }
+        }
+      }
+    },
+    "Who in the group is the first on the dance floor?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo ve skupině je první na tanečním parketu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer in der Gruppe ist zuerst auf der Tanzfläche?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién del grupo es el primero en la pista de baile?"
+          }
+        }
+      }
+    },
+    "Who is most likely to accidentally flash someone?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že někoho omylem vystaví?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten versehentlich etwas entblößen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a mostrar algo accidentalmente?"
+          }
+        }
+      }
+    },
     "Who is most likely to become a professional artist?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -864,6 +2497,98 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién es más propenso a convertirse en un artista profesional?"
+          }
+        }
+      }
+    },
+    "Who is most likely to befriend a stranger at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se spřátelí s cizincem na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen Fremden auf einer Party kennenlernen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a hacer amigos con un desconocido en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who is most likely to befriend strangers while drunk?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se seznámí s cizinci, když je opilý?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde unter Alkoholeinfluss am ehesten Fremde kennenlernen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a hacer amigos con desconocidos estando borracho?"
+          }
+        }
+      }
+    },
+    "Who is most likely to break something while dancing?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že něco rozbije při tanci?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde beim Tanzen am ehesten etwas kaputt machen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a romper algo mientras baila?"
+          }
+        }
+      }
+    },
+    "Who is most likely to bring the best snacks to a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že přinese nejlepší občerstvení na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die besten Snacks zu einer Party mitbringen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a traer los mejores bocadillos a una fiesta?"
           }
         }
       }
@@ -891,6 +2616,29 @@
         }
       }
     },
+    "Who is most likely to crash a party just for fun?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se spontánně připojí k párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten uneingeladen zu einer Party erscheinen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a colarse en una fiesta solo por diversión?"
+          }
+        }
+      }
+    },
     "Who is most likely to cry during a movie?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -910,6 +2658,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién es más propenso a llorar durante una película?"
+          }
+        }
+      }
+    },
+    "Who is most likely to DJ a party spontaneously?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že spontánně začne dělat DJ na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde spontan als DJ auf einer Party auftreten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más probable que haga de DJ espontáneamente en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who is most likely to double text someone they like?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že pošle dvojitou zprávu někomu, koho má rád?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten zweimal hintereinander eine Nachricht an jemanden schicken, den er mag?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a enviar mensajes dobles a alguien que le gusta?"
           }
         }
       }
@@ -937,6 +2731,121 @@
         }
       }
     },
+    "Who is most likely to go skinny-dipping spontaneously?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se spontánně vykoupá nahý?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten spontan nackt schwimmen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a meterse a nadar desnudo de forma espontánea?"
+          }
+        }
+      }
+    },
+    "Who is most likely to lose their phone at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že ztratí telefon na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde auf einer Party am ehesten sein Handy verlieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a perder su teléfono en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who is most likely to organize a surprise party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že zorganizuje překvapivou párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten eine Überraschungsparty organisieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a organizar una fiesta sorpresa?"
+          }
+        }
+      }
+    },
+    "Who is most likely to send a drunk text they'll regret?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že pošle opileckou zprávu, kterou bude později litovat?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten eine Textnachricht schreiben, die er später bereut?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a enviar un mensaje de texto borracho que luego lamentará?"
+          }
+        }
+      }
+    },
+    "Who is most likely to start a group singalong?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že začne skupinový zpěv?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen Gruppenchor starten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a iniciar un canto grupal?"
+          }
+        }
+      }
+    },
     "Who is most likely to start a viral social media trend?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -960,6 +2869,52 @@
         }
       }
     },
+    "Who is most likely to stay up all night talking at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že vydrží celou noc povídat si na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten die ganze Nacht bei einer Party reden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a quedarse toda la noche conversando en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who is most likely to suggest the most random group activity?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že navrhne nejnáhodnější skupinovou aktivitu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten eine völlig zufällige Gruppenaktivität vorschlagen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a sugerir la actividad grupal más aleatoria?"
+          }
+        }
+      }
+    },
     "Who is most likely to take up an unusual hobby?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -979,6 +2934,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién es más propenso a adoptar un pasatiempo inusual?"
+          }
+        }
+      }
+    },
+    "Who is most likely to tell the funniest stories?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že vyprávět nejzábavnější příběhy?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die lustigsten Geschichten erzählen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a contar las historias más divertidas?"
           }
         }
       }
@@ -1029,6 +3007,29 @@
         }
       }
     },
+    "Who is most likely to win at charades?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější vítěz hry Activity?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten bei Scharade gewinnen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a ganar en mímica?"
+          }
+        }
+      }
+    },
     "Who is most likely to write a book?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1052,6 +3053,52 @@
         }
       }
     },
+    "Who is the best at charades?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v Activity?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am besten bei Scharade?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor en mímica?"
+          }
+        }
+      }
+    },
+    "Who is the best at karaoke?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v karaoke?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist der Beste im Karaoke?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor en el karaoke?"
+          }
+        }
+      }
+    },
     "Who is the best at keeping calm under pressure?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1071,6 +3118,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién es el mejor manteniendo la calma bajo presión?"
+          }
+        }
+      }
+    },
+    "Who is the best at making impromptu speeches?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejlepší v improvizovaných projevech?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am besten darin, spontane Reden zu halten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el mejor haciendo discursos improvisados?"
           }
         }
       }
@@ -1190,6 +3260,52 @@
         }
       }
     },
+    "Who is the biggest flirt in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je největší sváděč ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist der größte Schürzenjäger in der Gruppe?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más coqueto del grupo?"
+          }
+        }
+      }
+    },
+    "Who is the funniest person to play games with?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejzábavnější společník při hrách?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am lustigsten beim Spielen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es la persona más divertida para jugar?"
+          }
+        }
+      }
+    },
     "Who is the most adventurous eater?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1209,6 +3325,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién es el más aventurero comiendo?"
+          }
+        }
+      }
+    },
+    "Who is the most competitive in party games?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejsoutěživější v párty hrách?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am wettbewerbsfähigsten bei Partyspielen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el más competitivo en juegos de fiesta?"
           }
         }
       }
@@ -1282,6 +3421,52 @@
         }
       }
     },
+    "Who is the most flirtatious when drunk?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejsvůdnější, když je opilý?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist am aufdringlichsten, wenn er betrunken ist?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más coqueto cuando está borracho?"
+          }
+        }
+      }
+    },
+    "Who is the most generous host?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejštědřejší hostitel?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist der großzügigste Gastgeber?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el anfitrión más generoso?"
+          }
+        }
+      }
+    },
     "Who is the most likely to become famous?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1328,6 +3513,167 @@
         }
       }
     },
+    "Who is the most unpredictable person at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejméně předvídatelnou osobou na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist die unberechenbarste Person auf einer Party?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es la persona más impredecible en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who is the wildest sexual adventurer in the group?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je největší sexuální dobrodruh ve skupině?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer ist der wildeste sexuelle Abenteurer in der Gruppe?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es el aventurero sexual más salvaje del grupo?"
+          }
+        }
+      }
+    },
+    "Who remembers the funniest drunk conversation?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo si pamatuje nejzábavnější opileckou konverzaci?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer erinnert sich an das lustigste Gespräch unter Alkoholeinfluss?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién recuerda la conversación más divertida estando borracho?"
+          }
+        }
+      }
+    },
+    "Who suggests the silliest drinking games?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo navrhuje nejhloupější alkoholové hry?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer schlägt die dümmsten Trinkspiele vor?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sugiere los juegos de beber más tontos?"
+          }
+        }
+      }
+    },
+    "Who takes the funniest drunk selfies?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo fotí nejzábavnější opilecké selfie?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer macht die lustigsten Selfies unter Alkoholeinfluss?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién toma los selfies más divertidos cuando está borracho?"
+          }
+        }
+      }
+    },
+    "Who uses the most outrageous pickup lines?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo používá nejdrzejší navazovací fráze?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer verwendet die abgefahrensten Anmachsprüche?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién usa las líneas de conquista más escandalosas?"
+          }
+        }
+      }
+    },
+    "Who would ace a lip-sync battle?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by exceloval v soutěži playbacku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde einen Playback-Wettbewerb gewinnen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién arrasaría en un concurso de playback?"
+          }
+        }
+      }
+    },
     "Who would ace a puzzle challenge?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1347,6 +3693,259 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién destacaría en un desafío de rompecabezas?"
+          }
+        }
+      }
+    },
+    "Who would be most comfortable doing an amateur adult film?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpohodlnější při natáčení amatérského dospělého filmu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am entspanntesten bei einem Amateur-Erwachsenenfilm?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién estaría más cómodo haciendo una película para adultos amateur?"
+          }
+        }
+      }
+    },
+    "Who would be most daring in public?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejodvážnější na veřejnosti?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am kühnsten in der Öffentlichkeit?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más atrevido en público?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to go to a sex workshop?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější účastník sexuálního workshopu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen Sex-Workshop besuchen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a ir a un taller sexual?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to join a swingers club?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější, že se připojí ke klubu swing?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einem Swinger-Club beitreten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a unirse a un club de intercambio?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to join the mile-high club?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo je nejpravděpodobnější, že se připojí ke klubu ve výšce?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten dem Mile-High-Club beitreten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a unirse al club de las alturas?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to participate in a sex podcast?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější účastník sexuálního podcastu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten in einem Sex-Podcast mitmachen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a participar en un podcast sexual?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to try a nude beach?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější, že vyzkouší nudistickou pláž?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten einen FKK-Strand ausprobieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a probar una playa nudista?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to try a threesome?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější, že vyzkouší trojku?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten ein Threesome ausprobieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a probar un trío?"
+          }
+        }
+      }
+    },
+    "Who would be most likely to use sex toys?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější uživatel erotických pomůcek?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten Sextoys benutzen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería más propenso a usar juguetes sexuales?"
+          }
+        }
+      }
+    },
+    "Who would be targeted most in spin the bottle?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl v láhvi nejčastěji terčem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde beim Flaschendrehen am meisten ins Visier genommen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el objetivo más frecuente en la botella?"
+          }
+        }
+      }
+    },
+    "Who would be the best (or worst) at sexting?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší (nebo nejhorší) v sexuálních zprávách?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer wäre am besten (oder schlechtesten) beim Sexting?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor (o peor) enviando mensajes sexuales?"
           }
         }
       }
@@ -1393,6 +3992,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién sería el mejor guardando un secreto?"
+          }
+        }
+      }
+    },
+    "Who would be the best at leading a dance-off?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejlepší v řízení taneční soutěže?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde einen Tanzwettbewerb am besten anführen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el mejor liderando un baile competitivo?"
           }
         }
       }
@@ -1466,6 +4088,29 @@
         }
       }
     },
+    "Who would be the last one standing at an all-night party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by vydržel nejdéle na párty trvající celou noc?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde als Letzter bei einer Nacht-Party noch wach sein?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el último en pie en una fiesta que dura toda la noche?"
+          }
+        }
+      }
+    },
     "Who would be the most fashionable in a high-profile event?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1512,6 +4157,282 @@
         }
       }
     },
+    "Who would bring the most drama to a reality show?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by přinesl nejvíce dramatu do reality show?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die meisten Skandale in eine Realityshow bringen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién traería más drama a un programa de telerrealidad?"
+          }
+        }
+      }
+    },
+    "Who would bring the quirkiest drinks to a gathering?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by přinesl nejoriginálnější nápoje na sraz?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die skurrilsten Getränke zu einer Zusammenkunft mitbringen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién traería las bebidas más peculiares a una reunión?"
+          }
+        }
+      }
+    },
+    "Who would choose the most scandalous celebrity hall pass?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by si vybral nejskandálnějšího slavného hosta?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde den skandalösesten Promi als Freifahrtschein wählen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién elegiría el pase a una celebridad más escandaloso?"
+          }
+        }
+      }
+    },
+    "Who would create a signature dance move everyone loves?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by vytvořil charakteristický taneční pohyb, který všichni milují?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Signature-Tanzbewegung kreieren, die alle lieben?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién crearía un movimiento de baile emblemático que todos aman?"
+          }
+        }
+      }
+    },
+    "Who would create the best playlist for a road trip party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by vytvořil nejlepší playlist na párty při cestování?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die beste Playlist für eine Roadtrip-Party erstellen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién crearía la mejor lista de reproducción para una fiesta en un viaje por carretera?"
+          }
+        }
+      }
+    },
+    "Who would dominate a board game session at a party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by ovládl sezení společenských her na párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Brettspiel-Session auf einer Party dominieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién dominaría una sesión de juegos de mesa en una fiesta?"
+          }
+        }
+      }
+    },
+    "Who would dress in the most outrageous costume at a themed party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by se oblékl do nejodvázanějšího kostýmu na tematické párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei einer Themenparty das ausgefallenste Kostüm tragen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se vestiría con el disfraz más estrambótico en una fiesta temática?"
+          }
+        }
+      }
+    },
+    "Who would end up passed out first at a wild party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by první upadl do bezvědomí na divoké párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei einer wilden Party zuerst bewusstlos werden?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién sería el primero en desmayarse en una fiesta salvaje?"
+          }
+        }
+      }
+    },
+    "Who would get into trouble first on a group vacation?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by se první dostal do průšvihů během společné dovolené?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei einer Gruppenreise zuerst Ärger bekommen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se metería en problemas primero en un viaje grupal?"
+          }
+        }
+      }
+    },
+    "Who would have the wildest theme party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by uspořádal nejšílenější tematickou párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die wildeste Themenparty veranstalten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría la fiesta temática más loca?"
+          }
+        }
+      }
+    },
+    "Who would hook up with their boss if given the chance?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by šel s šéfem do postele, kdyby dostal příležitost?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde mit dem Chef schlafen, wenn er die Chance hätte?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se enrollaría con su jefe si tuviera la oportunidad?"
+          }
+        }
+      }
+    },
+    "Who would host a party with the craziest theme?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by uspořádal párty s nejbláznivějším tématem?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Party mit dem verrücktesten Thema veranstalten?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría una fiesta con el tema más loco?"
+          }
+        }
+      }
+    },
     "Who would host the best dinner party?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1531,6 +4452,52 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién organizaría la mejor cena?"
+          }
+        }
+      }
+    },
+    "Who would look best in everyone else's clothes?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by nejlépe vypadal v oblečení ostatních?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde in den Kleidern der anderen am besten aussehen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se vería mejor con la ropa de los demás?"
+          }
+        }
+      }
+    },
+    "Who would make it onto a reality show on a wild vacation?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by se dostal do reality show z divoké dovolené?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde eine Realityshow aus einem wilden Urlaub bekommen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se convertiría en estrella de un programa de telerrealidad durante unas vacaciones locas?"
           }
         }
       }
@@ -1581,6 +4548,98 @@
         }
       }
     },
+    "Who would make the most money as a stripper?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by vydělal nejvíce peněz jako striptér?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde als Stripper am meisten Geld verdienen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién ganaría más dinero como bailarín/a erótico/a?"
+          }
+        }
+      }
+    },
+    "Who would most likely confess their feelings when drunk?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější, že vyzná city, když je opilý?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde unter Alkoholeinfluss am ehesten seine Gefühle gestehen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a confesar sus sentimientos estando borracho?"
+          }
+        }
+      }
+    },
+    "Who would most likely go home with someone they just met?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by byl nejpravděpodobnější, že půjde domů s někým, koho právě potkal?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde am ehesten mit jemandem mitgehen, den er gerade erst kennengelernt hat?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién es más propenso a irse a casa con alguien que acaba de conocer?"
+          }
+        }
+      }
+    },
+    "Who would organize the best karaoke lineup?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by uspořádal nejlepší pořadí skladeb na karaoke?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die beste Karaoke-Playlist zusammenstellen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría la mejor lista de canciones de karaoke?"
+          }
+        }
+      }
+    },
     "Who would perform best in a talent show?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1604,6 +4663,29 @@
         }
       }
     },
+    "Who would pick dare the most in truth or dare?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by nejčastěji vybíral výzvu ve hře Pravda, nebo výzva?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde bei Wahrheit oder Pflicht am ehesten die Mutprobe wählen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién elegiría reto la mayoría de las veces en verdad o reto?"
+          }
+        }
+      }
+    },
     "Who would run the most successful charity fundraiser?" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1623,6 +4705,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién organizaría la recaudación de fondos benéfica más exitosa?"
+          }
+        }
+      }
+    },
+    "Who would sneak into a private event for fun?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by se spontánně vplížil na soukromou akci pro zábavu?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde zum Spaß unerlaubt in eine private Veranstaltung einschleichen?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién se colaría en un evento privado por diversión?"
           }
         }
       }
@@ -1692,6 +4797,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¿Quién sobreviviría más tiempo en una isla desierta?"
+          }
+        }
+      }
+    },
+    "Who would throw the best surprise party?" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kdo by zorganizoval nejlepší překvapivou párty?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wer würde die beste Überraschungsparty organisieren?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quién organizaría la mejor fiesta sorpresa?"
           }
         }
       }

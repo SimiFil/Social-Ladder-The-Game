@@ -1,154 +1,214 @@
 {
-  "wildQuestions": [
-    {
-      "question": "Who in the group is most likely to have a one-night stand?"
-    },
-    {
-      "question": "What’s the craziest place someone in the group has had sex?"
-    },
-    {
-      "question": "Who is most likely to send a drunk text they’ll regret?"
-    },
-    {
-      "question": "If someone in the group became a stripper, who would make the most money?"
-    },
-    {
-      "question": "Who has the wildest drunk story?"
-    },
-    {
-      "question": "Who is most likely to go skinny-dipping spontaneously?"
-    },
-    {
-      "question": "If the group went to a wild party, who would end up passed out first?"
-    },
-    {
-      "question": "Who would be the best (or worst) at sexting?"
-    },
-    {
-      "question": "Who has the most unexpected kinks?"
-    },
-    {
-      "question": "What is the most embarrassing drunk confession someone has made in this group?"
-    },
-    {
-      "question": "Who in the group has had the weirdest date experience?"
-    },
-    {
-      "question": "What’s the most flirtatious thing someone has done when drunk?"
-    },
-    {
-      "question": "If someone were to join a reality show, who would bring the most drama?"
-    },
-    {
-      "question": "Who would most likely go home with someone they just met?"
-    },
-    {
-      "question": "If someone could have a hall pass for a celebrity, who would it be?"
-    },
-    {
-      "question": "Who has the highest tolerance for alcohol in the group?"
-    },
-    {
-      "question": "What’s the wildest party someone in the group has been to?"
-    },
-    {
-      "question": "Who is most likely to accidentally flash someone?"
-    },
-    {
-      "question": "What’s the most awkward thing that’s happened to someone on a night out?"
-    },
-    {
-      "question": "Who is the biggest flirt in the group?"
-    },
-    {
-      "question": "If everyone in the group swapped clothes, who would look best?"
-    },
-    {
-      "question": "What’s the most outrageous pickup line someone has used?"
-    },
-    {
-      "question": "Who would hook up with their boss if given the chance?"
-    },
-    {
-      "question": "Who has the most adventurous bucket list item?"
-    },
-    {
-      "question": "If the group went on a vacation together, who would get into trouble first?"
-    },
-    {
-      "question": "Who is most likely to double text someone they like?"
-    },
-    {
-      "question": "Who would sneak into a private event for fun?"
-    },
-    {
-      "question": "What’s the riskiest photo someone has on their phone?"
-    },
-    {
-      "question": "If the group played truth or dare, who would pick dare the most?"
-    },
-    {
-      "question": "What’s the wildest story someone has from a vacation?"
-    },
-    {
-      "question": "Who would most likely confess their feelings when drunk?"
-    },
-    {
-      "question": "What’s the most random hookup story in the group?"
-    },
-    {
-      "question": "If the group played spin the bottle, who would it land on the most?"
-    },
-    {
-      "question": "Who has the boldest party outfit in the group?"
-    },
-    {
-      "question": "Who has the funniest drunk story?"
-    },
-    {
-      "question": "What’s the wildest dare someone in the group has completed?"
-    },
-    {
-      "question": "Who in the group would most likely lose their phone at a party?"
-    },
-    {
-      "question": "What’s the craziest thing someone has bought while drunk?"
-    },
-    {
-      "question": "Who is most likely to take the funniest drunk selfies?"
-    },
-    {
-      "question": "Who has had the most unique drunk food craving?"
-    },
-    {
-      "question": "What’s the silliest game someone has suggested while drinking?"
-    },
-    {
-      "question": "Who would be the best at leading a dance-off?"
-    },
-    {
-      "question": "If there were a group wild vacation, who would make it onto a reality show?"
-    },
-    {
-      "question": "Who has the boldest tattoo or piercing story?"
-    },
-    {
-      "question": "What’s the funniest drunk conversation anyone in the group remembers?"
-    },
-    {
-      "question": "If someone hosted a theme party, who would have the wildest theme?"
-    },
-    {
-      "question": "Who has the most outrageous Instagram post from a night out?"
-    },
-    {
-      "question": "Who is most likely to befriend strangers while drunk?"
-    },
-    {
-      "question": "What’s the most unusual drinking rule someone has played with?"
-    },
-    {
-      "question": "Who has a playlist of the wildest party songs?"
-    }
-  ]
+    "wildQuestions": [
+        {
+            "question": "Who in the group is most likely to have a one-night stand?"
+        },
+        {
+            "question": "Who is the wildest sexual adventurer in the group?"
+        },
+        {
+            "question": "Who is most likely to send a drunk text they'll regret?"
+        },
+        {
+            "question": "Who would make the most money as a stripper?"
+        },
+        {
+            "question": "Who has the wildest drunk story?"
+        },
+        {
+            "question": "Who is most likely to go skinny-dipping spontaneously?"
+        },
+        {
+            "question": "Who would end up passed out first at a wild party?"
+        },
+        {
+            "question": "Who would be the best (or worst) at sexting?"
+        },
+        {
+            "question": "Who has the most unexpected kinks?"
+        },
+        {
+            "question": "Who has made the most embarrassing drunk confession?"
+        },
+        {
+            "question": "Who has had the weirdest date experience?"
+        },
+        {
+            "question": "Who is the most flirtatious when drunk?"
+        },
+        {
+            "question": "Who would bring the most drama to a reality show?"
+        },
+        {
+            "question": "Who would most likely go home with someone they just met?"
+        },
+        {
+            "question": "Who would choose the most scandalous celebrity hall pass?"
+        },
+        {
+            "question": "Who has the highest alcohol tolerance?"
+        },
+        {
+            "question": "Who has been to the wildest party?"
+        },
+        {
+            "question": "Who is most likely to accidentally flash someone?"
+        },
+        {
+            "question": "Who has experienced the most awkward night out?"
+        },
+        {
+            "question": "Who is the biggest flirt in the group?"
+        },
+        {
+            "question": "Who would look best in everyone else's clothes?"
+        },
+        {
+            "question": "Who uses the most outrageous pickup lines?"
+        },
+        {
+            "question": "Who would hook up with their boss if given the chance?"
+        },
+        {
+            "question": "Who has the most adventurous bucket list?"
+        },
+        {
+            "question": "Who would get into trouble first on a group vacation?"
+        },
+        {
+            "question": "Who is most likely to double text someone they like?"
+        },
+        {
+            "question": "Who would sneak into a private event for fun?"
+        },
+        {
+            "question": "Who has the riskiest phone photos?"
+        },
+        {
+            "question": "Who would pick dare the most in truth or dare?"
+        },
+        {
+            "question": "Who has the wildest vacation story?"
+        },
+        {
+            "question": "Who would most likely confess their feelings when drunk?"
+        },
+        {
+            "question": "Who has the most random hookup story?"
+        },
+        {
+            "question": "Who would be targeted most in spin the bottle?"
+        },
+        {
+            "question": "Who has the boldest party outfit?"
+        },
+        {
+            "question": "Who has the funniest drunk story?"
+        },
+        {
+            "question": "Who has completed the wildest dare?"
+        },
+        {
+            "question": "Who is most likely to lose their phone at a party?"
+        },
+        {
+            "question": "Who has made the craziest drunk purchase?"
+        },
+        {
+            "question": "Who takes the funniest drunk selfies?"
+        },
+        {
+            "question": "Who has the most unique drunk food craving?"
+        },
+        {
+            "question": "Who suggests the silliest drinking games?"
+        },
+        {
+            "question": "Who would be the best at leading a dance-off?"
+        },
+        {
+            "question": "Who would make it onto a reality show on a wild vacation?"
+        },
+        {
+            "question": "Who has the boldest tattoo or piercing story?"
+        },
+        {
+            "question": "Who remembers the funniest drunk conversation?"
+        },
+        {
+            "question": "Who would have the wildest theme party?"
+        },
+        {
+            "question": "Who has the most outrageous Instagram post from a night out?"
+        },
+        {
+            "question": "Who is most likely to befriend strangers while drunk?"
+        },
+        {
+            "question": "Who has played the most unusual drinking game?"
+        },
+        {
+            "question": "Who has the wildest party playlist?"
+        },
+        {
+            "question": "Who in the group is most likely to have a one-night stand?"
+        },
+        {
+            "question": "Who has the most sexual partners in the group?"
+        },
+        {
+            "question": "Who would be most likely to join the mile-high club?"
+        },
+        {
+            "question": "Who has the wildest sexual fantasy?"
+        },
+        {
+            "question": "Who would be most likely to try a threesome?"
+        },
+        {
+            "question": "Who has the most unexpected sexual fetish?"
+        },
+        {
+            "question": "Who would be most comfortable doing an amateur adult film?"
+        },
+        {
+            "question": "Who has the most adventurous sexual bucket list?"
+        },
+        {
+            "question": "Who would be most likely to try a nude beach?"
+        },
+        {
+            "question": "Who has the most creative sexual roleplay scenario?"
+        },
+        {
+            "question": "Who would be most likely to use sex toys?"
+        },
+        {
+            "question": "Who has the most experience with online dating apps?"
+        },
+        {
+            "question": "Who would be most likely to participate in a sex podcast?"
+        },
+        {
+            "question": "Who has the most embarrassing sexual mishap?"
+        },
+        {
+            "question": "Who would be most likely to join a swingers club?"
+        },
+        {
+            "question": "Who has the most random sexual encounter story?"
+        },
+        {
+            "question": "Who would be most daring in public?"
+        },
+        {
+            "question": "Who has the most unconventional relationship style?"
+        },
+        {
+            "question": "Who would be most likely to go to a sex workshop?"
+        },
+        {
+            "question": "Who has the wildest sexting skills?"
+        }
+    ]
 }
