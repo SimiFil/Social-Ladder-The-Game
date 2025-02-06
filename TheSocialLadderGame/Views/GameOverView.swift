@@ -30,7 +30,8 @@ struct GameOverView: View {
                             .fontWeight(.bold)
                             .foregroundStyle(.white)
                     } else {
-                        Text("Game Over".uppercased())
+                        Text("Game Over")
+                            .textCase(.uppercase)
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .foregroundStyle(.white)
@@ -98,4 +99,5 @@ struct GameOverView: View {
     ]
     gm.isHost = true
     return GameOverView(gm: gm)
+        .environment(\.locale, Locale(identifier: "cs-CZ"))
 }
