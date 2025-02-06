@@ -160,6 +160,9 @@ struct RoundPlayingView: View {
             if newState == .roundEnd {
                 let codedMSG: String = codeDict(dropZoneContents)
                 
+                // set player's order
+                gameManager.playerCardsOrder = codedMSG.decodePlayersDictString(players: gameManager.players)
+                
                 if gameManager.isHost {
                     gameManager.playerOrderDict[gameManager.localPlayer.displayName] = codedMSG.decodePlayersDictString(players: gameManager.players)
                 } else {

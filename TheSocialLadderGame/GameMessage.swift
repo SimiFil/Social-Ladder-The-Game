@@ -15,6 +15,7 @@ enum GameMessage: String, Codable {
     case chosenQuestion
     case chosenPlayerID
     case chosenPlayerName
+    case chosenPlayerOrder
     case roundState
     case playerOrder
     case playerLockedIn

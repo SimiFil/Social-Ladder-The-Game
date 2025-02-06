@@ -80,6 +80,10 @@ extension GameManager: GKMatchDelegate {
                     if let chosenPlayerName = gameData.data["chosenPlayerName"] {
                         self.chosenPlayerName = chosenPlayerName
                     }
+                case .chosenPlayerOrder:
+                    if let chosenPlayerOrder = gameData.data["chosenPlayerOrder"] {
+                        self.chosenPlayerOrder = chosenPlayerOrder.split(separator: ",").map(String.init)
+                    }
                 case .roundState:
                     self.roundState = gameData.data["roundPlaying"] != nil ? .playing : .roundEnd
                     if roundState == .roundEnd {

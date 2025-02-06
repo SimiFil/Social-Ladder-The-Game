@@ -47,6 +47,7 @@ struct GamePage: View {
             .onAppear {
                 if !hasAppeared {
                     gameManager.initializePlayerScoreDict()
+                    gameManager.playerCardsOrder = Array(repeating: " ", count: gameManager.players.count)
                 }
             }
         }

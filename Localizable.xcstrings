@@ -130,6 +130,9 @@
         }
       }
     },
+    "CHOSEN PLAYER'S ORDER" : {
+
+    },
     "Coming Soon..." : {
       "localizations" : {
         "cs" : {
@@ -462,6 +465,12 @@
         }
       }
     },
+    "MY ORDER" : {
+
+    },
+    "MY SCORE" : {
+
+    },
     "Nickname" : {
       "localizations" : {
         "cs" : {
@@ -505,6 +514,9 @@
           }
         }
       }
+    },
+    "Nothing." : {
+
     },
     "ONLINE" : {
       "localizations" : {
@@ -776,9 +788,6 @@
           }
         }
       }
-    },
-    "time remaining: %lld" : {
-
     },
     "Total" : {
       "localizations" : {

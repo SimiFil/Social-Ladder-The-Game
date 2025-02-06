@@ -19,6 +19,7 @@ class GameManager: NSObject, ObservableObject {
     @Published var players: [GKPlayer] = []
     var playerOrder: [String] = []
     var chosenPlayerID: String = ""
+    var chosenPlayerOrder: [String] = []
     @Published var chosenPlayerName: String = ""
     @Published var playerCardsOrder: [String] = []
     @Published var receivedResponsesCount: Int = 0
@@ -83,6 +84,7 @@ class GameManager: NSObject, ObservableObject {
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
         viewController?.matchmakingMode = mode
+//        viewController?.language = LanguageManager.shared.currentLanguage
         
         rootViewController.present(viewController!, animated: true)
     }
@@ -90,6 +92,11 @@ class GameManager: NSObject, ObservableObject {
     // MARK: Join Lobby
     func joinLobby(_ inviteToAccept: GKInvite) {
         guard let rootViewController = self.rootViewController else { return }
+        
+        // FIXME: add dismiss a viewController if trying to host a lobby...
+        if rootViewController.presentedViewController != nil {
+            // A view controller is being shown
+        }
         
         isHost = false
         print("Joining lobby as player: \(localPlayer.displayName), isHost: \(isHost)")
@@ -183,14 +190,19 @@ class GameManager: NSObject, ObservableObject {
         usedQuestions.append(currentQuestion!)
     }
     
+    // MARK: Initialize player score dict
     func initializePlayerScoreDict() {
         for player in players {
             playerScoreDict[player.displayName] = []
         }
     }
     
+    // MARK: Resolve score
     func resolveScore() {
         let chosenPlayerOrderArray: [String] = playerOrderDict[chosenPlayerName]!
+        print("chosenPlayerOrderArray: \(chosenPlayerOrderArray)")
+        self.chosenPlayerOrder = chosenPlayerOrderArray
+        sendDataTo(data: GameData(messageType: .chosenPlayerOrder, data: ["chosenPlayerOrder":chosenPlayerOrderArray.joined(separator: ",")]))
         var scoreMSG: String = ""
         
         // if the chosenPlayer doesn't play give him -1
@@ -254,6 +266,28 @@ class GameManager: NSObject, ObservableObject {
         
         // send score to all other players
         sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
+    }
+    
+    // MARK: View func for points showing (+1, -1, 0)
+    func calculatePoints() -> [String] {
+        print(chosenPlayerOrder)
+        print(playerCardsOrder)
+        var result: [String] = []
+        
+        for (idx, name) in chosenPlayerOrder.enumerated() {
+            if playerCardsOrder[idx] == " " {
+                result.append("0")
+                continue
+            }
+            
+            if name == playerCardsOrder[idx] {
+                result.append("1")
+            } else {
+                result.append("-1")
+            }
+        }
+        
+        return result
     }
     
     // MARK: Play round
