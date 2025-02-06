@@ -42,6 +42,7 @@ struct GamePage: View {
                     ToolbarBottomButtons(gameManager: gameManager)
                         .padding([.trailing, .bottom], 50)
                         .padding(.bottom)
+                        .opacity(gameManager.roundState == .roundEnd ? 0 : 1) // show on round end
                 }
             }
             .onAppear {
@@ -121,7 +122,6 @@ struct ToolbarBottomButtons: View {
     @ObservedObject var gameManager: GameManager
     
     var body: some View {
-        // FIXME: fix lockIn button clicking and funcionality
         GeometryReader { geo in
             HStack {
                 Spacer()

@@ -68,6 +68,7 @@ struct GameOverView: View {
                     }
                     
                     Button {
+                        gm.sendDataTo(data: GameData(messageType: .disconnected, data: [:]))
                         gm.match?.disconnect()
                         gm.match = nil
                         dismiss()

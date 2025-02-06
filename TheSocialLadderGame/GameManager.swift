@@ -200,9 +200,11 @@ class GameManager: NSObject, ObservableObject {
     // MARK: Resolve score
     func resolveScore() {
         let chosenPlayerOrderArray: [String] = playerOrderDict[chosenPlayerName]!
+        
         print("chosenPlayerOrderArray: \(chosenPlayerOrderArray)")
         self.chosenPlayerOrder = chosenPlayerOrderArray
         sendDataTo(data: GameData(messageType: .chosenPlayerOrder, data: ["chosenPlayerOrder":chosenPlayerOrderArray.joined(separator: ",")]))
+        
         var scoreMSG: String = ""
         
         // if the chosenPlayer doesn't play give him -1

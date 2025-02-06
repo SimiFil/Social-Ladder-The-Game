@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// FIXME: finish this struct
 struct RoundEndedView: View {
     @ObservedObject var gameManager: GameManager
     
