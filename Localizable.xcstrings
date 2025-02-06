@@ -197,25 +197,25 @@
         }
       }
     },
-    "GAME OVER" : {
+    "Game Over" : {
       "extractionState" : "manual",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "KONEC HRY"
+            "value" : "Konec Hry"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SPIEL VORBEI"
+            "value" : "Spiel Vorbei"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "JUEGO TERMINADO"
+            "value" : "Juego Terminado"
           }
         }
       }

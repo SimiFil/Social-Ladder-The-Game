@@ -38,7 +38,7 @@ struct MatchView: View {
                     if gameManager.gameState == .waitingForPlayers {
                         ToolbarItem(placement: .navigationBarLeading) {
                             GoBackButton()
-                                .padding(.top, geo.size.width/30)
+                                .padding(.top, geo.size.width/23)
                                 .onTapGesture {
                                     gameManager.match?.disconnect()
                                     gameManager.match = nil

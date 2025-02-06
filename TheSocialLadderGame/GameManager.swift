@@ -135,7 +135,7 @@ class GameManager: NSObject, ObservableObject {
                     } else if roundState == .roundEnd {
                         print("round STARTS")
                         roundState = .playing
-                        isLockedIn = false
+                        playRound()
                     }
                 }
             }
