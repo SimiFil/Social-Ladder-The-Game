@@ -27,7 +27,6 @@ class GameManager: NSObject, ObservableObject {
     /// score
     @Published var playerOrderDict: [String:[String]] = [:] // host tracks -> ["playerID":["playerID", "playerID", ...]
     @Published var playerScoreDict: [String:[Int]] = [:] // host tracks -> ["playerID":[5, 0, 10]] /// points each round
-    @Published var score: Int = 0
     
     /// questions
     var questions: [String] = []
@@ -270,6 +269,12 @@ class GameManager: NSObject, ObservableObject {
     func calculatePoints() -> [String] {
         var result: [String] = []
         
+        if Set(chosenPlayerOrder).count == 1 {
+            for player in players {
+                result.append("+")
+            }
+        }
+        
         for (idx, name) in chosenPlayerOrder.enumerated() {
             if playerCardsOrder[idx] == " " {
                 result.append("0")
@@ -321,6 +326,8 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: reset game stats
     private func resetGameStats() {
+        syncTimer?.invalidate()
+        syncTimer = nil
         currentRound = 0
         playersLockedIn = 0
         playerOrder.removeAll()

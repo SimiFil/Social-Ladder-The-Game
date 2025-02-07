@@ -13,6 +13,9 @@
     "%lld" : {
 
     },
+    "+1" : {
+
+    },
     "👑" : {
 
     },
@@ -468,9 +471,6 @@
     "MY ORDER" : {
 
     },
-    "MY SCORE" : {
-
-    },
     "Nickname" : {
       "localizations" : {
         "cs" : {
@@ -514,9 +514,6 @@
           }
         }
       }
-    },
-    "Nothing." : {
-
     },
     "ONLINE" : {
       "localizations" : {
