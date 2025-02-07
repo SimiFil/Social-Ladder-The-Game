@@ -8,5 +8,6 @@
 enum Constants {
     static var gameName: String = "The Status Shuffle"
     
-    // FIXME: Add all fixed strings
+    static var roundTime: Int = 120 // 2 minutes playing
+    static var talkingTime: Int = 30 // 30 seconds talking
 }

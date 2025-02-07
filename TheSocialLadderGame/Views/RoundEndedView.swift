@@ -68,7 +68,7 @@ struct RoundEndedView: View {
            .padding(.horizontal)
        }
        .onAppear {
-           gameManager.startRoundTimer(time: 30)
+           gameManager.startRoundTimer(time: Constants.talkingTime)
        }
    }
 }

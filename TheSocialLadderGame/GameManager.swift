@@ -317,7 +317,7 @@ class GameManager: NSObject, ObservableObject {
         sendDataTo(data: GameData(messageType: .chosenPlayerID, data: ["chosenPlayerID": chosenPlayerID]))
         
         // pick question and send it to all players
-        startRoundTimer(time: 10)
+        startRoundTimer(time: Constants.roundTime)
         chooseQuestion()
         sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
         
