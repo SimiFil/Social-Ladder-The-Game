@@ -221,7 +221,8 @@ struct ChosenPlayerView: View {
     
     var body: some View {
         HStack(spacing: 8) {
-            Text("👑")
+            Image(systemName: "crown.fill")
+                .foregroundStyle(.yellow)
                 .font(.title2)
             
             Text(playerName)
