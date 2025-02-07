@@ -6,7 +6,7 @@
 //
 
 enum Constants {
-    static var gameName: String = "The Social Ladder"
+    static var gameName: String = "The Status Shuffle"
     
     // FIXME: Add all fixed strings
 }

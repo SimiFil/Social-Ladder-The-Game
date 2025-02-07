@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import GameKit
 
 struct MainPage: View {
     @ObservedObject var gameManager: GameManager
@@ -72,12 +73,12 @@ struct MainPage: View {
                     MatchView(gameManager: gameManager)
                 }
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Text("@\(Constants.gameName.removeSpaces())")
-                            .font(.headline)
-                            .foregroundColor(.textGray)
-                            .padding(.top, 20)
-                    }
+//                    ToolbarItem(placement: .topBarLeading) {
+//                        Text("@\(Constants.gameName.removeSpaces())")
+//                            .font(.headline)
+//                            .foregroundColor(.textGray)
+//                            .padding(.top, 20)
+//                    }
                     
                     ToolbarItem(placement: .principal) {
                         Text(gameManager.playerAuthState.rawValue)
@@ -109,20 +110,14 @@ struct MainPage: View {
                 .onAppear {
                     playAudio()
                     gameManager.authenticatePlayer()
-                }
-                .alert("Game Center Required",
-                       isPresented: $gameManager.showGameCenterSettings) {
-                    Button("Open Settings") {
-                        if let url = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(url)
-                        }
-                    }
                     
-                    Button("Cancel", role: .cancel) {
-                        gameManager.showGameCenterSettings = false
-                    }
-                } message: {
-                    Text("Please sign in to Game Center to play multiplayer games.")
+                    // Show Game Center access point
+                    GKAccessPoint.shared.showHighlights = false
+                    GKAccessPoint.shared.location = .topLeading
+                    GKAccessPoint.shared.isActive = true
+                }
+                .onDisappear {
+                    GKAccessPoint.shared.isActive = false
                 }
                 .fullScreenCover(isPresented: $showSettings) {
                     SettingsView(audioPlayer: audioPlayer, volume: $volume)
@@ -130,6 +125,20 @@ struct MainPage: View {
                 .fullScreenCover(isPresented: $showHowToPlayView) {
                     HowToPlayView()
                 }
+//                .alert("Game Center Required",
+//                       isPresented: $gameManager.showGameCenterSettings) {
+//                    Button("Open Settings") {
+//                        if let url = URL(string: UIApplication.openSettingsURLString) {
+//                            UIApplication.shared.open(url)
+//                        }
+//                    }
+//                    
+//                    Button("Cancel", role: .cancel) {
+//                        gameManager.showGameCenterSettings = false
+//                    }
+//                } message: {
+//                    Text("Please sign in to Game Center to play multiplayer games.")
+//                }
             }
         }
     }

@@ -7,9 +7,6 @@
     "-" : {
 
     },
-    "@%@" : {
-
-    },
     "%lld" : {
 
     },
@@ -112,6 +109,7 @@
       }
     },
     "Cancel" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -134,7 +132,26 @@
       }
     },
     "CHOSEN PLAYER'S ORDER" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "POŘADÍ VYBRANÉHO HRÁČE"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AUSGEWÄHLTE SPIELERREIHENFOLGE"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ORDEN DEL JUGADOR ELEGIDO"
+          }
+        }
+      }
     },
     "Coming Soon..." : {
       "localizations" : {
@@ -182,6 +199,7 @@
       }
     },
     "Game Center Required" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -469,7 +487,26 @@
       }
     },
     "MY ORDER" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MOJE POŘADÍ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MEINE BESTELLUNG"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MI PEDIDO"
+          }
+        }
+      }
     },
     "Nickname" : {
       "localizations" : {
@@ -538,6 +575,7 @@
       }
     },
     "Open Settings" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -649,6 +687,7 @@
       }
     },
     "Please sign in to Game Center to play multiplayer games." : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
