@@ -257,8 +257,6 @@ class GameManager: NSObject, ObservableObject {
         for (key, value) in playerScoreDict {
             if key != chosenPlayerName {
                 chosenPlayerScore -= value.last ?? 0 / players.count
-                print(Int(value.last ?? 0))
-                print("player count: \(players.count)")
             }
         }
         playerScoreDict[chosenPlayerName]?.append(Int(chosenPlayerScore))

@@ -10,7 +10,9 @@ import SwiftUI
 struct GameOverView: View {
     @ObservedObject var gm: GameManager
     @Environment(\.dismiss) var dismiss
+    
     @State var matchWinner: String
+    @State var showLeaderboard: Bool = false
     
     init(gm: GameManager) {
         self.gm = gm
@@ -18,76 +20,91 @@ struct GameOverView: View {
     }
     
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                AppBackground()
-                
-                VStack(spacing: 30) {
-                    if gm.players.count < gm.minPlayers {
-                        Text("Not enough players to continue.\nPlease return the main menu.")
-                            .multilineTextAlignment(.center)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                    } else {
-                        Text("Game Over")
-                            .textCase(.uppercase)
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                        
-                        VStack(spacing: 15) {
-                            Text("The winner is:")
-                                .font(.title2)
+        NavigationStack {
+            GeometryReader { geo in
+                ZStack {
+                    AppBackground()
+                    
+                    VStack(spacing: 30) {
+                        if gm.players.count < gm.minPlayers {
+                            Text("Not enough players to continue.\nPlease return the main menu.")
+                                .multilineTextAlignment(.center)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.white)
+                        } else {
+                            Text("Game Over")
+                                .textCase(.uppercase)
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
                                 .foregroundStyle(.white)
                             
-                            Text(matchWinner)
-                                .font(.system(size: 40, weight: .heavy))
-                                .foregroundStyle(.yellow)
-                        }
-                        
-                        VStack(spacing: 20) {
-                            if gm.isHost {
-                                Button {
-                                    gm.gameState = .choosingQuestions
-                                } label: {
-                                    Text("Play Again")
-                                        .font(.headline)
-                                        .frame(width: geo.size.width * 0.3)
-                                        .padding()
-                                        .background(.blue)
-                                        .foregroundStyle(.white)
-                                        .cornerRadius(12)
-                                }
-                            } else {
-                                Text("Waiting for the host to start the next game.")
-                                    .font(.subheadline)
+                            VStack(spacing: 15) {
+                                Text("The winner is:")
+                                    .font(.title2)
                                     .foregroundStyle(.white)
+                                
+                                Text(matchWinner)
+                                    .font(.system(size: 40, weight: .heavy))
+                                    .foregroundStyle(.yellow)
+                            }
+                            
+                            VStack(spacing: 20) {
+                                if gm.isHost {
+                                    Button {
+                                        gm.gameState = .choosingQuestions
+                                    } label: {
+                                        Text("Play Again")
+                                            .font(.headline)
+                                            .frame(width: geo.size.width * 0.3)
+                                            .padding()
+                                            .background(.blue)
+                                            .foregroundStyle(.white)
+                                            .cornerRadius(12)
+                                    }
+                                } else {
+                                    Text("Waiting for the host to start the next game.")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.white)
+                                }
                             }
                         }
+                        
+                        Button {
+                            gm.sendDataTo(data: GameData(messageType: .disconnected, data: [:]))
+                            gm.match?.disconnect()
+                            gm.match = nil
+                            dismiss()
+                        } label: {
+                            Text("Back to Menu")
+                                .font(.headline)
+                                .frame(width: geo.size.width * 0.3)
+                                .padding()
+                                .background(.red)
+                                .foregroundStyle(.white)
+                                .cornerRadius(12)
+                        }
                     }
-                    
-                    Button {
-                        gm.sendDataTo(data: GameData(messageType: .disconnected, data: [:]))
-                        gm.match?.disconnect()
-                        gm.match = nil
-                        dismiss()
-                    } label: {
-                        Text("Back to Menu")
-                            .font(.headline)
-                            .frame(width: geo.size.width * 0.3)
-                            .padding()
-                            .background(.red)
-                            .foregroundStyle(.white)
-                            .cornerRadius(12)
+                    .padding()
+                    .cornerRadius(20)
+                    .padding()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            showLeaderboard.toggle()
+                        } label: {
+                            ToolbarButton(iconName: "trophy.fill")
+                        }
+                        .padding(.top, 20)
                     }
                 }
-                .padding()
-                .cornerRadius(20)
-                .padding()
+            }
+            .ignoresSafeArea()
+            .sheet(isPresented: $showLeaderboard) {
+                LeaderboardView(gameManager: gm)
             }
         }
-        .ignoresSafeArea()
     }
 }
 
