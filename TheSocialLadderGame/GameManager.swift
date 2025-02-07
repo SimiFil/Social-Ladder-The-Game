@@ -238,33 +238,31 @@ class GameManager: NSObject, ObservableObject {
                 return
             }
             
-            // check if they are equal
-            // meaning the the player get full points + 1
-            if chosenPlayerOrderArray.elementsEqual(playerArray) {
-                playerScoreDict[playerName]?.append(self.players.count + 1)
-                if let lastScore = playerScoreDict[playerName]?.last {
-                    scoreMSG.append("\(playerName):\(lastScore),")
-                }
-                continue
-            }
-            
             var score = 0
             
             for (idx, name) in chosenPlayerOrderArray.enumerated() {
-                if name == playerArray[idx] {
+                if (name == " " && playerArray[idx] != " ") || name == playerArray[idx] {
                     score += 1
                 }
             }
             
-            playerScoreDict[playerName]?.append(score)
+            playerScoreDict[playerName]?.append(score == players.count ? score + 1 : score)
             if let lastScore = playerScoreDict[playerName]?.last {
                 scoreMSG.append("\(playerName):\(lastScore),")
             }
         }
         
-        // FIXME: figure out the points for the chosen player
-        playerScoreDict[chosenPlayerName]?.append(0)
-        scoreMSG.append("\(chosenPlayerName):0")
+        // FIXME: later change the int array to double perhaps
+        var chosenPlayerScore = players.count
+        for (key, value) in playerScoreDict {
+            if key != chosenPlayerName {
+                chosenPlayerScore -= value.last ?? 0 / players.count
+                print(Int(value.last ?? 0))
+                print("player count: \(players.count)")
+            }
+        }
+        playerScoreDict[chosenPlayerName]?.append(Int(chosenPlayerScore))
+        scoreMSG.append("\(chosenPlayerName):\(Int(chosenPlayerScore))")
         
         // send score to all other players
         sendDataTo(data: GameData(messageType: .playerScore, data: ["playerScore":scoreMSG]))
@@ -272,8 +270,6 @@ class GameManager: NSObject, ObservableObject {
     
     // MARK: View func for points showing (+1, -1, 0)
     func calculatePoints() -> [String] {
-        print(chosenPlayerOrder)
-        print(playerCardsOrder)
         var result: [String] = []
         
         for (idx, name) in chosenPlayerOrder.enumerated() {
@@ -282,10 +278,10 @@ class GameManager: NSObject, ObservableObject {
                 continue
             }
             
-            if name == playerCardsOrder[idx] {
+            if (name == " " && playerCardsOrder[idx] != " ") || name == playerCardsOrder[idx] {
                 result.append("1")
             } else {
-                result.append("-1")
+                result.append("0")
             }
         }
         
