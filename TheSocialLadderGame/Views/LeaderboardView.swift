@@ -43,7 +43,7 @@ struct LeaderboardView: View {
                                 Text("Player")
                                     .frame(width: geo.size.width * 0.2, alignment: .leading)
                                 
-                                ForEach(0..<gameManager.players.count, id: \.self) { round in
+                                ForEach(0..<gameManager.playersCount, id: \.self) { round in
                                     Text("R\(round + 1)")
                                         .frame(width: 50)
                                 }
@@ -75,7 +75,7 @@ struct LeaderboardView: View {
                                         }
                                         
                                         // fill empty rounds with dash
-                                        ForEach(scores.count..<gameManager.players.count, id: \.self) { _ in
+                                        ForEach(scores.count..<gameManager.playersCount, id: \.self) { _ in
                                             Text("-")
                                                 .frame(width: 50)
                                         }
@@ -86,7 +86,7 @@ struct LeaderboardView: View {
                                             .frame(width: 60)
                                     } else {
                                         // show dashes for players with no scores
-                                        ForEach(0..<gameManager.players.count, id: \.self) { _ in
+                                        ForEach(0..<gameManager.playersCount, id: \.self) { _ in
                                             Text("-")
                                                 .frame(width: 50)
                                         }
@@ -100,7 +100,7 @@ struct LeaderboardView: View {
                                 .padding(.horizontal)
                                 .foregroundStyle(index == 0 ? .yellow : .white)
                                 
-                                if index != gameManager.players.count - 1 {
+                                if index != gameManager.playersCount - 1 {
                                     Divider()
                                         .frame(width: geo.size.width/2.5)
                                         .padding(.vertical, 2)

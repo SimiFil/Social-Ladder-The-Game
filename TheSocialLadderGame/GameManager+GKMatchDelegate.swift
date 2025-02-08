@@ -37,6 +37,10 @@ extension GameManager: GKMatchDelegate {
                     self.playerOrder.removeAll()
                     self.playerOrderDict.removeAll()
                     self.playerScoreDict.removeAll()
+                case .playerCount:
+                    if let playerCount = gameData.data["playerCount"] {
+                        self.playersCount = Int(playerCount)!
+                    }
                 case .playerChoice:
                     if let playerGameOrder = gameData.data["playerGameOrder"] {
                         self.playerOrderDict[player.displayName] = playerGameOrder.decodePlayersDictString(players: self.players)

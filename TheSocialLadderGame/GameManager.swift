@@ -44,13 +44,14 @@ class GameManager: NSObject, ObservableObject {
     @Published var showMatchView: Bool = false
     
     /// time
-    @Published var timeRemaining: Int = 120 // 2 minutes to play // FIXME: change to constant mby
+    @Published var timeRemaining: Int = Constants.roundTime // 2 minutes to play
     private var syncTimer: Timer? // my timer
     
     /// rounds/players
     @Published var currentRound: Int = 0
     let minPlayers: Int = 2 // MARK: MIN_PLAYERS
     let maxPlayers: Int = 8 // MARK: MAX_PLAYERS
+    var playersCount: Int = 0 // MARK: players.count -> set when the game starts
     @Published var isLockedIn: Bool = false
     var playersLockedIn: Int = 0
     
@@ -343,6 +344,10 @@ class GameManager: NSObject, ObservableObject {
         
         // refresh all stats
         resetGameStats()
+        
+        // set number of players
+        playersCount = players.count
+        sendDataTo(data: GameData(messageType: .playerCount, data: ["playerCount": String(playersCount)]))
         
         // send all players who the host is
         sendDataTo(data: GameData(messageType: .hostID, data: ["hostID":localPlayer.gamePlayerID]))

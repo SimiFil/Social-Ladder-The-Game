@@ -31,21 +31,7 @@ struct MainPage: View {
                     HStack {
                         // MARK: LOGO & TITLE
                         VStack(alignment: .center) {
-                            VStack(alignment: .leading) {
-                                Text(Constants.gameName.uppercased())
-                            }
-                            .font(.title)
-                            .foregroundStyle(
-                                LinearGradient(colors: [.cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue],
-                                               startPoint: animate ? .topLeading : .bottomTrailing,
-                                                  endPoint: animate ? .bottomTrailing : .topLeading)
-                               )
-                               .onAppear {
-                                   withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
-                                       animate.toggle()
-                                   }
-                               }
-                            .fontWeight(.bold)
+                            
                             
                             Image("Status_Shuffle_Icon")
                                 .resizable()
@@ -81,22 +67,36 @@ struct MainPage: View {
                     }
                     .lineLimit(1)
                     .padding(-geo.size.width/20)
+                    .padding(.top, geo.size.height/8)
                 }
                 .navigationDestination(isPresented: $showGameModeView, destination: {
                     SelectGameModeView(gameManager: gameManager);
                 })
                 .fullScreenCover(isPresented: $gameManager.showMatchView) {
                     MatchView(gameManager: gameManager)
+                        .onAppear { GKAccessPoint.shared.isActive = false }
                 }
                 .toolbar {
-//                    ToolbarItem(placement: .topBarLeading) {
-//                        Text("@\(Constants.gameName.removeSpaces())")
-//                            .font(.headline)
-//                            .foregroundColor(.textGray)
-//                            .padding(.top, 20)
-//                    }
-                    
                     ToolbarItem(placement: .principal) {
+                        VStack(alignment: .leading) {
+                            Text(Constants.gameName.uppercased())
+                        }
+                        .font(.largeTitle)
+                        .foregroundStyle(
+                            LinearGradient(colors: [.cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue],
+                                           startPoint: animate ? .topLeading : .bottomTrailing,
+                                              endPoint: animate ? .bottomTrailing : .topLeading)
+                           )
+                           .onAppear {
+                               withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
+                                   animate.toggle()
+                               }
+                           }
+                        .fontWeight(.bold)
+                        .padding(.top, geo.size.height/6)
+                    }
+                    
+                    ToolbarItem(placement: .bottomBar) {
                         Text(gameManager.playerAuthState.rawValue)
                             .font(.headline)
                             .foregroundColor(.yellow.opacity(0.7))
@@ -118,7 +118,7 @@ struct MainPage: View {
                             Image(systemName: isMusicDisabled ? "speaker.slash.fill" : "speaker.wave.3.fill")
                                 .foregroundColor(.textGray)
                                 .font(.title2)
-                                .padding(.top, 20)
+                                .padding(.top, geo.size.height/7)
                                 .animation(.default, value: isMusicDisabled)
                         }
                     }
