@@ -13,9 +13,6 @@
     "+1" : {
 
     },
-    "👑" : {
-
-    },
     "0" : {
 
     },
@@ -306,6 +303,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cómo Jugar"
+          }
+        }
+      }
+    },
+    "Invite friends" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pozvat přátele"
           }
         }
       }

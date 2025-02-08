@@ -83,7 +83,6 @@ class GameManager: NSObject, ObservableObject {
         let viewController = GKMatchmakerViewController(matchRequest: request)
         viewController?.matchmakerDelegate = self
         viewController?.matchmakingMode = mode
-//        viewController?.language = LanguageManager.shared.currentLanguage
         
         rootViewController.present(viewController!, animated: true)
     }
@@ -270,7 +269,7 @@ class GameManager: NSObject, ObservableObject {
         var result: [String] = []
         
         if Set(chosenPlayerOrder).count == 1 {
-            for player in players {
+            for _ in players {
                 result.append("+")
             }
         }

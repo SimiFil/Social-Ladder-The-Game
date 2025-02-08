@@ -20,6 +20,8 @@ struct MainPage: View {
     @State private var showSettings: Bool = false
     @State private var showHowToPlayView: Bool = false
     
+    @State private var animate = false
+    
     var body: some View {
         GeometryReader { geo in
             NavigationStack {
@@ -28,18 +30,31 @@ struct MainPage: View {
                     
                     HStack {
                         // MARK: LOGO & TITLE
-                        VStack {
-                            Text(Constants.gameName)
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 5)
-                                .minimumScaleFactor(0.5)
+                        VStack(alignment: .center) {
+                            VStack(alignment: .leading) {
+                                Text(Constants.gameName.uppercased())
+                            }
+                            .font(.title)
+                            .foregroundStyle(
+                                LinearGradient(colors: [.cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue],
+                                               startPoint: animate ? .topLeading : .bottomTrailing,
+                                                  endPoint: animate ? .bottomTrailing : .topLeading)
+                               )
+                               .onAppear {
+                                   withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
+                                       animate.toggle()
+                                   }
+                               }
+                            .fontWeight(.bold)
                             
-                            Image(systemName: "person.3.fill")
-                                .imageScale(.large)
-                                .font(.system(size: 80))
-                                .foregroundColor(.white)
+                            Image("Status_Shuffle_Icon")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geo.size.width/3, height: geo.size.height/1.8)
+                                .clipShape(.rect(cornerRadius: 10))
+                                .shadow(color: .black.opacity(0.1), radius: 5)
+                            
+                            
                         }
                         .padding(.leading, geo.size.width/13)
                         
