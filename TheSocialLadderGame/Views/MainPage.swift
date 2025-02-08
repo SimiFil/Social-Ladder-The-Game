@@ -63,6 +63,7 @@ struct MainPage: View {
                             // MARK: PLAY BUTTON
                             MainButton(action: {
                                 showGameModeView = true
+                                GKAccessPoint.shared.isActive = false
                             }, title: "Play", icon: "gamecontroller", isLeadingIcon: true, isEnabled: gameManager.playerAuthState == .authenticated, geo: geo)
                             .disabled(gameManager.playerAuthState != .authenticated)
                             
@@ -107,6 +108,7 @@ struct MainPage: View {
                             withAnimation {
                                 isMusicDisabled.toggle()
                             }
+                            
                             if isMusicDisabled {
                                 audioPlayer.pause()
                             } else {
@@ -131,14 +133,15 @@ struct MainPage: View {
                     GKAccessPoint.shared.location = .topLeading
                     GKAccessPoint.shared.isActive = true
                 }
-                .onDisappear {
-                    GKAccessPoint.shared.isActive = false
-                }
                 .fullScreenCover(isPresented: $showSettings) {
                     SettingsView(audioPlayer: audioPlayer, volume: $volume)
+                        .onAppear { GKAccessPoint.shared.isActive = false }
+                        .onDisappear { GKAccessPoint.shared.isActive = true }
                 }
                 .fullScreenCover(isPresented: $showHowToPlayView) {
                     HowToPlayView()
+                        .onAppear { GKAccessPoint.shared.isActive = false }
+                        .onDisappear { GKAccessPoint.shared.isActive = true }
                 }
 //                .alert("Game Center Required",
 //                       isPresented: $gameManager.showGameCenterSettings) {
