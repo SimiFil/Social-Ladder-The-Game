@@ -31,6 +31,7 @@ struct RoundEndedView: View {
                    }
                }
                .padding(.horizontal)
+               .padding(.top)
                
                
                if gameManager.chosenPlayerID != gameManager.localPlayer.gamePlayerID {
