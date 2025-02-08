@@ -108,18 +108,23 @@ struct MainPage: View {
                             withAnimation {
                                 isMusicDisabled.toggle()
                             }
-                            
+                           
                             if isMusicDisabled {
                                 audioPlayer.pause()
                             } else {
                                 audioPlayer.play()
                             }
                         } label: {
-                            Image(systemName: isMusicDisabled ? "speaker.slash.fill" : "speaker.wave.3.fill")
-                                .foregroundColor(.textGray)
-                                .font(.title2)
-                                .padding(.top, geo.size.height/7)
-                                .animation(.default, value: isMusicDisabled)
+                            HStack {
+                                Image(systemName: isMusicDisabled ? "speaker.slash.fill" : "speaker.wave.3.fill")
+                                    .foregroundColor(.textGray)
+                                    .font(.title2)
+                                    .padding()
+                                    .frame(width: 44, height: 44)
+                                    .contentShape(Rectangle())
+                            }
+                            .padding()
+                            .padding(.top, geo.size.height/7)
                         }
                     }
                 }
