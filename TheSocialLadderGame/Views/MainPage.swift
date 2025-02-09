@@ -64,19 +64,19 @@ struct MainPage: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         VStack(alignment: .leading) {
-                            Text(Constants.gameName.uppercased())
+                           Text(Constants.gameName.uppercased())
                         }
                         .font(.largeTitle)
                         .foregroundStyle(
-                            LinearGradient(colors: [.cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue],
-                                           startPoint: animate ? .topLeading : .bottomTrailing,
-                                              endPoint: animate ? .bottomTrailing : .topLeading)
-                           )
-                           .onAppear {
-                               withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
-                                   animate.toggle()
-                               }
+                           LinearGradient(colors: [.customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke],
+                                          startPoint: animate ? .topLeading : .bottomTrailing,
+                                          endPoint: animate ? .bottomTrailing : .topLeading)
+                        )
+                        .onAppear {
+                           withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+                               animate.toggle()
                            }
+                        }
                         .fontWeight(.bold)
                         .padding(.top, geo.size.height/6)
                     }
