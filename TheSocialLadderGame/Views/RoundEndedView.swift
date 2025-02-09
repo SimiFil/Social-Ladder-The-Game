@@ -81,7 +81,13 @@ struct PlayerBox: View {
    var body: some View {
        ZStack {
            RoundedRectangle(cornerRadius: 10)
-               .fill(.textGray)
+               .fill(
+                   LinearGradient(
+                       colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
+                       startPoint: .topLeading,
+                       endPoint: .bottomTrailing
+                   )
+               )
                .shadow(radius: 2)
            
            VStack {
@@ -90,7 +96,7 @@ struct PlayerBox: View {
                        Spacer()
                        Text(score)
                            .font(.caption)
-                           .foregroundColor(.white)
+                           .foregroundColor(.customWhitesmoke)
                            .fontWeight(.bold)
                            .padding(15)
                            .background(
@@ -109,7 +115,8 @@ struct PlayerBox: View {
                
                Text(name == " " ? "Nothing" : name)
                    .font(.body)
-                   .foregroundStyle(.black)
+                   .foregroundStyle(.white)
+                   .fontWeight(.medium)
                    .lineLimit(2)
                    .multilineTextAlignment(.center)
                    .minimumScaleFactor(0.8)

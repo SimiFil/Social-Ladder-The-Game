@@ -20,7 +20,7 @@ struct MainPage: View {
     @State private var showSettings: Bool = false
     @State private var showHowToPlayView: Bool = false
     
-    @State private var animate = false
+    @State private var animated = false
     
     var body: some View {
         GeometryReader { geo in
@@ -64,21 +64,23 @@ struct MainPage: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         VStack(alignment: .leading) {
-                            Text(Constants.gameName.uppercased())
+                           Text(Constants.gameName.uppercased())
                         }
                         .font(.largeTitle)
                         .foregroundStyle(
-                            LinearGradient(colors: [.customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke],
-                                           startPoint: animate ? .topLeading : .bottomTrailing,
-                                           endPoint: animate ? .bottomTrailing : .topLeading)
+                            LinearGradient(colors: [.white, .customWhitesmoke, .ultraLightBlue],
+                                          startPoint: .top,
+                                          endPoint: .bottom)
                         )
-                        .onAppear {
-                            withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
-                                animate.toggle()
-                            }
-                        }
+                        .shadow(color: .white.opacity(0.3), radius: 10, y: -5)
                         .fontWeight(.bold)
                         .padding(.top, geo.size.height/6)
+                        .offset(y: animated ? 0 : -100 )
+                        .onAppear {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                animated = true
+                            }
+                        }
                     }
                     
                     ToolbarItem(placement: .bottomBar) {

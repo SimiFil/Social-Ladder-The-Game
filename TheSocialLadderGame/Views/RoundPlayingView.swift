@@ -80,7 +80,7 @@ struct RoundPlayingView: View {
                                                 RoundedRectangle(cornerRadius: 10)
                                                     .fill(
                                                         LinearGradient(
-                                                            colors: [Color.blue.opacity(0.6), Color.blue.opacity(0.8)],
+                                                            colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
                                                             startPoint: .topLeading,
                                                             endPoint: .bottomTrailing
                                                         )
@@ -183,59 +183,6 @@ struct RoundPlayingView: View {
         }.joined(separator: ",")
         
         return keyvals
-    }
-}
-
-// MARK: Player Card
-struct PlayerCard: View {
-    let playerName: String
-    
-    var body: some View {
-        Text(playerName)
-            .font(.system(size: 16, weight: .medium))
-            .foregroundColor(.white)
-            .frame(maxWidth: .infinity)
-            .multilineTextAlignment(.center)
-            .frame(width: 100, height: 160)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.blue.opacity(0.6), Color.blue.opacity(0.8)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 2)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
-            )
-    }
-}
-
-// MARK: Chosen Player
-struct ChosenPlayerView: View {
-    let playerName: String
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "crown.fill")
-                .foregroundStyle(.yellow)
-                .font(.title2)
-            
-            Text(playerName)
-                .font(.system(size: 20, weight: .bold))
-                .foregroundStyle(.yellow)
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .background(
-            Capsule()
-                .fill(Color.black.opacity(0.2))
-        )
-        .padding(.top, 20)
     }
 }
 
