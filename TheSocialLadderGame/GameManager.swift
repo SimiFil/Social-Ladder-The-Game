@@ -94,7 +94,7 @@ class GameManager: NSObject, ObservableObject {
         
         // FIXME: add dismiss a viewController if trying to host a lobby...
         if rootViewController.presentedViewController != nil {
-            // A view controller is being shown
+            rootViewController.dismiss(animated: true)
         }
         
         isHost = false
