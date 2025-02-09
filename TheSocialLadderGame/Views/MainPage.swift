@@ -52,7 +52,7 @@ struct MainPage: View {
                     }
                     .lineLimit(1)
                     .padding(-geo.size.width/20)
-                    .padding(.top, geo.size.height/8)
+                    .padding(.top, gameManager.playerAuthState == .unauthenticated ? geo.size.height/8 : geo.size.height/5)
                 }
                 .navigationDestination(isPresented: $showGameModeView, destination: {
                     SelectGameModeView(gameManager: gameManager);

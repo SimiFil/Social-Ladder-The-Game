@@ -368,9 +368,6 @@ class GameManager: NSObject, ObservableObject {
         gameState = .playing
         
         playRound()
-//        if playRound() == false {
-//            syncTimer?.invalidate()
-//        }
     }
     
     // MARK: Send data to players
