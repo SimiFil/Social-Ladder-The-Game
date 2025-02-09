@@ -55,7 +55,7 @@ struct MainPage: View {
                     .padding(.top, gameManager.playerAuthState == .unauthenticated ? geo.size.height/8 : geo.size.height/5)
                 }
                 .navigationDestination(isPresented: $showGameModeView, destination: {
-                    SelectGameModeView(gameManager: gameManager);
+                    SelectGameModeView(gameManager: gameManager)
                 })
                 .fullScreenCover(isPresented: $gameManager.showMatchView) {
                     MatchView(gameManager: gameManager)
@@ -64,18 +64,18 @@ struct MainPage: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         VStack(alignment: .leading) {
-                           Text(Constants.gameName.uppercased())
+                            Text(Constants.gameName.uppercased())
                         }
                         .font(.largeTitle)
                         .foregroundStyle(
-                           LinearGradient(colors: [.customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke],
-                                          startPoint: animate ? .topLeading : .bottomTrailing,
-                                          endPoint: animate ? .bottomTrailing : .topLeading)
+                            LinearGradient(colors: [.customWhitesmoke, .cardBlue, .customWhitesmoke, .cardBlue, .customWhitesmoke],
+                                           startPoint: animate ? .topLeading : .bottomTrailing,
+                                           endPoint: animate ? .bottomTrailing : .topLeading)
                         )
                         .onAppear {
-                           withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
-                               animate.toggle()
-                           }
+                            withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+                                animate.toggle()
+                            }
                         }
                         .fontWeight(.bold)
                         .padding(.top, geo.size.height/6)
@@ -93,7 +93,7 @@ struct MainPage: View {
                             withAnimation {
                                 isMusicDisabled.toggle()
                             }
-                           
+                            
                             if isMusicDisabled {
                                 audioPlayer.pause()
                             } else {
@@ -133,40 +133,44 @@ struct MainPage: View {
                         .onAppear { GKAccessPoint.shared.isActive = false }
                         .onDisappear { GKAccessPoint.shared.isActive = true }
                 }
-//                .alert("Game Center Required",
-//                       isPresented: $gameManager.showGameCenterSettings) {
-//                    Button("Open Settings") {
-//                        if let url = URL(string: UIApplication.openSettingsURLString) {
-//                            UIApplication.shared.open(url)
-//                        }
-//                    }
-//                    
-//                    Button("Cancel", role: .cancel) {
-//                        gameManager.showGameCenterSettings = false
-//                    }
-//                } message: {
-//                    Text("Please sign in to Game Center to play multiplayer games.")
-//                }
+                //                .alert("Game Center Required",
+                //                       isPresented: $gameManager.showGameCenterSettings) {
+                //                    Button("Open Settings") {
+                //                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                //                            UIApplication.shared.open(url)
+                //                        }
+                //                    }
+                //
+                //                    Button("Cancel", role: .cancel) {
+                //                        gameManager.showGameCenterSettings = false
+                //                    }
+                //                } message: {
+                //                    Text("Please sign in to Game Center to play multiplayer games.")
+                //                }
             }
         }
     }
     
     private func playAudio() {
+        if audioPlayer != nil {
+            return
+        }
+        
         guard let sound = Bundle.main.path(forResource: "lobbyMusic", ofType: "mp3") else {
-                    print("Could not find audio file")
-                    return
-                }
-                
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: URL(filePath: sound))
-                    audioPlayer?.numberOfLoops = -1 // infinity
-                    audioPlayer?.volume = volume
-                    if !isMusicDisabled {
-                        audioPlayer?.play()
-                    }
-                } catch {
-                    print("Could not create audio player: \(error.localizedDescription)")
-                }
+            print("Could not find audio file")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(filePath: sound))
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.volume = volume
+            if !isMusicDisabled {
+                audioPlayer?.play()
+            }
+        } catch {
+            print("Could not create audio player: \(error)")
+        }
     }
 }
 
