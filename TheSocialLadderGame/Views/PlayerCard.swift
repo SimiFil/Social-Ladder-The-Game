@@ -22,7 +22,7 @@ struct PlayerCard: View {
                 RoundedRectangle(cornerRadius: 12)
                     .fill(
                         LinearGradient(
-                            colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
+                            colors: [Color.cardBlue, Color.ultraLightBlue],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
@@ -32,7 +32,7 @@ struct PlayerCard: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(LinearGradient(
-                        colors: [Color.yellow.opacity(0.8), Color.black.opacity(0.8)],
+                        colors: [.ultraLightBlue, .customWhitesmoke],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ), lineWidth: 1)
@@ -42,4 +42,5 @@ struct PlayerCard: View {
 
 #Preview {
     PlayerCard(playerName: "Joshua")
+        .preferredColorScheme(.dark)
 }

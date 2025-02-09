@@ -83,7 +83,7 @@ struct PlayerBox: View {
            RoundedRectangle(cornerRadius: 10)
                .fill(
                    LinearGradient(
-                       colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
+                       colors: [Color.cardBlue, Color.ultraLightBlue],
                        startPoint: .topLeading,
                        endPoint: .bottomTrailing
                    )
@@ -114,7 +114,7 @@ struct PlayerBox: View {
                Spacer()
                
                Text(name == " " ? "Nothing" : name)
-                   .font(.body)
+                   .font(.headline)
                    .foregroundStyle(.white)
                    .fontWeight(.medium)
                    .lineLimit(2)

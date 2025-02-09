@@ -125,6 +125,9 @@ struct MainPage: View {
                     GKAccessPoint.shared.location = .topLeading
                     GKAccessPoint.shared.isActive = true
                 }
+                .onDisappear(perform: {
+                    animated = false
+                })
                 .fullScreenCover(isPresented: $showSettings) {
                     SettingsView(audioPlayer: audioPlayer, volume: $volume)
                         .onAppear { GKAccessPoint.shared.isActive = false }

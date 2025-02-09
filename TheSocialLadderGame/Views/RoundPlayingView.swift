@@ -92,6 +92,7 @@ struct RoundPlayingView: View {
                                 }
                                 .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, playerNames.count + 1))), height: geo.size.width / 6)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .allowsHitTesting(!gameManager.isLockedIn)
                                 .draggable(dropZoneContents[idx] ?? "") {
                                     if let playerName = dropZoneContents[idx] {
                                         PlayerCard(playerName: playerName)
