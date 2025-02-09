@@ -29,21 +29,6 @@ struct MainPage: View {
                     AppBackground()
                     
                     HStack {
-                        // MARK: LOGO & TITLE
-                        VStack(alignment: .center) {
-                            
-                            
-                            Image("Status_Shuffle_Icon")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: geo.size.width/3, height: geo.size.height/1.8)
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(color: .black.opacity(0.1), radius: 5)
-                            
-                            
-                        }
-                        .padding(.leading, geo.size.width/13)
-                        
                         // MARK: BUTTONS
                         VStack(spacing: geo.size.height * 0.05) {
                             // MARK: PLAY BUTTON
@@ -63,7 +48,7 @@ struct MainPage: View {
                                 showSettings = true
                             }, title: "Settings", icon: "slider.horizontal.3", isLeadingIcon: false, isEnabled: true, geo: geo)
                         }
-                        .padding(.horizontal, geo.size.width/13)
+                        .padding(.horizontal, geo.size.width/4)
                     }
                     .lineLimit(1)
                     .padding(-geo.size.width/20)
