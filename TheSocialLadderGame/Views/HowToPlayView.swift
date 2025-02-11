@@ -9,7 +9,12 @@ import SwiftUI
 
 struct HowToPlayView: View {
     // FIXME: replace colors with images desplaying how to play the game
-    @State var colors: [Color] = [.yellow, .orange, .red, .cyan]
+    @State var howToImages: [Image] = [Image("1"),
+                                       Image("2"),
+                                       Image("3"),
+                                       Image("4"),
+                                       Image("5")
+    ]
     
     var body: some View {
         GeometryReader { geo in
@@ -42,23 +47,20 @@ struct HowToPlayView: View {
                     .padding(.bottom, -geo.size.height/25)
                     
                     TabView {
-                        ForEach(colors, id: \.self) { color in
-                            Text("hi")
-                                .frame(minWidth: geo.size.width/1.15, minHeight: geo.size.height/1.5)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(color)
-                                }
+                        ForEach(0..<howToImages.count, id: \.self) { index in
+                            howToImages[index]
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: .infinity, height: geo.size.height/1.5)
+                                .clipShape(.rect(cornerRadius: 25))
                         }
-                        
                     }
                     .tabViewStyle(.page)
                     .frame(width: geo.size.width, height: geo.size.height/1.1)
-                    .clipShape(.rect(cornerRadius: 25))
                 }
             }
         }
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
     }
 }
 
