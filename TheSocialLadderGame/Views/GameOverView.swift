@@ -44,9 +44,13 @@ struct GameOverView: View {
                                     .font(.title2)
                                     .foregroundStyle(.white)
                                 
-                                Text(matchWinner)
-                                    .font(.system(size: 40, weight: .heavy))
-                                    .foregroundStyle(.yellow)
+                                HStack {
+                                    Image(systemName: "crown.fill")
+                                    
+                                    Text(matchWinner)
+                                }
+                                .font(.system(size: 40, weight: .heavy))
+                                .foregroundStyle(.yellow)
                             }
                             
                             VStack(spacing: 20) {
