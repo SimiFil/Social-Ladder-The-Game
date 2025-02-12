@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HowToPlayView: View {
-    // FIXME: replace colors with images desplaying how to play the game
     @State var howToImages: [Image] = [Image("1"),
                                        Image("2"),
                                        Image("3"),
@@ -51,8 +50,8 @@ struct HowToPlayView: View {
                             howToImages[index]
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: .infinity, height: geo.size.height/1.5)
                                 .clipShape(.rect(cornerRadius: 25))
+                                .frame(width: geo.size.width, height: geo.size.height/1.5)
                         }
                     }
                     .tabViewStyle(.page)
