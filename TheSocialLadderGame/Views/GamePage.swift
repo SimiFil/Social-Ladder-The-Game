@@ -11,6 +11,7 @@ import GameKit
 struct GamePage: View {
     @ObservedObject var gameManager: GameManager
     @State private var hasAppeared = false
+    @State private var animateIn = false
     
     var body: some View {
         NavigationStack {
