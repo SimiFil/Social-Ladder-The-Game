@@ -11,7 +11,6 @@ import GameKit
 struct GamePage: View {
     @ObservedObject var gameManager: GameManager
     @State private var hasAppeared = false
-    @State private var animateIn = false
     
     var body: some View {
         NavigationStack {
@@ -37,13 +36,6 @@ struct GamePage: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     ToolbarTopButtons(gm: gameManager)
-                }
-                
-                ToolbarItem(placement: .bottomBar) {
-                    ToolbarBottomButtons(gameManager: gameManager)
-                        .padding([.trailing, .bottom], 50)
-                        .padding(.bottom)
-                        .opacity(gameManager.roundState == .roundEnd ? 0 : 1) // show on round end
                 }
             }
             .onAppear {
@@ -114,53 +106,6 @@ struct ToolbarTopButtons: View {
             LeaveMatchView(gm: gm) {
                 dismiss()
             }
-        }
-    }
-}
-
-// MARK: Toolbar Bottom Button
-struct ToolbarBottomButtons: View {
-    @ObservedObject var gameManager: GameManager
-    
-    var body: some View {
-        GeometryReader { geo in
-            HStack {
-                Spacer()
-                
-                Button {
-                    withAnimation(.spring(duration: 0.3)) {
-                        gameManager.isLockedIn.toggle()
-                        
-                        if gameManager.isHost {
-                            gameManager.playersLockedIn += 1
-                            return
-                        }
-                        
-                        let host = gameManager.players.first(where: { $0.gamePlayerID == gameManager.hostID})!
-                        
-                        gameManager.sendDataTo(players: [host], data: GameData(messageType: .playerLockedIn, data: [:]))
-                    }
-                } label: {
-                    VStack(alignment: .center) {
-                        Image(systemName: gameManager.isLockedIn ? "lock.fill" : "lock.open.fill")
-                            .imageScale(.large)
-                            .opacity(0.8)
-                            .lineLimit(1)
-                            
-                        
-                        Text(gameManager.isLockedIn ? "Locked In" : "Lock In")
-                            .font(.title2)
-                    }
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.customWhitesmoke)
-                    .frame(width: 100, height: 100)
-                    .opacity(gameManager.isLockedIn ? 0.5 : 1)
-                    .minimumScaleFactor(0.5)
-                }
-                .disabled(gameManager.isLockedIn)
-            }
-            .padding(.leading, geo.size.width/1.05)
         }
     }
 }

@@ -140,6 +140,7 @@ class GameManager: NSObject, ObservableObject {
                         isLockedIn = true
                     } else if roundState == .roundEnd {
                         print("round STARTS")
+                        currentRound += 1
                         roundState = .playing
                         playRound()
                     }
@@ -320,8 +321,6 @@ class GameManager: NSObject, ObservableObject {
         startRoundTimer(time: Constants.roundTime)
         chooseQuestion()
         sendDataTo(data: GameData(messageType: .chosenQuestion, data: ["currentQuestion":currentQuestion ?? "No question found"]))
-        
-        currentRound += 1
     }
     
     // MARK: reset game stats

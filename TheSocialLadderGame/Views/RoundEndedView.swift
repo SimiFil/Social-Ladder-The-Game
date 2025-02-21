@@ -10,58 +10,82 @@ import GameKit
 
 struct RoundEndedView: View {
     @ObservedObject var gameManager: GameManager
+    @State private var animateViewsIn = false
     
     var body: some View {
         GeometryReader { geo in
             ZStack {
                 AppBackground()
                 
-                VStack(spacing: 35) {
-                    VStack(spacing: 8) {
-                        Text(gameManager.chosenPlayerID == gameManager.localPlayer.gamePlayerID ? "MY ORDER" : "CHOSEN PLAYER'S ORDER")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.white)
-                            .padding(.bottom, 5)
-                        
-                        HStack(spacing: 20) {
-                            ForEach(Array(gameManager.chosenPlayerOrder.enumerated()), id: \.offset) { _, name in
-                                ModernPlayerCard(name: name)
-                            }
-                        }
-                        .padding(.horizontal)
-                        .minimumScaleFactor(0.5)
-                        
-                    }
-                    
-                    if gameManager.chosenPlayerID != gameManager.localPlayer.gamePlayerID {
+                if animateViewsIn {
+                    // MARK: Round intro animation
+                    Text("Results")
+                        .font(.largeTitle)
+                        .foregroundStyle(.customWhitesmoke)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.ultraThinMaterial)
+                        .transition(.move(edge: .top))
+                        .zIndex(2)
+                        .ignoresSafeArea()
+                } else {
+                    VStack(spacing: 35) {
                         VStack(spacing: 8) {
-                            Text("MY ORDER")
+                            Text(gameManager.chosenPlayerID == gameManager.localPlayer.gamePlayerID ? "MY ORDER" : "CHOSEN PLAYER'S ORDER")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundStyle(.white)
                                 .padding(.bottom, 5)
                             
                             HStack(spacing: 20) {
-                                ForEach(Array(zip(gameManager.playerCardsOrder, gameManager.calculatePoints()).enumerated()), id: \.element.0) { _, element in
-                                    ModernPlayerCard(name: element.0, score: element.1)
-                                }
-                                
-                                if let myScore = gameManager.playerScoreDict[gameManager.localPlayer.displayName]?.last,
-                                   myScore > gameManager.players.count {
-                                    BonusPointCard()
+                                ForEach(Array(gameManager.chosenPlayerOrder.enumerated()), id: \.offset) { _, name in
+                                    ModernPlayerCard(name: name)
                                 }
                             }
                             .padding(.horizontal)
                             .minimumScaleFactor(0.5)
+                            
+                        }
+                        
+                        if gameManager.chosenPlayerID != gameManager.localPlayer.gamePlayerID {
+                            VStack(spacing: 8) {
+                                Text("MY ORDER")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.white)
+                                    .padding(.bottom, 5)
+                                
+                                HStack(spacing: 20) {
+                                    ForEach(Array(zip(gameManager.playerCardsOrder, gameManager.calculatePoints()).enumerated()), id: \.element.0) { _, element in
+                                        ModernPlayerCard(name: element.0, score: element.1)
+                                    }
+                                    
+                                    if let myScore = gameManager.playerScoreDict[gameManager.localPlayer.displayName]?.last,
+                                       myScore > gameManager.players.count {
+                                        BonusPointCard()
+                                    }
+                                }
+                                .padding(.horizontal)
+                                .minimumScaleFactor(0.5)
+                            }
                         }
                     }
+                    .padding(.top)
+                    .minimumScaleFactor(0.8)
                 }
-                .padding(.top)
-                .minimumScaleFactor(0.8)
             }
         }
         .onAppear {
+            withAnimation(.easeIn(duration: 1)) {
+                animateViewsIn = true
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation(.easeIn(duration: 1)) {
+                    animateViewsIn = false
+                }
+            }
+            
             gameManager.startRoundTimer(time: Constants.talkingTime)
         }
     }

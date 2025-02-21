@@ -721,6 +721,9 @@
     "R%lld" : {
 
     },
+    "Results" : {
+
+    },
     "Return to Game" : {
       "localizations" : {
         "cs" : {
@@ -742,6 +745,9 @@
           }
         }
       }
+    },
+    "Round %lld" : {
+
     },
     "Select Deck" : {
       "localizations" : {
