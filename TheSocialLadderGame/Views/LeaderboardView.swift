@@ -52,9 +52,16 @@ struct LeaderboardView: View {
                                     .frame(width: 60)
                             }
                             .font(.headline)
+                            .foregroundStyle(.white)
                             .padding(.vertical, 12)
                             .padding(.horizontal)
-                            .background(.ultraLightBlue)
+                            .background(
+                                LinearGradient(
+                                    colors: [.secondaryButtonImageBg.opacity(0.7), .secondaryButtonImageBg],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
                             
                             // MARK: player rows
                             ForEach(Array(gameManager.getSortedScores().enumerated()), id: \.element.key) { index, item in
@@ -125,16 +132,12 @@ struct LeaderboardView: View {
         GKPlayer(),
         GKPlayer(),
         GKPlayer(),
-        GKPlayer(),
-        GKPlayer(),
-        GKPlayer(),
-        GKPlayer(),
-        GKPlayer()
     ]
-    gm.playerScoreDict = [
-        "Player 1": [3, 2, 1],
-        "Player 2": [1, 4, 2],
-        "Player 3": [2, 1, 3]
-    ]
+//    gm.playerScoreDict = [
+//        "Player 1": [3, 2, 1],
+//        "Player 2": [1, 4, 2],
+//        "Player 3": [2, 1, 3]
+//    ]
+    
     return LeaderboardView(gameManager: gm)
 }

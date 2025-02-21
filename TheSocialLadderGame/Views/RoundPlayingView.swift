@@ -21,7 +21,7 @@ struct RoundPlayingView: View {
     @State private var dragOffset = CGSize.zero
     @State private var isDragging = false
     @State private var isTargeted: [Int: Bool] = [:]
-    @State private var initialTouchLocation: CGPoint?
+    @State private var isFromDropZone: Bool = false
     
     init(gameManager: GameManager) {
         self.gameManager = gameManager
@@ -97,62 +97,60 @@ struct RoundPlayingView: View {
                                             )
                                         
                                         if let playerName = dropZoneContents[idx] {
-                                            Text(playerName)
-                                                .font(.system(size: 16, weight: .medium))
-                                                .foregroundColor(.white)
-                                                .frame(maxWidth: .infinity)
-                                                .frame(maxHeight: .infinity)
-                                                .padding(.horizontal)
-                                                .padding(.vertical, 5)
-                                                .background(
-                                                    RoundedRectangle(cornerRadius: 10)
-                                                        .fill(
-                                                            LinearGradient(
-                                                                colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
-                                                                startPoint: .topLeading,
-                                                                endPoint: .bottomTrailing
+                                            if !(isDragging && draggedItem == playerName) {
+                                                Text(playerName)
+                                                    .font(.system(size: 16, weight: .medium))
+                                                    .foregroundColor(.white)
+                                                    .frame(maxWidth: .infinity)
+                                                    .frame(maxHeight: .infinity)
+                                                    .padding(.horizontal)
+                                                    .padding(.vertical, 5)
+                                                    .background(
+                                                        RoundedRectangle(cornerRadius: 10)
+                                                            .fill(
+                                                                LinearGradient(
+                                                                    colors: [Color.cardBlue.opacity(0.6), Color.ultraLightBlue.opacity(0.8)],
+                                                                    startPoint: .topLeading,
+                                                                    endPoint: .bottomTrailing
+                                                                )
                                                             )
-                                                        )
-                                                )
-                                                .multilineTextAlignment(.center)
-                                                .minimumScaleFactor(0.5)
-                                                .gesture(
-                                                    DragGesture(minimumDistance: 0, coordinateSpace: .global)
-                                                        .onChanged { gesture in
-                                                            if initialTouchLocation == nil {
-                                                                initialTouchLocation = gesture.startLocation
-                                                            }
-                                                            
-                                                            draggedItem = playerName
-                                                            isDragging = true
-                                                            dragOffset = gesture.translation
-                                                            
-                                                            for (idx, frame) in dropZoneFrames {
-                                                                if frame.contains(gesture.location) {
-                                                                    isTargeted[idx] = true
-                                                                } else {
-                                                                    isTargeted[idx] = false
-                                                                }
-                                                            }
-                                                        }
-                                                        .onEnded { gesture in
-                                                            handleDrop(at: gesture.location, draggedName: playerName)
-                                                            draggedItem = nil
-                                                            isDragging = false
-                                                            dragOffset = .zero
-                                                            initialTouchLocation = nil
-                                                            
-                                                            for idx in isTargeted.keys {
-                                                                isTargeted[idx] = false
-                                                            }
-                                                        }
-                                                )
-                                                .offset(isDragging && draggedItem == playerName ? dragOffset : .zero)
+                                                    )
+                                                    .multilineTextAlignment(.center)
+                                                    .minimumScaleFactor(0.5)
+                                            }
                                         }
                                     }
                                     .frame(width: min(geo.size.width / 7, geo.size.width / CGFloat(max(7, playerNames.count + 1))), height: geo.size.width / 6)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                     .allowsHitTesting(!gameManager.isLockedIn)
+                                    .gesture(
+                                        DragGesture(minimumDistance: 0, coordinateSpace: .global)
+                                            .onChanged { gesture in
+                                                if let playerName = dropZoneContents[idx] {
+                                                    isFromDropZone = true
+                                                    draggedItem = playerName
+                                                    isDragging = true
+                                                    dragOffset = gesture.translation
+                                                    
+                                                    for (idx, frame) in dropZoneFrames {
+                                                        isTargeted[idx] = frame.contains(gesture.location)
+                                                    }
+                                                }
+                                            }
+                                            .onEnded { gesture in
+                                                if let playerName = dropZoneContents[idx] {
+                                                    handleDrop(at: gesture.location, draggedName: playerName)
+                                                }
+                                                isFromDropZone = false
+                                                draggedItem = nil
+                                                isDragging = false
+                                                dragOffset = .zero
+                                                
+                                                for idx in isTargeted.keys {
+                                                    isTargeted[idx] = false
+                                                }
+                                            }
+                                    )
                                 }
                                 .font(.subheadline)
                                 .fontWeight(.bold)
@@ -181,10 +179,6 @@ struct RoundPlayingView: View {
                                         .gesture(
                                             DragGesture(minimumDistance: 0, coordinateSpace: .global)
                                                 .onChanged { gesture in
-                                                    if initialTouchLocation == nil {
-                                                        initialTouchLocation = gesture.startLocation
-                                                    }
-                                                    
                                                     draggedItem = name
                                                     isDragging = true
                                                     dragOffset = gesture.translation
@@ -202,7 +196,6 @@ struct RoundPlayingView: View {
                                                     draggedItem = nil
                                                     isDragging = false
                                                     dragOffset = .zero
-                                                    initialTouchLocation = nil
                                                     
                                                     for idx in isTargeted.keys {
                                                         isTargeted[idx] = false
@@ -218,6 +211,13 @@ struct RoundPlayingView: View {
                         .padding(.bottom, 100)
                     }
                     .foregroundStyle(.customWhitesmoke)
+                    
+                    if isDragging && isFromDropZone, let draggedName = draggedItem {
+                        PlayerCard(playerName: draggedName)
+                            .opacity(0.8)
+                            .offset(dragOffset)
+                            .zIndex(100)
+                    }
                     
                     VStack {
                         Spacer()
@@ -277,7 +277,7 @@ struct RoundPlayingView: View {
         
         if let (dropZoneIdx, _) = dropZoneFrames.first(where: { $0.value.contains(location) }) {
             print("Dropped in zone: \(dropZoneIdx)")
-
+            
             if let existingPlayer = dropZoneContents[dropZoneIdx] {
                 print("Swapping \(draggedName) with \(existingPlayer)")
                 if let oldIndex = dropZoneContents.first(where: { $0.value == draggedName })?.key {
@@ -333,7 +333,7 @@ struct LockInButton: View {
                     .imageScale(.large)
                     .opacity(0.8)
                     .lineLimit(1)
-                    
+                
                 
                 Text(gameManager.isLockedIn ? "Locked In" : "Lock In")
                     .font(.title2)
