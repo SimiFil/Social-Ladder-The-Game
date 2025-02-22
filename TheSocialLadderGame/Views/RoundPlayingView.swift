@@ -237,6 +237,7 @@ struct RoundPlayingView: View {
                     .padding(.bottom, geo.size.height/3)
                 }
             }
+            .animation(nil, value: dragOffset)
         }
         .toolbar(animateViewsIn ? .hidden : .visible)
         .onAppear {
