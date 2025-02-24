@@ -161,7 +161,7 @@ struct MainPage: View {
             return
         }
         
-        guard let sound = Bundle.main.path(forResource: "lobbyMusic", ofType: "mp3") else {
+        guard let sound = Bundle.main.path(forResource: "gameMusic", ofType: "mp3") else {
             print("Could not find audio file")
             return
         }
